@@ -5,7 +5,7 @@
         <div class="video__container">
                 <div class="content-video">
                     <video id="player" class="rounded">
-                            <source src="./uploads/641564.mkv" type="video/mp4">
+                            <source src="./uploads/suzume.mp4" type="video/mp4">
                     </video>
                 </div>
         </div>
