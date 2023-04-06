@@ -139,7 +139,7 @@ const parameter = {
                             <img src="./assets/icons/minimize.svg"/>
                         </span>
                         <span class="btn-control controls__fullscreen">
-                            <img src="./assets/icons/fullscreen.svg"/>
+                            <img src="./assets/icons/Fullscreen.svg"/>
                         </span>
                     </div>
                 </div>

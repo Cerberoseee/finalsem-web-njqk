@@ -78,9 +78,8 @@ body{
 /* Video recommends */
 .video-container{
     display: grid;
-    grid-template-rows: max(500px) auto;
     grid-template-columns: 70% 30%;
-    grid-template-rows: 600px auto auto auto;
+    grid-template-rows: max(500px) auto auto auto;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
 }
