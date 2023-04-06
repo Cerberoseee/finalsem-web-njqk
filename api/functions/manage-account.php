@@ -18,6 +18,8 @@
     $data = $res -> fetch_assoc();
     $userId = $data["userId"];
 
+    if ($data['tokenRole'] == 2) return false;
+
     $activated = false;
     $createTime = strtotime( $data["createdAt"] );
     if ($now - $createTime < 300) {
@@ -38,5 +40,9 @@
     }
 
     return $activated;
+  }
+
+  function changePassword($userId, $newPassword) {
+    
   }
 ?>

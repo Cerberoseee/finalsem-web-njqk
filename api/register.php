@@ -81,8 +81,8 @@
       // throw $exception;
     }
 
-    if (sendVerifyEmail($email, $dbCon, $id)) {
-      echo json_encode(array("status" => true, "data" => array("creation" => "success", "activate" => "false")));
+    if (sendVerifyEmail($email, $dbCon)) {
+      echo json_encode(array("status" => true, "data" => array("register" => "success", "activate" => "false")));
     }
 
   } else {
