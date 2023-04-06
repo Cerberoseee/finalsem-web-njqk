@@ -218,7 +218,7 @@ const parameter = {
     progressBar.max = video.duration;
     progressBar.step = 0.001;
     progressBar.value = 100;
-
+    
 
 
     function convertTime(yourtime){
@@ -228,7 +228,7 @@ const parameter = {
         var y = seconds < 10 ? "0" + seconds : seconds;
         return `${x}:${y}`;
     }
-
+    
     // Controller
     const controls = {
         flagView: false, //Theater/default
@@ -316,6 +316,7 @@ const parameter = {
             setPlayPause(){
                 if(this.flag){
                     video.play();
+                    $('#thumb').style.display = "none";
                     this.flag = !this.flag;
                     play.style.display = "none";
                     pause.style.display = "block";
@@ -653,5 +654,6 @@ const parameter = {
             break;
         }
     });
+
 })(parameter);
     
