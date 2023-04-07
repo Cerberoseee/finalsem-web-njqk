@@ -1,4 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap');
+:root{
+    --background-web: #202029;
+    --font: 'Roboto', sans-serif;
+    --primary-color: #2B4F90;
+    --primary-color-light: #45AEFF;
+    --primary-background: #2D2F3C;
+    --primary-fade-color: #8A8A8A;
+    --second-color: #252F61;
+}
 * {
     box-sizing: border-box;
     padding: 0;
@@ -11,20 +20,20 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #2D2F3C;
+    background: var(--primary-background);
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #2B4F90;
+    background: var(--primary-color);
 }
   
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #45AEFF;
+    background: var(--primary-color-light);
 }
 .container{
-    width: 1200px;
+    width: 90%;
     margin: 0 auto;
 }
 .container-fluid{
@@ -65,7 +74,7 @@
 
 /* Button */
 .btn{
-    background: #2D2F3C;
+    background: var(--primary-background);
     color: white;
     border: none;
     border-radius: 8px;
@@ -74,7 +83,7 @@
     cursor: pointer;
 }
 .btn-group{
-    background-color: #2D2F3C;
+    background-color: var(--primary-background);
     padding: 4px 4px;
     border-radius: 24px;
 }
@@ -83,11 +92,11 @@
     padding: 8px 12px;
 }
 .btn-group > * {
-    color: #8A8A8A;
+    color: var(--primary-fade-color);
     background-color: transparent;
 }
 .btn-group > .btn-active{
-    background-color: #2B4F90;
+    background-color: var(--primary-color);
     color: white;
 }
 .btn-link{
@@ -97,27 +106,27 @@
     font-size: 0.9rem;
 }
 .btn-link--blue{
-    text-decoration: #45AEFF;
-    color: #45AEFF;
+    text-decoration: var(--primary-color-light);
+    color: var(--primary-color-light);
 }
 .btn-primary{
     color: white;
-    background-color: #2B4F90;
+    background-color: var(--primary-color);
     padding: -2px;
 }
 .btn-outline-primary{
     background-color: transparent;
-    border: #45AEFF 3px solid;
+    border: var(--primary-color-light) 3px solid;
     color: white;
 }
 
 .btn-second{
-    color: #8A8A8A;
-    background: #252F61;
+    color: var(--primary-fade-color);
+    background: var(--second-color);
 }
 .btn-outline-second{
     background-color: transparent;
-    border: #252F61 2px solid;
+    border: var(--second-color) 2px solid;
     color: white;
 }
 

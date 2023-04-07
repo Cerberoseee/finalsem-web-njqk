@@ -222,10 +222,10 @@ const parameter = {
 
 
     function convertTime(yourtime){
-        var minutes = Math.floor(yourtime / 60);   
+        var minutes = Math.floor(yourtime / 60);
         var seconds = Math.floor(yourtime - minutes * 60)
-        var x = minutes < 10 ? "0" + minutes : minutes;
-        var y = seconds < 10 ? "0" + seconds : seconds;
+        var x = (minutes < 10 ? "0" : "") + minutes;
+        var y = (seconds < 10 ? "0" : "") + seconds;
         return `${x}:${y}`;
     }
     
@@ -235,9 +235,7 @@ const parameter = {
         view:{
             // Set fullview mode for video
             setFullView(){
-                
-
-                source.requestFullscreen().catch(console.log);
+                source.requestFullscreen();
                 fullscreen.style.display = "none";
                 minimize.style.display = "block";
                 theater.style.display = "none";
@@ -245,41 +243,29 @@ const parameter = {
             },
             // Set theater mode for video
             setTheaterView(){
-                $('.video__recommends').style = `
-                    grid-column-start: 2;
-                    grid-column-end: 2;  
-                    grid-row-start: 2;
-                    grid-row-end: 2;
-                `;
-                $('.video__container').style = "grid-column: 1/ span 2;";
-                $('.video-container').classList.remove('container');
-                $('.video-container').classList.add('container-fluid');
-                $('.content-video').style = "height: 100%";
-                source.style.width = "100%";
-                defaultview.style.display = "block";
-                minimize.style.display = "none";
-                fullscreen.style.display = "block";
-                theater.style.display = "none";
+                $('.video__recommends').style.gridArea = '2 / 2 / 3 / 3';
+                $('.video__container').style.gridColumn = '1/ span 2';
+                $('.video-container').classList.replace('container', 'container-fluid');
+                $('.content-video').style.height = '100%';
+                source.style.width = '100%';
+                defaultview.style.display = 'block';
+                minimize.style.display = 'none';
+                fullscreen.style.display = 'block';
+                theater.style.display = 'none';
                 document.exitFullscreen();
             },
             // Set default view mode for video
             setDefaultView(){
-                $('.video__recommends').style = `
-                    grid-column-start: 2;
-                    grid-column-end: 2;  
-                    grid-row-start: 1;
-                    grid-row-end: 1;
-                `;
-                $('.video__container').style = "grid-column: 1;";
+                $('.video__recommends').style = `grid-column: 2 / span 1; grid-row: 1 / span 1`; 
+                $('.video__container').style = "grid-column: 1 / span 1;";
                 $('.video-container').classList.add('container');
                 $('.video-container').classList.remove('container-fluid');
                 $('.content-video').style = "width: 100%";
                 source.style.width = "unset";
                 defaultview.style.display = "none";
-                fullscreen.style.display ="block";
+                fullscreen.style.display = "block";
                 minimize.style.display = "none";
                 theater.style.display = "block";
-                defaultview.style.display = "none";
                 document.exitFullscreen();
             }
         },
@@ -320,16 +306,12 @@ const parameter = {
                     this.flag = !this.flag;
                     play.style.display = "none";
                     pause.style.display = "block";
-                    setTimeout(()=> {
-                        play_icon.style.display = "none";
-                    },200);
+                    setTimeout(() => play_icon.style.display = "none", 200);
                 }else{
                     video.pause();
                     play.style.display = "block";
                     pause.style.display = "none";
-                    setTimeout(()=> {
-                        pause_icon.style.display = "none";
-                    },200);
+                    setTimeout(() => pause_icon.style.display = "none", 200);
                 }
             },
             // Update time and value
@@ -337,9 +319,10 @@ const parameter = {
                 if(!video.ended){
                     let curr = video.currentTime;
                     let dura = video.duration;
-                    let size = curr/dura * 100;
+                    let size = curr / dura * 100;
+
                     progressBar.value = size;
-                    loadedBar.style.width = size+"%";
+                    loadedBar.style.width = `${size}%`;
                     timer.innerText = `${convertTime(curr)}/${convertTime(dura)}`;
                 }else{
                     window.clearInterval(updateBar);

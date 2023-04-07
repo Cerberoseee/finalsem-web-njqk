@@ -1,6 +1,6 @@
 body{
-    background: #202029;
-    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-web);
+    font-family: var(--font);
 }
 /* Navigation */
 .nav{
@@ -8,7 +8,7 @@ body{
     background-color: #282A34;
     align-items: center;
     justify-content: space-between;
-    padding: 8px 16px;
+    padding: 0px 16px;
     color: white;
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15);
 }
@@ -41,7 +41,7 @@ body{
     border: none;
 }
 .nav_search-input:focus{
-    outline: #3178B9 solid 1px;
+    outline: var(--primary-color-light) solid 1px;
 }
 #nav__search-icon{
     position: absolute;
@@ -63,7 +63,7 @@ body{
 }
 .nav__avatar{
     border-radius: 50%;
-    border: solid 2px #ccc;
+    border: solid 2px var(--primary-fade-color);
     height: 50px;
     width: 50px;
     cursor: pointer;
@@ -79,21 +79,16 @@ body{
 .video-container{
     display: grid;
     grid-template-columns: 70% 30%;
-    grid-template-rows: max(500px) auto auto auto;
+    grid-template-rows: auto auto auto auto;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
 }
 .video__container{
-    grid-column-start: 1;
-    grid-column-end: 1;  
-    grid-row-start: 1;
-    grid-row-end: 1;
+    grid-column: 1 / 2;
 }
 .video__recommends{
-    grid-column-start: 2;
-    grid-column-end: 2;  
-    grid-row-start: 1;
-    grid-row-end: 1;
+    grid-column: 2 / 2;
+    grid-row: 1 / 1;
     position: relative;
 }
 .video__recommends-tab{
@@ -128,7 +123,7 @@ body{
     font-weight: lighter;
     font-size: smaller;
     margin-bottom: 8px;
-    color: #A6A6A6;
+    color: var(--primary-fade-color);
 }
 .video__author{
     display: flex;
@@ -144,26 +139,25 @@ body{
 }
 .video__thumb-timer{
     position: absolute;
-    right: 0px;
+    right: 0;
     bottom: 4px;
-    background-color: #2B4F90;
+    background-color: var(--primary-color);
     padding: 0.2rem 0.6rem;
     border-radius: 6px;
-    color: white;
+    color: #fff;
     font-size: 0.8rem;
 }
 
 /* Video description */
 .video__description{
-    grid-column-start: 1;
-    grid-column-end: 1;  
-    grid-row-start: 2;
-    grid-row-end: 2;
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
 }
 .video__description{
     color: white;
     background-color: #2D2F3C;
-    border-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
     padding: 1rem 1.2rem;
 }
 .video__title{
@@ -171,7 +165,7 @@ body{
 }
 .video__creater{
     padding: 0.5rem;
-    background: #2B4F90;
+    background: var(--primary-color);
     border-radius: 20px;
     display: flex;
     align-items: center;
@@ -192,17 +186,17 @@ body{
     align-items: center;
 }
 .video__creater-subs{
-    color: #ccc;
+    color: var(--primary-fade-color);
     font-size: small;
     font-weight: lighter;
 }
 .btn__create-follow{
     border-radius: 20px;
     padding: 4px 40px;
-    border-color: #45AEFF;
+    border-color: var(--primary-color-light);
 }
 .video__information-text{
-    color: #A6A6A6;
+    color: var(--primary-fade-color);
 }
 .video__information-content{
     font-weight: lighter;
@@ -210,10 +204,8 @@ body{
 }
 /* Comments */
 .video__comments{
-    grid-column-start: 1;
-    grid-column-end: 1;  
-    grid-row-start: 3;
-    grid-row-end: 3;
+    grid-row: 3 / span 1;
+    grid-column: 1;
 }
 .comments__textarea-func{
     display: none;
@@ -224,7 +216,7 @@ body{
     align-items: center;
 }
 .video__cmt-numbers{
-    color: #A8A8A8;
+    color: var(--primary-fade-color);
 }
 .video__comments-post{
     display: flex;
@@ -242,12 +234,12 @@ body{
     padding: 0.6rem;
     color: white;
     font-size: large;
-    border: 1px solid #8A8A8A;
+    border: 1px solid var(--primary-fade-color);
 
 }
 #comments__post-textarea:focus{
     height: 5rem;
-    outline: #3178B9 solid 1px;
+    outline: var(--primary-color-light) solid 1px;
 }
 #comments__post-textarea:focus + .comments__textarea-func{
     display: block;
@@ -290,12 +282,12 @@ body{
     align-items: center;
 }
 .btn-group-like-dis{
-    background-color: #2B4F90;
+    background-color: var(--primary-color);
     padding: .5rem 1.2rem;
 }
 .btn-group-like-dis > *{
     padding: 0;
-    background-color: #2B4F90;
+    background-color: var(--primary-color);
     border-radius: 0;
     display: inline;
 }
