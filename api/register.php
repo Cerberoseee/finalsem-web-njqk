@@ -31,7 +31,6 @@
     //crc32() is used to convert the ID to numeric
     $id = crc32(uniqid());
     $today = date("Y-m-d");
-    $hashed = password_hash($password, PASSWORD_BCRYPT);
     $defaultAvatarPath = "/assets/default/avatar.jpeg";
 
     $existed = [];
@@ -53,14 +52,13 @@
       die(json_encode(array("status" => "false", "error" => $existed)));
     } 
 
-
     $dbCon -> begin_transaction();
 
     try {
       //Add entry to User table
       $cm = "insert into users values (?, ?, ?)";
       $exec = $dbCon -> prepare($cm);
-      $exec -> bind_param("sss", $id, $username, $hashed);
+      $exec -> bind_param("sss", $id, $username, $password);
       $exec -> execute();
 
       $cm = "insert into users_account values (?, ?, ?, ?, ?, ?)";
@@ -81,8 +79,8 @@
       // throw $exception;
     }
 
-    if (sendVerifyEmail($email, $dbCon, $id)) {
-      echo json_encode(array("status" => true, "data" => array("creation" => "success", "activate" => "false")));
+    if (sendVerifyEmail($email, $dbCon)) {
+      echo json_encode(array("status" => true, "data" => array("register" => "success", "activate" => "false")));
     }
 
   } else {
