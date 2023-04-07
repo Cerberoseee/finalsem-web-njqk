@@ -2,7 +2,7 @@
   require_once("db-connection.php");
   require_once("functions/manage-account.php");
   
-  $token = isset($_POST["token"]) ? $_POST["token"] : null;
+  $token = isset($_GET["token"]) ? $_GET["token"] : null;
 
   if ($token != null) {
     if (!activateUser($token, $dbCon)) {

@@ -111,7 +111,7 @@
 
       //Template email here
       $mail->Subject = 'Reset Password Email';
-      $mail->Body    = 'https://localhost/finalsem-web-njqk/api/activate-mail.php?token=' . $token; 
+      $mail->Body    = 'https://localhost/finalsem-web-njqk/test.php?token=' . $token; 
   
       $mail->send();
       return true;
