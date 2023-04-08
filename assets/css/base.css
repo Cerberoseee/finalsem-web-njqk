@@ -112,11 +112,10 @@
 .btn-primary{
     color: white;
     background-color: var(--primary-color);
-    padding: -2px;
 }
 .btn-outline-primary{
     background-color: transparent;
-    border: var(--primary-color-light) 3px solid;
+    border: var(--primary-color-light) 1px solid;
     color: white;
 }
 
@@ -126,7 +125,8 @@
 }
 .btn-outline-second{
     background-color: transparent;
-    border: var(--second-color) 2px solid;
+    border: var(--second-color) 1px solid;
+    outline-offset: -1px;
     color: white;
 }
 
@@ -269,3 +269,73 @@ ul > li{
 .w-10{width: 10rem;}
 .w-11{width: 11rem;}
 .w-12{width: 12rem;}
+
+/* Form */
+form{
+    width: 100%;
+    height: 100%;
+}
+.form-header{
+    text-align: center;
+}
+.form-input-group{
+    display: flex;
+    margin: 1rem 0;
+    justify-content: space-between;
+}
+.form-input{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+}
+.form-input > label{
+    font-weight: lighter;
+    font-size: medium;
+}
+.form-input > input{
+    margin-top: 8px;
+    background-color: #2A2C37;
+    border: 1px solid var(--primary-fade-color);
+    padding: .6rem 1.2rem;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+}
+.form-input > input:focus{
+    outline: 1px solid var(--primary-color-light);
+}
+.form-checkbox{
+    display: block;
+}
+.form-checkbox > input[type="checkbox"]{
+    display: inline-block;
+}
+.input-select-group{
+    justify-content:center;
+}
+.input-select{
+    padding: .5rem 1rem;
+    border-radius: 8px;
+    background-color: #2A2C37;
+    color: white;
+    font-size: large;
+    outline: 1px solid white;
+    margin: 0 1rem;
+}
+.input-select:focus{
+    outline: 1px solid var(--primary-color-light);
+}
+.input-radio-group{
+    display: flex;
+    flex-direction: column;
+}
+.input-radio-group > label{
+    font-size: small;
+}
+.alert-error{
+    color: red;
+    font-weight: lighter;
+}
+form > button:hover{
+    background-color: var(--primary-color-light);
+}

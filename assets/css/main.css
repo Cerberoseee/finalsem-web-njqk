@@ -329,3 +329,13 @@ body{
     background-color: #404352;
     padding: 0 1.2rem;
 }
+/* Register */
+.register__container{
+    color: white;
+}
+.register-form{
+    display: flex;
+    align-items: center;
+    background-color: #2A2C37;
+    border-radius: 12px;
+}
