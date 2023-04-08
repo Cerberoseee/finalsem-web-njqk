@@ -16,4 +16,19 @@ const app = (()=>{
             $('#showreply').textContent = "SHOW 12 REPLIES ▲";
         }
     }
+
+    $('.nav__menu').onclick =()=> $('.nav__menu-list').style.display = 'block';
+        
+    $('#close-menu').onclick=()=> $('.nav__menu-list').style.display = 'none';
+
+    $('#category-show').onclick =()=>{
+        if($('#category-list').style.display == 'block'){
+            $('#category-list').style.display = 'none';
+            $('#category-icon').innerHTML = `<i class="fa-solid fa-caret-down"></i>`;
+        }else{
+            $('#category-list').style.display = 'block';
+            $('#category-icon').innerHTML = `<i class="fa-solid fa-caret-up"></i>`;
+        }
+    }
+    
 })();
