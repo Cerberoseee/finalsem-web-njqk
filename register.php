@@ -6,11 +6,12 @@
 <html lang="en">
 <head>
     <?=head()?>
-    <title>Layout</title>
+    <title>Register | JQKTube</title>
 </head>
 <body>
     <!-- Container -->
     <div class="container register__container p-5">
+        <div id="register__container-bg"></div>
         <div class="row">
             <div class="register-form col-4 float-right">
                 <form method="post">
@@ -112,7 +113,9 @@
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Register</button>
-                    <button type="reset" class="btn btn-outline-primary">Reset</button>
+                    <button type="reset" class="btn btn-outline-primary mb-1">Reset</button>
+                    <br/>
+                    <small>If you have an account, you should click here to <a class="text-link-light" href="login.php">login</a></small>
                 </form>
             </div>
         </div>

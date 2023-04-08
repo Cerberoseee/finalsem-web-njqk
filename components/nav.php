@@ -17,7 +17,6 @@
                             <span class="nav__menu mr-h-5" title="Click to show the menu">
                                 <i class="fa-solid fa-bars"></i>
                             </span>
-                            Close
                         </li>
                         <li>
                             <a href="#1234">
@@ -67,6 +66,14 @@
                                     Music
                                 </a></li>
                         </ul>
+                        <li>
+                            <a href="">
+                                <span class="mr-h-5">
+                                    <i class="fa-solid fa-gear"></i>
+                                </span>
+                                Setting
+                            </a>
+                        </li>
                         <li>
                             <a href="">
                                 <span class="mr-h-5">
