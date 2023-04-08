@@ -5,7 +5,7 @@
 
 
     // local file path and name
-    $local_file = "6418286203.mp4";
+    $local_file = "../uploads/641716.mp4";
 
     // remote file path and name
     $remote_file = "./public_html/6418286203.mp4";
