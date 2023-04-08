@@ -54,6 +54,9 @@
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;}
 
+a{
+    text-decoration: none;
+}
 /*  All these columns should be floating to the left, and have a padding of 15px: */
 [class*="col-"] {
     float: left;

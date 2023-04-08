@@ -1,7 +1,7 @@
 <?php
     function navHTML(){
         ?>
-        <nav class="nav sticky-nav">
+        <nav class="nav sticky-nav py-1">
             <div class="nav__group">
                 <div class="nav__menu" title="Click to show the menu">
                     <img src="./assets/icons/menu.svg" alt="SVG Image">
@@ -86,9 +86,18 @@
                 <div class="nav__notification" title="Notifications">
                     <img src="./assets/icons/noti.svg" alt="SVG Image">
                 </div>
-                <div class="nav__avatar" title="Your account management">
+                <!-- <div class="nav__avatar" title="Your account management">
                     <img src="./assets/icons/Avatar.png" alt="SVG Image">
+                </div> -->
+                <div class="nav__account-access">
+                    <a href="login.php" class="btn btn-primary">
+                        <span><i class="fa-solid fa-right-to-bracket"></i></span>
+                        Login</a>
+                    <a href="register.php" class="btn btn-outline-primary">
+                        <span><i class="fa-solid fa-user-plus"></i></span>
+                        Register</a>
                 </div>
+                
             </div>
         </nav>
         <?php
