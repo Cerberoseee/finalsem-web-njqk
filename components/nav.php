@@ -9,6 +9,73 @@
                 <div class="nav__logo" title="JQKTube website">
                     <span>Logo website</span>
                 </div>
+                
+            </div>
+            <div class="nav__menu-list p-1">                         
+                    <ul>
+                        <li id="close-menu">
+                            <span class="nav__menu mr-h-5" title="Click to show the menu">
+                                <i class="fa-solid fa-bars"></i>
+                            </span>
+                            Close
+                        </li>
+                        <li>
+                            <a href="#1234">
+                                <span class="mr-h-5">
+                                <i class="fa-solid fa-house"></i>
+                            </span>
+                            Home 
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="mr-h-5">
+                                    <i class="fa-solid fa-video"></i>
+                                </span>
+                                History
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="mr-h-5">
+                                    <i class="fa-solid fa-house"></i>
+                                </span>
+                                Your videos
+                            </a>
+                        </li>
+                        <li id="category-show">
+                            <span class="mr-h-5">
+                                <i class="fa-brands fa-discourse"></i>
+                            </span>
+                            Explore
+                            <span id="category-icon" class="float-right"><i class="fa-solid fa-caret-down"></i></span>
+                        </li>
+                        <ul id="category-list" class="pl-1 mt-h-5">
+                                <li><a href="">
+                                    Music
+                                </a></li>
+                                <li><a href="">
+                                    Music
+                                </a></li>
+                                <li><a href="">
+                                    Music
+                                </a></li>
+                                <li><a href="">
+                                    Music
+                                </a></li>
+                                <li><a href="">
+                                    Music
+                                </a></li>
+                        </ul>
+                        <li>
+                            <a href="">
+                                <span class="mr-h-5">
+                                    <i class="fa-solid fa-right-from-bracket"></i>
+                                </span>
+                                Log out
+                            </a>
+                        </li>
+                    </ul>
             </div>
             <div class="nav__search">
                 <span id="nav__search-icon" title="Click here to search video"><img src="./assets/icons/search.svg" alt="search icon"></span>
