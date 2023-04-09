@@ -13,7 +13,7 @@
     <div class="container login__container p-5">
         <div id="register__container-bg"></div>
         <div class="row flex-center">
-            <div class="login-form col-4">
+            <div class="login-form col-4 col-md-6">
                 <form method="post">
                     <div class="form-header mt-2">
                         <legend>JQK WIBUTAPCODE</legend>

@@ -10,8 +10,10 @@
                             <img src="./assets/icons/subcriberavt.png" alt="">
                         </div>
                         <div class="video__creater-details">
-                            <span class="video__creater-name mr-h-5">John Smith</span>
-                            <span class="video__creater-subs mr-h-5">100k subcribers</span>
+                            <div class="creater__details-heading">
+                                <span class="video__creater-name mr-h-5">John Smith</span>
+                                <span class="video__creater-subs mr-h-5">100k subcribers</span>
+                            </div>
                             <button class="btn btn-outline-primary btn__create-follow">Follow</button>
                         </div>
                     </div>

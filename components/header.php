@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="./assets/fontawesome/css/fontawesome.css"/>
         <link rel="stylesheet" href="./assets/fontawesome/css/all.min.css"/>
         <link rel="stylesheet" href="./assets/css/videoplayer.css">
+        <link rel="stylesheet" href="./assets/css/responesive.css">
         <?php
     }
 ?>

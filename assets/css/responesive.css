@@ -1,0 +1,55 @@
+/* PC */
+@media only screen and (min-width: 1400px){
+    .container{
+        width: 1440px;
+    }
+}
+/* Tablet */
+@media only screen and (max-width: 1200px){
+    .container{
+        width: 100%;
+        padding: 0 12px;
+    }
+    .video-container{
+        grid-template-columns: 100%;
+        width: 100%;
+        padding: 0 12px;
+    }
+    .video__recommends{
+        grid-column: 1;
+        grid-row: 3;
+        position: unset;
+        margin-left: 0;
+        margin-bottom: 1rem;
+    }
+    .video__recommends-tab{
+        position: unset;
+    }
+    .video__recommends-list{
+        position: unset;
+    }
+    .video__comments{
+        grid-row: 4;
+    }
+    #nav__register-btn{
+        display: none;
+    }
+}
+/* Less than tablet */
+@media only screen and (max-width: 768px){
+    .video__creater{
+        margin-bottom: 1rem;
+    }
+    #nav__register-btn{
+        display: none;
+    }
+}
+/* Mobile */
+@media only screen and (max-width: 612px){
+    #menu-nav__login-btn, #menu-nav__register-btn{
+        display: block;
+    }
+    .nav__account-access{
+        display: none;
+    }
+}

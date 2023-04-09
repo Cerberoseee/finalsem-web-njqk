@@ -33,7 +33,7 @@
     background: var(--primary-color-light);
 }
 .container{
-    width: 90%;
+    width: 1200px;
     margin: 0 auto;
 }
 .container-fluid{
@@ -53,7 +53,37 @@
 .col-10 {width: 83.33%;}
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;}
+/* For greater than tablet */
+@media screen and (max-width: 1200px){
+    .col-md-1 {width: 8.33%;}
+    .col-md-2 {width: 16.66%;}
+    .col-md-3 {width: 25%;}
+    .col-md-4 {width: 33.33%;}
+    .col-md-5 {width: 41.66%;}
+    .col-md-6 {width: 50%;}
+    .col-md-7 {width: 58.33%;}
+    .col-md-8 {width: 66.66%;}
+    .col-md-9 {width: 75%;}
+    .col-md-10 {width: 83.33%;}
+    .col-md-11 {width: 91.66%;}
+    .col-md-12 {width: 100%;}
 
+    .form-input-group{
+        flex-direction: column;
+    }
+    .input-select{
+        margin: 0.5rem 0 !important;
+    }
+}
+/* For mobile */
+@media screen and (max-width: 612px){
+    [class*="col-"] {
+        width: 100%;
+    }
+    .btn-group > button{
+        width: 100%;
+    }
+}
 a{
     text-decoration: none;
 }
@@ -195,7 +225,7 @@ a{
 .ml-h-5{margin-left: 0.5rem;}
 .mr-h-5{margin-right:0.5rem;}
 .mt-h-5{margin-top:0.5rem;}
-.mx-h-5{margin-bottom:0.5rem;}
+.mb-h-5{margin-bottom:0.5rem;}
 /* Padding */
 .pr-1{padding-right: 1rem;}
 .pr-2{padding-right: 2rem;}
@@ -296,6 +326,7 @@ form{
 }
 .form-input-group{
     display: flex;
+    flex-wrap: wrap;
     margin: 1rem 0;
     justify-content: space-between;
 }
