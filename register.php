@@ -13,7 +13,7 @@
     <div class="container register__container p-5">
         <div id="register__container-bg"></div>
         <div class="row">
-            <div class="register-form col-4 float-right">
+            <div class="register-form col-5 col-md-6 float-right">
                 <form method="post">
                     <div class="form-header mt-2">
                         <legend>JQK WIBUTAPCODE</legend>
@@ -83,7 +83,7 @@
                                 <option value="9">9</option>
                             </select>
                             <select class="input-select" name="" id="">
-                            <option value="1">1</option>
+                                <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
@@ -111,6 +111,20 @@
                                 <label for="">Other</label>
                             </div>
                         </div>
+                    </div>
+                    <div class="form-input">
+                        <label for="" class="mb-h-5">Country</label>
+                        <select class="input-select" name="" id="">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Register</button>
                     <button type="reset" class="btn btn-outline-primary mb-1">Reset</button>

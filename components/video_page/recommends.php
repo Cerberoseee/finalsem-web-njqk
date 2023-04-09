@@ -24,7 +24,7 @@
     function recommendsHTML(){
         ?>
         <!-- Video recommends -->
-        <div class="video__recommends ml-1">
+        <div class="video__recommends">
                 <div class="video__recommends-tab">
                     <button class="btn btn-primary recommends__related unround-b">Recommend</button>
                     <button class="btn btn-second recommends__views unround-b">Top views</button>

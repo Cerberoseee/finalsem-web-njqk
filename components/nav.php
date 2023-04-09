@@ -8,6 +8,22 @@
                         <i class="fa-solid fa-bars"></i>
                     </span>
                 </li>
+                <li id="menu-nav__login-btn">
+                    <a href="login.php">
+                        <span class="mr-h-5">
+                        <i class="fa-solid fa-right-to-bracket"></i>
+                    </span>
+                    Login 
+                    </a>
+                </li>
+                <li id="menu-nav__register-btn">
+                    <a href="register.php">
+                        <span class="mr-h-5">
+                        <i class="fa-solid fa-user-plus"></i>
+                    </span>
+                    Register 
+                    </a>
+                </li>
                 <li>
                     <a href="#1234">
                         <span class="mr-h-5">
@@ -92,7 +108,6 @@
             <div class="nav__search">
                 <span id="nav__search-icon" title="Click here to search video"><img src="./assets/icons/search.svg" alt="search icon"></span>
                 <input class="nav_search-input" type="search" placeholder="Search..."/>
-                <span id="nav__search-micro" title="Search with voice"><img src="./assets/icons/microphone.svg" alt="voice icon"></span>
             </div>
             <div class="nav__account">
                 <div class="nav__notification" title="Notifications">
@@ -102,10 +117,10 @@
                     <img src="./assets/icons/Avatar.png" alt="SVG Image">
                 </div> -->
                 <div class="nav__account-access">
-                    <a href="login.php" class="btn btn-primary">
+                    <a id="nav__login-btn" href="login.php" class="btn btn-primary">
                         <span><i class="fa-solid fa-right-to-bracket"></i></span>
                         Login</a>
-                    <a href="register.php" class="btn btn-outline-primary">
+                    <a id="nav__register-btn" href="register.php" class="btn btn-outline-primary">
                         <span><i class="fa-solid fa-user-plus"></i></span>
                         Register</a>
                 </div>
