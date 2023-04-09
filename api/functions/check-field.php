@@ -1,6 +1,6 @@
 <?php 
   function checkUsername( $dbCon, $username) {
-    $cm = "select * from users where username = ?";
+    $cm = "select * from users_account where username = ?";
     $exec = $dbCon -> prepare($cm);
     $exec -> bind_param("s", $username);
 
@@ -20,7 +20,7 @@
   }
 
   function checkEmail( $dbCon, $email) {
-    $cm = "select * from users_info where email = ?";
+    $cm = "select * from users where email = ?";
     $exec = $dbCon -> prepare($cm);
     $exec -> bind_param("s", $email);
 

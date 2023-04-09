@@ -58,7 +58,7 @@
       //Add entry to User table
       $cm = "insert into users values (?, ?, ?)";
       $exec = $dbCon -> prepare($cm);
-      $exec -> bind_param("sss", $id, $username, $password);
+      $exec -> bind_param("sss", $id, $email, $password);
       $exec -> execute();
 
       $cm = "insert into users_account values (?, ?, ?, ?, ?, ?)";
@@ -68,7 +68,7 @@
       
       $cm = "insert into users_info values (?, ?, ?, ?, ?)";
       $exec = $dbCon -> prepare($cm);
-      $exec -> bind_param("sssss", $id, $fullName, $email, $phoneNumber, $dOb);
+      $exec -> bind_param("sssss", $id, $fullName, $username, $phoneNumber, $dOb);
       $exec -> execute();
 
       $dbCon -> commit();

@@ -8,7 +8,7 @@
   require 'PHPMailer/src/SMTP.php';
  
   function sendVerifyEmail($email, $dbCon) {
-    $cm = "select * from users_account acc inner join users_info inf where inf.email = ?";
+    $cm = "select * from users where email = ?";
     $exec = $dbCon -> prepare($cm);
     $exec -> bind_param("s", $email);
     if (!$exec -> execute()) {
