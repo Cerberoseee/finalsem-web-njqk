@@ -1,4 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap');
+:root{
+    --background-web: #202029;
+    --font: 'Roboto', sans-serif;
+    --primary-color: #2B4F90;
+    --primary-color-light: #45AEFF;
+    --primary-background: #2D2F3C;
+    --primary-fade-color: #8A8A8A;
+    --second-color: #252F61;
+}
 * {
     box-sizing: border-box;
     padding: 0;
@@ -11,20 +20,20 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #2D2F3C;
+    background: var(--primary-background);
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #2B4F90;
+    background: var(--primary-color);
 }
   
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #45AEFF;
+    background: var(--primary-color-light);
 }
 .container{
-    width: 1200px;
+    width: 90%;
     margin: 0 auto;
 }
 .container-fluid{
@@ -45,6 +54,9 @@
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;}
 
+a{
+    text-decoration: none;
+}
 /*  All these columns should be floating to the left, and have a padding of 15px: */
 [class*="col-"] {
     float: left;
@@ -65,7 +77,7 @@
 
 /* Button */
 .btn{
-    background: #2D2F3C;
+    background: var(--primary-background);
     color: white;
     border: none;
     border-radius: 8px;
@@ -74,7 +86,7 @@
     cursor: pointer;
 }
 .btn-group{
-    background-color: #2D2F3C;
+    background-color: var(--primary-background);
     padding: 4px 4px;
     border-radius: 24px;
 }
@@ -83,11 +95,11 @@
     padding: 8px 12px;
 }
 .btn-group > * {
-    color: #8A8A8A;
+    color: var(--primary-fade-color);
     background-color: transparent;
 }
 .btn-group > .btn-active{
-    background-color: #2B4F90;
+    background-color: var(--primary-color);
     color: white;
 }
 .btn-link{
@@ -97,27 +109,28 @@
     font-size: 0.9rem;
 }
 .btn-link--blue{
-    text-decoration: #45AEFF;
-    color: #45AEFF;
+    text-decoration: var(--primary-color-light);
+    color: var(--primary-color-light);
 }
 .btn-primary{
     color: white;
-    background-color: #2B4F90;
-    padding: -2px;
+    background-color: var(--primary-color);
 }
 .btn-outline-primary{
     background-color: transparent;
-    border: #45AEFF 3px solid;
+    border: var(--primary-color-light) 1px solid;
     color: white;
+    outline-offset: -2px;
 }
 
 .btn-second{
-    color: #8A8A8A;
-    background: #252F61;
+    color: var(--primary-fade-color);
+    background: var(--second-color);
 }
 .btn-outline-second{
     background-color: transparent;
-    border: #252F61 2px solid;
+    border: var(--second-color) 1px solid;
+    outline-offset: -1px;
     color: white;
 }
 
@@ -139,6 +152,9 @@
     border-radius: 20px;
 }
 /* Margin */
+.m-auto{margin: auto;}
+.mx-auto{margin: 0 auto;}
+.my-auto{margin: auto 0;}
 .mr-1{margin-right: 1rem;}
 .mr-2{margin-right: 2rem;}
 .mr-3{margin-right: 3rem;}
@@ -174,6 +190,7 @@
 .my-3{margin-top: 3rem; margin-bottom: 3rem;}
 .my-4{margin-top: 4rem; margin-bottom: 4rem;}
 .my-5{margin-top: 5rem; margin-bottom: 5rem;}
+
 
 .ml-h-5{margin-left: 0.5rem;}
 .mr-h-5{margin-right:0.5rem;}
@@ -238,13 +255,21 @@ ul > li{
 
 /* Flex-center */
 .flex-align-center{
+    display: inline-flex;
+    align-items: center;
+}
+.flex-center{
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 /* Text */
 .text-sm{
     font-size: 0.9rem;
+}
+.text-link-light{
+    color: var(--primary-color-light);
 }
 
 /* Width */
@@ -260,3 +285,73 @@ ul > li{
 .w-10{width: 10rem;}
 .w-11{width: 11rem;}
 .w-12{width: 12rem;}
+
+/* Form */
+form{
+    width: 100%;
+    height: 100%;
+}
+.form-header{
+    text-align: center;
+}
+.form-input-group{
+    display: flex;
+    margin: 1rem 0;
+    justify-content: space-between;
+}
+.form-input{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+}
+.form-input > label{
+    font-weight: lighter;
+    font-size: medium;
+}
+.form-input > input{
+    margin-top: 8px;
+    background-color: #2A2C37;
+    border: 1px solid var(--primary-fade-color);
+    padding: .6rem 1.2rem;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+}
+.form-input > input:focus{
+    outline: 1px solid var(--primary-color-light);
+}
+.form-checkbox{
+    display: block;
+}
+.form-checkbox > input[type="checkbox"]{
+    display: inline-block;
+}
+.input-select-group{
+    justify-content:center;
+}
+.input-select{
+    padding: .5rem 1rem;
+    border-radius: 8px;
+    background-color: #2A2C37;
+    color: white;
+    font-size: large;
+    outline: 1px solid white;
+    margin: 0 1rem;
+}
+.input-select:focus{
+    outline: 1px solid var(--primary-color-light);
+}
+.input-radio-group{
+    display: flex;
+    flex-direction: column;
+}
+.input-radio-group > label{
+    font-size: small;
+}
+.alert-error{
+    color: red;
+    font-weight: lighter;
+}
+form > button:hover{
+    background-color: var(--primary-color-light);
+}

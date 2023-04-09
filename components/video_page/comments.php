@@ -7,7 +7,7 @@
             </div>
             <div class="cmt__item-content">
                 <div class="cmt__item-heading">
-                    <span class="cmt__item-name mr-1">Ky Nhong</span>
+                    <span class="cmt__item-name mr-h-5">Ky Nhong</span>
                     <small class="cmt__item-time">2 weeks ago</small>
                 </div>
                 <div class="cmt__item-body">
@@ -48,7 +48,7 @@
             <div class="cmt__item-content">
                 <div class="cmt__item-main">
                     <div class="cmt__item-heading">
-                        <span class="cmt__item-name mr-1">Ky Nhong</span>
+                        <span class="cmt__item-name mr-h-5">Ky Nhong</span>
                         <small class="cmt__item-time">2 weeks ago</small>
                     </div>
                     <div class="cmt__item-body">
