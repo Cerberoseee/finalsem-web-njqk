@@ -7,7 +7,7 @@
 
   require_once("db-connection.php");
 
-  $username = isset($_POST["username"]) ? $_POST["username"] : null;
+  $email = isset($_POST["email"]) ? $_POST["email"] : null;
   $password = isset($_POST["password"]) ? $_POST["password"] : null;
 
   if($username != null && $password != null) {
