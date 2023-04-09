@@ -12,10 +12,12 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    color: white;
 }
 /* width */
 ::-webkit-scrollbar {
     width: 5px;
+    height: 7px;
 }
 
 /* Track */
@@ -80,6 +82,9 @@
     [class*="col-"] {
         width: 100%;
     }
+    .btn-group{
+        max-width: 130px;
+    }
     .btn-group > button{
         width: 100%;
     }
@@ -104,7 +109,10 @@ a{
 .mt-5{
     margin-top: 5rem;
 }
-
+.active{
+    background-color: var(--primary-color) !important;
+    color: white !important;
+}
 /* Button */
 .btn{
     background: var(--primary-background);
@@ -300,6 +308,9 @@ ul > li{
 }
 .text-link-light{
     color: var(--primary-color-light);
+}
+.text-fade{
+    color: var(--primary-fade-color);
 }
 
 /* Width */

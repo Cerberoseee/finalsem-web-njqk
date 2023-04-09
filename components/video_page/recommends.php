@@ -1,7 +1,7 @@
 <?php
     function videoItem(){
         ?>
-        <div class="video__list-item mb-1">
+        <div class="video__list-item my-1">
             <div class="video__thumb">
                 <span class="video__thumb-timer">00:07</span>
                 <img src="./assets/icons/Rectangle14.png" alt="">
@@ -26,7 +26,7 @@
         <!-- Video recommends -->
         <div class="video__recommends">
                 <div class="video__recommends-tab">
-                    <button class="btn btn-primary recommends__related unround-b">Recommend</button>
+                    <button class="btn btn-second active recommends__related unround-b">Recommend</button>
                     <button class="btn btn-second recommends__views unround-b">Top views</button>
                 </div>
                 <div class="video__recommends-list">

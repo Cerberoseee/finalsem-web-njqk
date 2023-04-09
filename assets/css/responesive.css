@@ -52,4 +52,11 @@
     .nav__account-access{
         display: none;
     }
+    .video__extension-like-dis > *{
+        margin: 0.2rem 0;
+    }
+    .video__react-extension{
+        width: 250px;
+        overflow-x: scroll;
+    }
 }

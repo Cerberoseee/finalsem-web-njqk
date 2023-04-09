@@ -102,7 +102,7 @@
                 </div>
                 <div class="video__cmt-tab">
                     <div class="btn-group">
-                        <button class="btn btn-active">Top comments</button>
+                        <button class="btn active">Top comments</button>
                         <button class="btn">Newest first</button>
                     </div>
                 </div>

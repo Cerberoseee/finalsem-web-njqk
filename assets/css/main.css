@@ -8,7 +8,7 @@ body{
     background-color: #282A34;
     align-items: center;
     justify-content: space-between;
-    padding: 4px 16px;
+    padding: 4px 12px;
     color: white;
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15);
 }
@@ -129,6 +129,10 @@ body{
 .video__recommends-tab{
     position: absolute;
 }
+.video__recommends-tab > button:hover{
+    background-color: var(--primary-color-light);
+    color: white;
+}
 .video__recommends-list{
     position: absolute;
     background-color: #2A2C37;
@@ -195,6 +199,9 @@ body{
     grid-row: 2;
     grid-column: 1 / 2;
 }
+#showmore{
+    display: none;
+}
 .video__title{
     font-size: x-large;
 }
@@ -242,6 +249,7 @@ body{
 .video__information-content{
     font-weight: lighter;
     font-size: 0.9rem;
+    line-height: 1rem;
 }
 /* Comments */
 .video__comments{
@@ -317,16 +325,14 @@ body{
     padding: 0rem;
     display: none;
 }
+
 /* Like dislike */
 .video__extension-like-dis{
-    display: flex;
-    align-items: center;
+    width: 400px;
 }
 .btn-group-like-dis{
     background-color: var(--primary-color);
     padding: .5rem 1.2rem;
-    display: flex;
-    align-items: center;
 }
 .btn-group-like-dis > *{
     padding: 0;
@@ -365,4 +371,49 @@ body{
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15);
     border-radius: 12px;
     z-index: 1000;
+}
+
+/* Profile */
+.profile__background{
+    position: relative;
+}
+.profile__background > img{
+    height: 30vh;
+    width: 100%;
+    object-fit: fill;
+}
+.container__profile{
+    position: relative;
+}
+.profile__avatar{
+    position: absolute;
+    top: -7rem;
+    
+}
+.profile__avatar > img{
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+    border: 5px solid #202029;
+}
+.profile__info{
+    color: white;
+}
+.profile__tag{
+    color: var(--primary-fade-color);
+}
+.profile__filter{
+    display: flex;
+    align-items: center;
+}
+.profile-filter-item{
+    background-color: transparent;
+    padding: 8px 24px;
+    color: var(--primary-fade-color);
+    text-transform: uppercase;
+}
+.profile-filter-item.active{
+    color: var(--primary-color-light) !important;
+    background-color: transparent !important;
+    border-bottom: 2px solid var(--primary-color-light);
 }
