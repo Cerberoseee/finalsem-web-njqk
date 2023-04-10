@@ -9,7 +9,7 @@ const parameter = {
     
     // Render media player
     (function render(){
-        const temp = container.innerHTML;
+        const temp = container?.innerHTML;
         const settingMenu = `
         <div class="setting__menu">
             <ul class="setting__menu-list">
@@ -152,7 +152,6 @@ const parameter = {
         `
         container.innerHTML = template;
     })();
-    console.log(container);
     /*
         Functions:
             + play and pause video: setPlayPause()

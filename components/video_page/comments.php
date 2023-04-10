@@ -31,7 +31,6 @@
                     <button class="btn rounded mr-h-5 btn-md">
                         <span class="cmt__item-func-text flex-align-center">
                             <img src="./assets/icons/Report.svg" alt="">
-                            <span class="ml-h-5"> Share</span>
                         </span>
                     </button>
                 </div>
@@ -72,7 +71,6 @@
                         <button class="btn rounded mr-h-5 btn-md">
                             <span class="cmt__item-func-text flex-align-center">
                                 <img src="./assets/icons/Report.svg" alt="">
-                                <span class="ml-h-5"> Share</span>
                             </span>
                         </button>
                     </div>

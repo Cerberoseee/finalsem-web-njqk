@@ -4,24 +4,13 @@ const app = (()=>{
     // Navigation sticky
     window.addEventListener("scroll", ()=> {
         const navbar = $(".sticky-nav");
-        navbar.classList.toggle("sticky", window.scrollY > 0);
+        navbar?.classList.toggle("sticky", window.scrollY > 0);
     });
     $('.nav__menu').onclick =()=> $('.nav__menu-list').style.display = 'block';
         
-    $('#close-menu').onclick=()=> $('.nav__menu-list').style.display = 'none';
+    $('#close-menu').onclick =()=> $('.nav__menu-list').style.display = 'none';
 
-    $('#showreply').onclick=()=>{
-        if($('.cmt__item-reply').style.display === 'block'){
-            $('#showreply').textContent = "SHOW 12 REPLIES ▼";
-            $('.cmt__item-reply').style.display = "none";
-        }else{
-            $('.cmt__item-reply').style.display = "block";
-            $('#showreply').textContent = "SHOW 12 REPLIES ▲";
-        }
-    }
-
-    
-    $('#category-show').onclick =()=>{
+    $('#category-show').onclick ??=()=>{
         if($('#category-list').style.display == 'block'){
             $('#category-list').style.display = 'none';
             $('#category-icon').innerHTML = `<i class="fa-solid fa-caret-down"></i>`;
@@ -30,23 +19,9 @@ const app = (()=>{
             $('#category-icon').innerHTML = `<i class="fa-solid fa-caret-up"></i>`;
         }
     }
-    
-    // Showmore in description of videopage
-    let flag = false;
-    $('#showhide').onclick =()=>{
-        if(!flag){
-            $('#showmore').style.display = "block";
-            $('#showhide').innerText = "Show less";
-            flag = !flag;
-        }else{
-            $('#showmore').style.display = "none";
-            $('#showhide').innerText = "Show more";
-            flag = !flag;
-        }
-    }
     // Change state of btn group
     const btn_groups = $$('.btn-group');
-    btn_groups.forEach(btn_group=>{
+    btn_groups?.forEach(btn_group=>{
         const btn_items = btn_group.querySelectorAll('button');
         btn_items.forEach(item=>{
             item.onclick = ()=>{
@@ -59,7 +34,7 @@ const app = (()=>{
     });
     // Change state of recommend tab
     const tabs_recmd = $('.video__recommends-tab').querySelectorAll('button');
-    tabs_recmd.forEach(element => {
+    tabs_recmd?.forEach(element => {
         element.onclick = ()=>{
             tabs_recmd.forEach(emt=>{
                 emt.classList.remove('active');
@@ -67,4 +42,29 @@ const app = (()=>{
             element.classList.add('active');
         }
     });
+    $('#showreply').onclick=()=>{
+        if($('.cmt__item-reply').style.display === 'block'){
+            $('#showreply').textContent = "SHOW 12 REPLIES ▼";
+            $('.cmt__item-reply').style.display = "none";
+        }else{
+            $('.cmt__item-reply').style.display = "block";
+            $('#showreply').textContent = "SHOW 12 REPLIES ▲";
+        }
+    }
+  
+    // Showmore in description of videopage
+    let flag = false;
+    $('#showhide').onclick ??=()=>{
+        if(!flag){
+            $('#showmore').style.display = "block";
+            $('#showhide').innerText = "Show less";
+            flag = !flag;
+        }else{
+            $('#showmore').style.display = "none";
+            $('#showhide').innerText = "Show more";
+            flag = !flag;
+        }
+    }
+    
+    
 })();
