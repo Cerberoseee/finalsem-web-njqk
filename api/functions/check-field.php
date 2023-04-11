@@ -1,14 +1,13 @@
 <?php 
-  function checkUsername( $dbCon, $username) {
-    $cm = "select * from users_account where username = ?";
+  function checkUsername($dbCon, $username) {
+    $cm = "SELECT * FROM users_account WHERE channelName = ?";
     $exec = $dbCon -> prepare($cm);
-    $exec -> bind_param("s", $username);
+    $exec -> bind_param('s', $username);
 
     //In case of execution failed
     if (!$exec -> execute()) {
       die(json_encode(array("status" => false, "data" => "Execute query failed")));
     }
-
     //Fetch data from database
     $result = $exec -> get_result();
     $data = $result -> fetch_assoc();
