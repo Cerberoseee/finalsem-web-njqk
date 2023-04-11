@@ -150,6 +150,7 @@ const parameter = {
         </div>
 
         `
+        container.innerHTML = template;
     })();
     /*
         Functions:
