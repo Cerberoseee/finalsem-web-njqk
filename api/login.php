@@ -10,10 +10,10 @@
   $email = isset($_POST["email"]) ? $_POST["email"] : null;
   $password = isset($_POST["password"]) ? $_POST["password"] : null;
 
-  if($username != null && $password != null) {
-    $cm = "select * from users where username = ?";
+  if($email != null && $password != null) {
+    $cm = "SELECT * FROM users where email = ?";
     $exec = $dbCon -> prepare($cm);
-    $exec -> bind_param("s", $username);
+    $exec -> bind_param("s", $email);
 
     //In case of execution failed
     if (!$exec -> execute()) {
