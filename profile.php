@@ -1,6 +1,5 @@
 <?php
     require_once('./components/layout.php');
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,16 +50,77 @@
             <div class="row">
                 <div class="col-12">
                     <div class="profile__filter">
-                        <ul class="profile-filter-list">
-                            <li class="profile-filter-item active">Home</li>
-                            <li class="profile-filter-item">Home</li>
-                            <li class="profile-filter-item">Home</li>
-                            <li class="profile-filter-item">Home</li>
-                            <li class="profile-filter-item">Home</li>
-                        </ul>
-                        <div class="profile__search">
-                            <input type="search" placeholder="Search here">
+                        <div class="profile__filter-cate">
+                            <ul class="profile-filter-list">
+                                <li class="profile-filter-item active">Home</li>
+                                <li class="profile-filter-item">Playlist</li>
+                                <li class="profile-filter-item">Liked videos</li>
+                                <li class="profile-filter-item">Your videos</li>
+                                <li class="profile-filter-item">About</li>
+                            </ul>
                         </div>
+                        <div class="profile__search">
+                            <input class="profile__search-input" type="search" placeholder="Search here">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="profile__video-heading-tag">
+                                <h3>Your videos <i class="fa-solid fa-caret-right"></i></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row profile__video-list">
+                        <?=itemVideoHTML()?>
+                        <?=itemVideoHTML()?>
+                        <?=itemVideoHTML()?>
+                        <?=itemVideoHTML()?>
+                        <?=itemVideoHTML()?>
+                        <?=itemVideoHTML()?>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="profile__video-heading-tag">
+                                <h3>Liked videos <i class="fa-solid fa-caret-right"></i></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row profile__video-list">
+                        <?=itemVideoHTML()?>
+                        <?=itemVideoHTML()?>
+                        <?=itemVideoHTML()?>
+                        <?=itemVideoHTML()?>
+                        <?=itemVideoHTML()?>
+                        <?=itemVideoHTML()?>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="profile__video-heading-tag">
+                                <h3>Created playlist <i class="fa-solid fa-caret-right"></i></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row profile__video-list">
+                        <?=itemPlaylistHTML()?>
+                        <?=itemPlaylistHTML()?>
+                        <?=itemPlaylistHTML()?>
+                        <?=itemPlaylistHTML()?>
+                        <?=itemPlaylistHTML()?>
+                        <?=itemPlaylistHTML()?>
+                        <?=itemPlaylistHTML()?>
+                        <?=itemPlaylistHTML()?>
                     </div>
                 </div>
             </div>

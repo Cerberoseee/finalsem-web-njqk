@@ -34,6 +34,10 @@
     #nav__register-btn{
         display: none;
     }
+    .profile__filter-cate{
+        width: 500px;
+        overflow-x: scroll;
+    }
 }
 /* Less than tablet */
 @media only screen and (max-width: 768px){
@@ -42,6 +46,10 @@
     }
     #nav__register-btn{
         display: none;
+    }
+    .profile__filter-cate{
+        width: 400px;
+        overflow-x: scroll;
     }
 }
 /* Mobile */
@@ -57,6 +65,10 @@
     }
     .video__react-extension{
         width: 250px;
+        overflow-x: scroll;
+    }
+    .profile__filter-cate{
+        width: 300px;
         overflow-x: scroll;
     }
 }

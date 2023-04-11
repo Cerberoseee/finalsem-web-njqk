@@ -100,7 +100,7 @@
                     <img src="./assets/icons/menu.svg" alt="SVG Image">
                 </div>
                 <div class="nav__logo" title="JQKTube website">
-                    <span>Logo website</span>
+                    <span><a href="index.php">Logo website</a></span>
                 </div>
             </div>
             <!-- Menu -->
