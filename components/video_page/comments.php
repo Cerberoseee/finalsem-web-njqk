@@ -30,7 +30,7 @@
                     </button>
                     <button class="btn rounded mr-h-5 btn-md">
                         <span class="cmt__item-func-text flex-align-center">
-                            <img src="./assets/icons/Report.svg" alt="">
+                            <img src="./assets/icons/report.svg" alt="">
                         </span>
                     </button>
                 </div>
@@ -70,7 +70,7 @@
                         </button>
                         <button class="btn rounded mr-h-5 btn-md">
                             <span class="cmt__item-func-text flex-align-center">
-                                <img src="./assets/icons/Report.svg" alt="">
+                                <img src="./assets/icons/report.svg" alt="">
                             </span>
                         </button>
                     </div>
