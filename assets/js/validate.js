@@ -98,9 +98,9 @@ const jqkapp = (()=>{
                 email: $('#email').value,
                 phone: $('#phone').value,
                 password: $('#password').value,
-                // repassword: $('#re_password').value,
+                repassword: $('#re_password').value,
                 dob: `${$('#years').value}-${$('#months').value}-${$('#days').value}`,
-                // gender: $('input[name="gender"]:checked').value? $('input[name="gender"]:checked').value: 'female'
+                gender: $('input[name="gender"]:checked').value? $('input[name="gender"]:checked').value: 'female'
             }
             fetch('./api/register.php',{
                 headers: { 
