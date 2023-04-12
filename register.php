@@ -14,117 +14,72 @@
         <div id="register__container-bg"></div>
         <div class="row">
             <div class="register-form col-5 col-md-6 float-right">
-                <form method="post">
-                    <div class="form-header mt-2">
+                <form id="registerForm">
+                    <div class="form-header mt-2 text-center">
                         <legend>JQK WIBUTAPCODE</legend>
                         <small>Join with us</small>
                     </div>
                     <div class="form-input-group">
                         <div class="form-input">
                             <label>Firstname</label>
-                            <input type="text" placeholder="Firstname">
-                            <small class="alert-error">Please enter your username</small>
+                            <input id="firstname" type="text" name="firstname" placeholder="Firstname">
                         </div>
                         <div class="form-input">
                             <label>Lastname</label>
-                            <input type="text" placeholder="Lastname">
+                            <input id="lastname" type="text" name="lastname" placeholder="Lastname">
                         </div>
                     </div>
                     <div class="form-input">
                         <label>Username</label>
-                        <input type="text" placeholder="Enter username">
+                        <input id="username" type="text" name="username" placeholder="Enter username">
                     </div>
                     <div class="form-input">
                         <label>Email</label>
-                        <input type="email" placeholder="Email">
+                        <input id="email" type="email" name="email" placeholder="Email">
                     </div>
                     <div class="form-input">
                         <label>Phone</label>
-                        <input type="number" placeholder="Phone number">
+                        <input id="phone" type="number" name="phone" placeholder="Phone number">
                     </div>
                     <div class="form-input-group">
                         <div class="form-input">
                             <label>Password</label>
-                            <input type="password" placeholder="Password">
+                            <input id="password" type="password" name="password" placeholder="Password">
                         </div>
                         <div class="form-input">
                             <label>Re-enter password</label>
-                            <input type="text" placeholder="Password confirm">
+                            <input id="re_password" type="password" placeholder="Password confirm">
                         </div>
                     </div>
                     <div class="form-input form-checkbox">
-                        <input type="checkbox" name="" id="">
+                        <input type="checkbox" name="" id="showpass">
                         <label for="">Show password</label>
                     </div>
                     
                     <div class="form-input">
                         <label>Date of birth</label>
                         <div class="form-input-group input-select-group">
-                            <select class="input-select" name="" id="">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                            </select>
-                            <select class="input-select" name="" id="">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                            </select>
-                            <select class="input-select" name="" id="">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                            </select>
+                            <select class="input-select" name="day" id="days"></select>
+                            <select class="input-select" name="month" id="months"></select>
+                            <select class="input-select" name="year" id="years"></select>
                         </div>
                     </div>
                     <div class="form-input">
                         <label for="">Gender</label>
                         <div class="input-radio-group">
                             <div class="input-group">
-                                <input type="radio" name="gender"/>
+                                <input id="male" type="radio" name="gender" value="male"/>
                                 <label for="">Male</label>
                             </div>
                             <div class="input-group">
-                                <input type="radio" name="gender"/>
+                                <input id="female" type="radio" name="gender" value="female"/>
                                 <label for="">Female</label>
                             </div>
                             <div class="input-group">
-                                <input type="radio" name="gender"/>
+                                <input id="other" type="radio" name="gender" value="other"/>
                                 <label for="">Other</label>
                             </div>
                         </div>
-                    </div>
-                    <div class="form-input">
-                        <label for="" class="mb-h-5">Country</label>
-                        <select class="input-select" name="" id="">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                        </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Register</button>
                     <button type="reset" class="btn btn-outline-primary mb-1">Reset</button>
@@ -133,8 +88,18 @@
                 </form>
             </div>
         </div>
+        <div class="register__loading text-center">
+            <img src="./assets/imgs/amalie-steiness.gif" alt="">
+        </div>
+        <div class="register__success text-center mt-5">
+            <h3 class="register__success-title">Congratualion! ! ! </h3>
+            <p>You are become a member of JQKTube</p>
+            <span>Please check your email to verify your account!</span>
+            <span class="d-block register__success-icon"><i class="fa-solid fa-envelope"></i></span>
+        </div>
     </div>
     <!-- Loading scripts -->
     <?=scripts()?>
+    <script src="./assets/js/validate.js" type="module"></script>
 </body>
 </html>

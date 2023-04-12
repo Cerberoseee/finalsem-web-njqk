@@ -463,3 +463,16 @@ body{
     border-bottom-left-radius: 12px;
     border-top-left-radius: 12px;
 }
+
+.register__success, .register__loading{
+    position: relative;
+    background-color: #202029;
+    border-radius: 12px;
+    padding: 2rem 3rem;
+    text-align: center;
+    margin: 0 auto;
+    display: none;
+}
+.register__success-icon{
+    font-size: 64px;
+}

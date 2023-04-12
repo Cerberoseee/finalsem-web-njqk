@@ -20,7 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `comment`
 --
-select database `web-lastsem`
+create databbase web-lastsem
+select database web-lastsem
 CREATE TABLE `comment` (
   `commentId` varchar(32) NOT NULL,
   `userId` varchar(32) NOT NULL,

@@ -15,12 +15,15 @@
   require_once("functions/send-email.php");
   require_once("functions/check-field.php");
 
-  $username = isset($_POST["username"]) ? $_POST["username"] : null;
-  $password = isset($_POST["password"]) ? password_hash($_POST["password"], PASSWORD_DEFAULT) : null;
-  $fullName = isset($_POST["fullName"]) ? $_POST["fullName"]: null;
-  $email = isset($_POST["email"]) ? $_POST["email"] : null;
-  $phoneNumber = isset($_POST["phone"]) ? $_POST["phone"] : null;
-  $dOb = isset($_POST["dob"]) ? $_POST["dob"] : null;
+  $data = file_get_contents("php://input");
+  $account = json_decode($data, true);
+
+  $username = isset($account["username"]) ? $account["username"] : null;
+  $password = isset($account["password"]) ? password_hash($account["password"], PASSWORD_DEFAULT) : null;
+  $fullName = isset($account["fullName"]) ? $account["fullName"]: null;
+  $email = isset($account["email"]) ? $account["email"] : null;
+  $phoneNumber = isset($account["phone"]) ? $account["phone"] : null;
+  $dOb = isset($account["dob"]) ? $account["dob"] : null;
   $role = "user";
   $status = "verify";
   $tokenRole = 1; //1 activate account 2 reset password  
@@ -85,6 +88,6 @@
 
   } else {
     //No parameter is provided or not enough
-    die(json_encode(array("status" => false, "data" => "Not enough paramaters")));
+    die(json_encode(array("status" => false, "data" => "Not enough paramaters $username x")));
   }
 ?>

@@ -54,7 +54,7 @@
 
       //Template email here
       $mail->Subject = 'Verify Email';
-      $mail->Body    = 'https://localhost/finalsem-web-njqk/api/verify-email.php?token=' . $token; 
+      $mail->Body    = 'https://localhost/finalsem-web-njqk/api/verify-mail.php?token=' . $token; 
   
       $mail->send();
       return true;
@@ -101,7 +101,7 @@
       $mail->Password   = 'uxxafjxjpgksspic';                                     // SMTP password (Google Application Password)
       $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         
       $mail->Port       = 587;                                    
-  
+      $server = $_SERVER['SERVER_ADRR'];
       //Recipients
       $mail->setFrom('admin@gmail.com', 'Admin');
       $mail->addAddress($email);
@@ -111,7 +111,7 @@
 
       //Template email here
       $mail->Subject = 'Reset Password Email';
-      $mail->Body    = 'https://localhost/finalsem-web-njqk/test.php?token=' . $token; 
+      $mail->Body    = "https://$server/finalsem-web-njqk/test.php?token=" . $token; 
   
       $mail->send();
       return true;
