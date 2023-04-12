@@ -6,9 +6,11 @@
   */
 
   require_once("db-connection.php");
+  $data = file_get_contents("php://input");
+  $account = json_decode($data, true);
 
-  $email = isset($_POST["email"]) ? $_POST["email"] : null;
-  $password = isset($_POST["password"]) ? $_POST["password"] : null;
+  $email = isset($account["email"]) ? $account["email"] : null;
+  $password = isset($account["password"]) ? $account["password"] : null;
 
   if($email != null && $password != null) {
     $cm = "SELECT * FROM users where email = ?";

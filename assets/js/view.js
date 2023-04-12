@@ -1,21 +1,22 @@
+import {$, $$} from './config.js';
 const app = (()=>{
-    const $ = document.querySelector.bind(document);
-    const $$ = document.querySelectorAll.bind(document);
-    
+    let errorText = '';
     try{
         // Navigation sticky
         window.addEventListener("scroll", ()=> {
             const navbar = $(".sticky-nav");
             navbar?.classList.toggle("sticky", window.scrollY > 0);
         });
-    }catch(e){
-        console.warn(e);
-    }
-    try{
+
         $('.nav__menu').onclick =()=> $('.nav__menu-list').style.display = 'block';
         
         $('#close-menu').onclick =()=> $('.nav__menu-list').style.display = 'none';
+    }
+    catch(e){
+        errorText += e;
+    }
 
+    try{
         $('#category-show').onclick ??=()=>{
             if($('#category-list').style.display == 'block'){
                 $('#category-list').style.display = 'none';
@@ -25,10 +26,10 @@ const app = (()=>{
                 $('#category-icon').innerHTML = `<i class="fa-solid fa-caret-up"></i>`;
             }
         }
+    }catch(e){
+        errorText += e;
     }
-    catch(e){
-        console.warn(e);
-    }
+
     try{
         // Change state of btn group
         const btn_groups = $$('.btn-group');
@@ -45,7 +46,7 @@ const app = (()=>{
         });
     }
     catch(e){
-        console.warn(e);
+        errorText += e;
     }
 
     try{
@@ -60,8 +61,9 @@ const app = (()=>{
             }
         });
     }catch(e){
-        console.warn(e);
+        errorText += e;
     }
+
     try{
         // Change state of recommend tab
         const tabs_recmd = $('.video__recommends-tab').querySelectorAll('button');
@@ -73,11 +75,9 @@ const app = (()=>{
                 element.classList.add('active');
             }
         });
+    }catch(e){
+        errorText += e;
     }
-    catch(e){
-        console.warn(e);
-    }
-    
     
     try{
         $('#showreply').onclick=()=>{
@@ -90,9 +90,9 @@ const app = (()=>{
             }
         }
     }catch(e){
-        console.warn(e);
+        errorText += e;
     }
-  
+
     try{
         // Showmore in description of videopage
         let flag = false;
@@ -107,11 +107,9 @@ const app = (()=>{
                 flag = !flag;
             }
         }
+    }catch(e){
+        errorText += e;
     }
-    catch(e){
-        console.warn(e);
-    }
-    
-    
-    
+
+    console.error(errorText);
 })();

@@ -419,7 +419,6 @@ form{
 }
 .alert-error{
     color: red;
-    font-weight: lighter;
 }
 form > button:hover{
     background-color: var(--primary-color-light);

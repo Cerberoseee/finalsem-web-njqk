@@ -23,32 +23,39 @@
                         <div class="form-input">
                             <label>Firstname</label>
                             <input id="firstname" type="text" name="firstname" placeholder="Firstname">
+                            <small class="alert-error"></small>
                         </div>
                         <div class="form-input">
                             <label>Lastname</label>
                             <input id="lastname" type="text" name="lastname" placeholder="Lastname">
+                            <small class="alert-error"></small>
                         </div>
                     </div>
                     <div class="form-input">
                         <label>Username</label>
                         <input id="username" type="text" name="username" placeholder="Enter username">
+                        <small class="alert-error"></small>
                     </div>
                     <div class="form-input">
                         <label>Email</label>
                         <input id="email" type="email" name="email" placeholder="Email">
+                        <small class="alert-error"></small>
                     </div>
                     <div class="form-input">
                         <label>Phone</label>
                         <input id="phone" type="number" name="phone" placeholder="Phone number">
+                        <small class="alert-error"></small>
                     </div>
                     <div class="form-input-group">
                         <div class="form-input">
                             <label>Password</label>
                             <input id="password" type="password" name="password" placeholder="Password">
+                            <small class="alert-error"></small>
                         </div>
                         <div class="form-input">
                             <label>Re-enter password</label>
-                            <input id="re_password" type="password" placeholder="Password confirm">
+                            <input name="re_password" id="re_password" type="password" placeholder="Password confirm">
+                            <small class="alert-error"></small>
                         </div>
                     </div>
                     <div class="form-input form-checkbox">
@@ -100,6 +107,6 @@
     </div>
     <!-- Loading scripts -->
     <?=scripts()?>
-    <script src="./assets/js/validate.js" type="module"></script>
+    <script src="./assets/js/register.js" type="module"></script>
 </body>
 </html>

@@ -88,6 +88,6 @@
 
   } else {
     //No parameter is provided or not enough
-    die(json_encode(array("status" => false, "data" => "Not enough paramaters $username x")));
+    die(json_encode(array("status" => false, "data" => "Not enough paramaters")));
   }
 ?>
