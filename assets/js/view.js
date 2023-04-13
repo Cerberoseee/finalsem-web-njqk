@@ -1,4 +1,4 @@
-import {$, $$} from './config.js';
+import {$, $$} from './module/config.js';
 const app = (()=>{
     let errorText = '';
     try{

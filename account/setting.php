@@ -1,11 +1,11 @@
 <?php
-    require_once('./components/layout.php');
+    require_once('../components/layout.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <?=head()?>
-    <title>Home</title>
+    <title>Setting</title>
 </head>
 <body>
     <!-- Navigation -->
@@ -13,10 +13,8 @@
 
     <!-- Container -->
     <div class="container">
-        
     </div>
     <!-- Loading scripts -->
     <?=scripts()?>
 </body>
 </html>
-

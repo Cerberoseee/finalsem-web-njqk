@@ -1,5 +1,6 @@
 <?php
     function descriptionHTML(){
+        $url = $_SESSION["url"];
         ?>
         <!-- Video description -->
         <div class="video__description mb-2">
@@ -7,7 +8,7 @@
                 <div class="video__extension my-1">
                     <div class="video__creater">
                         <div class="video__creater-avt">
-                            <img src="./assets/icons/subcriberavt.png" alt="">
+                            <img src="<?=$url?>/assets/icons/subcriberavt.png" alt="">
                         </div>
                         <div class="video__creater-details">
                             <div class="creater__details-heading">
@@ -22,21 +23,21 @@
                             <li class="btn-group-like-dis rounded mr-h-5">
                                 <button class="btn">
                                     <span class="cmt__item-func-text flex-align-center">
-                                        <img src="./assets/icons/like-btn.svg" alt="">
+                                        <img src="<?=$url?>/assets/icons/like-btn.svg" alt="">
                                         <span class="ml-h-5"> 14K</span>
                                     </span>
                                 </button>
                                 <button class="btn">
                                     <span class="cmt__item-func-text flex-align-center">
                                         <span class="mr-h-5">14K</span>
-                                        <img src="./assets/icons/dislike-btn.svg" alt="">
+                                        <img src="<?=$url?>/assets/icons/dislike-btn.svg" alt="">
                                     </span>
                                 </button>
                             </li>
                             <li>
                                 <button class="btn btn__extension-share rounded mr-h-5">
                                     <span class="cmt__item-func-text flex-align-center">
-                                        <img src="./assets/icons/share-btn.svg" alt="">
+                                        <img src="<?=$url?>/assets/icons/share-btn.svg" alt="">
                                         <span class="ml-h-5"> Share</span>
                                     </span>
                                 </button>
@@ -55,7 +56,7 @@
                 <div class="video__description-content mt-4">
                     <div class="video__information">
                         <span class="video__information-text flex-align-center mr-1">1,000,000
-                            <img class="ml-h-5" src="./assets/icons/views.svg" alt="">
+                            <img class="ml-h-5" src="<?=$url?>/assets/icons/views.svg" alt="">
                         </span>
                         <span class="video__information-text">Mar 30, 2023</span>
                     </div>

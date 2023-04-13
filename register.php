@@ -107,6 +107,6 @@
     </div>
     <!-- Loading scripts -->
     <?=scripts()?>
-    <script src="./assets/js/register.js" type="module"></script>
+    <script src="./assets/js/module/register.js" type="module"></script>
 </body>
 </html>

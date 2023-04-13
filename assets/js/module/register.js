@@ -1,6 +1,6 @@
 import {$, $$} from './config.js';
 import {showpass, validate} from './validation.js';
-import { register } from '../../AJAX/fetch.js';
+import { register } from '../../../AJAX/fetch.js';
 const jqkapp = (()=>{
     const $ = document.querySelector.bind(document);
 

@@ -5,18 +5,17 @@
 <html lang="en">
 <head>
     <?=head()?>
-    <title>Home</title>
+    <title>Video Page</title>
 </head>
 <body>
     <!-- Navigation -->
     <?=nav()?>
 
     <!-- Container -->
-    <div class="container">
-        
+    <div class="container video-container mt-4">
+        <?=videoTemplate()?>  
     </div>
     <!-- Loading scripts -->
     <?=scripts()?>
 </body>
 </html>
-

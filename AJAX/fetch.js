@@ -1,4 +1,4 @@
-import {$, $$} from '../assets/js/config.js';
+import {$, $$} from '../assets/js/module/config.js';
 
 // Fetch to register page
 export function register(account){

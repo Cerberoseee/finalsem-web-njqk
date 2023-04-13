@@ -4,6 +4,7 @@
     require_once('header.php');
     require_once('video-page.php');
     require_once('video_item/video_item.php');
+
     // Header template
     function head(){
         headerHTML();
@@ -30,4 +31,23 @@
     function itemPlaylistHTML(){
         videoItem_Playlist();
     }
+
+    // Get the url of server
+    session_start();
+    function getUrl(){
+        $sv_name = $_SERVER['SERVER_NAME'];
+        $sv_protocol = '';
+        if(strtolower(substr($_SERVER["SERVER_PROTOCOL"],0,5))=='https') {
+            $sv_protocol = "https";
+        }
+        else {
+            $sv_protocol = "http";
+        }
+        $sv_port = $_SERVER['SERVER_PORT'];
+        $url = "$sv_protocol://$sv_name:$sv_port/finalsem-web-njqk/";
+
+        return $url;
+    }
+    $_SESSION["url"] = getUrl();
+
 ?>

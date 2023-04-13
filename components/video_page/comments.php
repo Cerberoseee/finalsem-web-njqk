@@ -1,9 +1,10 @@
 <?php
     function cmtItemReply(){
+        $url = $_SESSION["url"];
         ?>
         <li class="cmt__list-item-reply">
             <div class="cmt__item-avt mr-1">
-                <img src="./assets/icons/Avatar.png" alt="">
+                <img src="<?=$url?>/assets/icons/Avatar.png" alt="">
             </div>
             <div class="cmt__item-content">
                 <div class="cmt__item-heading">
@@ -18,19 +19,19 @@
                 <div class="cmt__item-func mt-h-5">
                     <button class="btn btn-primary rounded mr-h-5 btn-md">
                         <span class="cmt__item-func-text flex-align-center">
-                            <img src="./assets/icons/reply.svg" alt="">
+                            <img src="<?=$url?>/assets/icons/reply.svg" alt="">
                             <span class="ml-h-5"> Reply</span>
                         </span>
                     </button>
                     <button class="btn rounded mr-h-5 btn-md">
                         <span class="cmt__item-func-text flex-align-center">
-                            <img src="./assets/icons/like-btn.svg" alt="">
+                            <img src="<?=$url?>/assets/icons/like-btn.svg" alt="">
                             <span class="ml-h-5"> 14K</span>
                         </span>
                     </button>
                     <button class="btn rounded mr-h-5 btn-md">
                         <span class="cmt__item-func-text flex-align-center">
-                            <img src="./assets/icons/report.svg" alt="">
+                            <img src="<?=$url?>/assets/icons/report.svg" alt="">
                         </span>
                     </button>
                 </div>
@@ -39,10 +40,11 @@
         <?php
     }
     function commentItem(){
+        $url = $_SESSION["url"];
         ?>
         <li class="cmt__list-item">
             <div class="cmt__item-avt mr-1">
-                <img src="./assets/icons/Avatar.png" alt="">
+                <img src="<?=$url?>/assets/icons/Avatar.png" alt="">
             </div>
             <div class="cmt__item-content">
                 <div class="cmt__item-main">
@@ -58,19 +60,19 @@
                     <div class="cmt__item-func mt-h-5">
                         <button class="btn btn-primary rounded mr-h-5 btn-md">
                             <span class="cmt__item-func-text flex-align-center">
-                                <img src="./assets/icons/reply.svg" alt="">
+                                <img src="<?=$url?>/assets/icons/reply.svg" alt="">
                                 <span class="ml-h-5"> Reply</span>
                             </span>
                         </button>
                         <button class="btn rounded mr-h-5 btn-md">
                             <span class="cmt__item-func-text flex-align-center">
-                                <img src="./assets/icons/like-btn.svg" alt="">
+                                <img src="<?=$url?>/assets/icons/like-btn.svg" alt="">
                                 <span class="ml-h-5"> 14K</span>
                             </span>
                         </button>
                         <button class="btn rounded mr-h-5 btn-md">
                             <span class="cmt__item-func-text flex-align-center">
-                                <img src="./assets/icons/report.svg" alt="">
+                                <img src="<?=$url?>/assets/icons/report.svg" alt="">
                             </span>
                         </button>
                     </div>
@@ -107,7 +109,7 @@
             </div>
             <div class="video__comments-post mt-1">
                 <div class="comments__post-img">
-                    <img src="./assets/icons/post-cmt.svg" alt="">
+                    <img src="<?=$url?>/assets/icons/post-cmt.svg" alt="">
                 </div>
                 <div class="comments__post-textarea">
                     <textarea placeholder="Add a comment" name="" id="comments__post-textarea"></textarea>

@@ -1,10 +1,11 @@
 <?php
     function videoItem(){
+        $url = $_SESSION["url"];
         ?>
         <div class="video__list-item my-1">
             <div class="video__thumb">
                 <span class="video__thumb-timer">00:07</span>
-                <img src="./assets/icons/Rectangle14.png" alt="">
+                <img src="<?=$url?>/assets/icons/Rectangle14.png" alt="">
             </div>
             <div class="video__contents ">
                 <div class="video__heading">I can’t see shit please help</div>
@@ -12,7 +13,7 @@
                     <span class="mr-h-5">April 1, 2012 • 14k</span>
                 </div>
                 <div class="video__author">
-                    <span class="video__author-avt"><img src="./assets/icons/sonavt.png" alt=""></span>
+                    <span class="video__author-avt"><img src="<?=$url?>/assets/icons/sonavt.png" alt=""></span>
                     <span class="video__author-name">Son ga</span>
                 </div>
             </div>
@@ -22,6 +23,7 @@
 
     //Main fucntion
     function recommendsHTML(){
+        $url = $_SESSION["url"];
         ?>
         <!-- Video recommends -->
         <div class="video__recommends">

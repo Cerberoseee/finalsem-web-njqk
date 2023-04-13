@@ -1,5 +1,6 @@
 <?php
-    require_once('./components/layout.php');
+    require_once('../components/layout.php');
+    $url = $_SESSION["url"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,13 +15,13 @@
     <!-- Container -->
     <div class="container-fluid">
         <div class="profile__background">
-            <img src="./assets/imgs/bg-profile.jpg" alt="">
+            <img src="<?=$url?>/assets/imgs/bg-profile.jpg" alt="">
         </div>
         <div class="container container__profile">
             <div class="row">
                 <div class="col-6">
                     <div class="profile__avatar">
-                        <img src="./assets/imgs/avatar-meo-cute-1.jpg" alt="">
+                        <img src="<?=$url?>/assets/imgs/avatar-meo-cute-1.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-6">

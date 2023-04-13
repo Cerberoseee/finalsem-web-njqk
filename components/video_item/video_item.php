@@ -1,11 +1,12 @@
 <?php
     function videoItem_List(){
+        $url = $_SESSION["url"];
         ?>
         <div class="col-2 col-md-3 col-sm-6">
             <a href="#345">
                 <div class="profile__video-item">
                     <div class="pr-video-item__img">
-                        <img src="./assets/imgs/modern-tokyo-street-background.jpg" alt="">
+                        <img src="<?=$url?>/assets/imgs/modern-tokyo-street-background.jpg" alt="">
                     </div>
                     <div class="pr-video-item__content">
                         <h3 class="pr-video-item__content-title">Why you should and shouldn't live in Japan</h3>
@@ -18,6 +19,7 @@
     }
 
     function videoItem_Playlist(){
+        $url = $_SESSION["url"];
         ?>
         <div class="col-2 col-md-3 col-sm-6">
             <a href="#123">
@@ -27,11 +29,11 @@
                             <div class="img-banner__info">
                                 <h3 class="img-banner__info-count">12</h3>
                                 <span>videos</span>
-                                <span><img src="./assets/icons/playlist.svg" alt=""></span>
+                                <span><img src="<?=$url?>/assets/icons/playlist.svg" alt=""></span>
                                 <span class="text-fade">Public</span>
                             </div>
                         </div>
-                        <img src="./assets/imgs/modern-tokyo-street-background.jpg" alt="">
+                        <img src="<?=$url?>/assets/imgs/modern-tokyo-street-background.jpg" alt="">
                     </div>
                     <div class="pr-video-item__content">
                         <h3 class="pr-video-item__content-title">Why you should and shouldn't live in Japan</h3>
