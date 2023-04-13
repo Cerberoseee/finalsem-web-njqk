@@ -60,6 +60,19 @@ body{
     width: 50px;
     cursor: pointer;
 }
+/* Nav notification */
+.nav__noti-list{
+    position: absolute;
+    background-color: #202029;
+    padding: 0.4rem 0.7rem;
+    border-radius: 12px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15);
+    right: 10%;
+    display: none;
+}
+.nav__noti-list  ul > li{
+    display: block;
+}
 /* Menu list of navigation */
 .nav__menu-list{
     position: absolute;
@@ -91,7 +104,7 @@ body{
     text-decoration: none;
     color: white;
 }
-#menu-nav__login-btn, #menu-nav__register-btn{
+#menu-nav__login-btn, #menu-nav__register-btn, #menu-nav__notifi{
     display: none;
 }
 #category-list{

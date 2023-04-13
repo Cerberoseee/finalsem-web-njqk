@@ -71,4 +71,10 @@
         width: 300px;
         overflow-x: scroll;
     }
+    .nav__notification{
+        display: none;
+    }
+    #menu-nav__notifi{
+        display: block;
+    }
 }

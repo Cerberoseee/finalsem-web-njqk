@@ -34,6 +34,14 @@
                     Home 
                     </a>
                 </li>
+                <li id="menu-nav__notifi">
+                    <a href="<?=$url?>/account/notification.php">
+                        <span class="mr-h-5">
+                        <i class="fa-solid fa-bell"></i>
+                    </span>
+                    Notification 
+                    </a>
+                </li>
                 <li>
                     <a href="<?=$url?>/account/history.php">
                         <span class="mr-h-5">
@@ -114,8 +122,19 @@
             </div>
             <div class="nav__account">
                 <div class="nav__notification" title="Notifications">
-                    <img src="<?=$url?>/assets/icons/noti.svg" alt="SVG Image">
+                    <span class="nav__notification-icon">
+                        <img src="<?=$url?>/assets/icons/noti.svg" alt="SVG Image">
+                    </span>
+                    <div class="nav__noti-list">
+                        <ul>
+                            <li>1. Bạn đã được 10 like</li>
+                            <li>1. </li>
+                            <li>1. </li>
+                            <li>1. </li>
+                        </ul>
+                    </div>
                 </div>
+                
                 <!-- <div class="nav__avatar" title="Your account management">
                     <img src="/assets/icons/Avatar.png" alt="SVG Image">
                 </div> -->

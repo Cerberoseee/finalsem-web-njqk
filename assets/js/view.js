@@ -120,5 +120,17 @@ const app = (()=>{
     }catch(e){
         errorText += e;
     }
+    
+    try{
+        $('.nav__notification-icon').onclick =()=>{
+            if($('.nav__noti-list').style.display === 'block'){
+                $('.nav__noti-list').style.display = "none";
+            }else{
+                $('.nav__noti-list').style.display = "block";
+            }
+        }
+    }catch(e){
+        errorText+=e;
+    }
     console.error(errorText);
 })();

@@ -26,8 +26,8 @@
                 </div>
                 <div class="col-6">
                     <div class="profile__feature float-right">
-                        <button class="btn btn-outline-primary rounded">Edit profile</button>
-                        <button class="btn btn-primary rounded">Manage videos</button>
+                        <a href="<?=$url?>account/profile.php?type=edit" class="btn btn-outline-primary rounded">Edit profile</a>
+                        <a href="<?=$url?>account/profile.php?type=manage" class="btn btn-primary rounded">Manage videos</a>
                     </div>
                 </div>
             </div>
