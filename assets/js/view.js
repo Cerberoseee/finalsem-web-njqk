@@ -80,15 +80,18 @@ const app = (()=>{
     }
     
     try{
-        $('#showreply').onclick=()=>{
-            if($('.cmt__item-reply').style.display === 'block'){
-                $('#showreply').textContent = "SHOW 12 REPLIES ▼";
-                $('.cmt__item-reply').style.display = "none";
-            }else{
-                $('.cmt__item-reply').style.display = "block";
-                $('#showreply').textContent = "SHOW 12 REPLIES ▲";
+        
+        $$('.cmt__list-item').forEach(item=>{
+            item.querySelector('.show__reply-btn').onclick =()=>{
+                if(item.querySelector('.cmt__item-reply').style.display === 'block'){
+                    item.querySelector('.show__reply-btn').innerHTML = "SHOW 12 REPLIES ▲";
+                    item.querySelector('.cmt__item-reply').style.display = "none";
+                }else{
+                    item.querySelector('.show__reply-btn').innerHTML = "SHOW 12 REPLIES ▼";
+                    item.querySelector('.cmt__item-reply').style.display = "block";
+                }
             }
-        }
+        }) 
     }catch(e){
         errorText += e;
     }
@@ -110,6 +113,12 @@ const app = (()=>{
     }catch(e){
         errorText += e;
     }
-
+    try{
+        $('.btn__create-follow').onclick =()=>{
+            $('.btn__create-follow').innerHTML = `Followed <small><i class="fa-solid fa-check"></i></small>`;
+        }
+    }catch(e){
+        errorText += e;
+    }
     console.error(errorText);
 })();

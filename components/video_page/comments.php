@@ -74,7 +74,7 @@
                             </span>
                         </button>
                     </div>
-                    <button id="showreply" class="btn btn-link btn-link--blue mt-1 text-sm">SHOW 12 REPLIES  ▼</button>
+                    <button class="btn btn-link btn-link--blue mt-1 text-sm show__reply-btn">SHOW 12 REPLIES  ▼</button>
                 </div>
                 <!-- Reply -->
                 <div class="cmt__item-reply">
@@ -120,6 +120,7 @@
                 </div>
             </div>
             <ul class="video__comments-list">
+                <?=commentItem()?>
                 <?=commentItem()?>
             </ul>
         </div>
