@@ -4,7 +4,7 @@
     require_once('header.php');
     require_once('video-page.php');
     require_once('video_item/video_item.php');
-
+    require_once('carousel/carousel.php');
     // Header template
     function head(){
         headerHTML();
@@ -24,14 +24,18 @@
     }
 
     // item in list of videos
-    function itemVideoHTML(){
-        videoItem_List();
+    function itemVideoHTML($colPC){
+        videoItem_List($colPC);
     }
     // item playlist of videos
     function itemPlaylistHTML(){
         videoItem_Playlist();
     }
 
+    // Slider for trending video
+    function carouselHTML(){
+        carousel();
+    }
     // Get the url of server
     session_start();
     function getUrl(){

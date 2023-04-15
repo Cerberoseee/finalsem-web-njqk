@@ -1,5 +1,4 @@
 <?php
-    require_once('layout.php');
     function scriptsHTML(){
         $url = $_SESSION["url"];
         ?>

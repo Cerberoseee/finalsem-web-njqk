@@ -1,5 +1,7 @@
 <?php
     require_once('./components/layout.php');
+    $url = $_SESSION["url"];
+    $colPC = 3;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +15,59 @@
 
     <!-- Container -->
     <div class="container">
-        
+        <div class="row">
+            <div class="col-12 text-center mt-4">
+                <h3>TRENDING</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <?=carouselHTML()?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="profile__video-heading-tag">
+                            <h3>Recommended <i class="fa-solid fa-caret-right"></i></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row profile__video-list">
+                    <?=itemVideoHTML($colPC)?>
+                    <?=itemVideoHTML($colPC)?>
+                    <?=itemVideoHTML($colPC)?>
+                    <?=itemVideoHTML($colPC)?>
+                    <?=itemVideoHTML($colPC)?>
+                    <?=itemVideoHTML($colPC)?>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="profile__video-heading-tag">
+                            <h3>Others <i class="fa-solid fa-caret-right"></i></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row profile__video-list">
+                    <?=itemVideoHTML($colPC)?>
+                    <?=itemVideoHTML($colPC)?>
+                    <?=itemVideoHTML($colPC)?>
+                    <?=itemVideoHTML($colPC)?>
+                    <?=itemVideoHTML($colPC)?>
+                    <?=itemVideoHTML($colPC)?>
+                    <?=itemVideoHTML($colPC)?>
+                    <?=itemVideoHTML($colPC)?>
+                    <?=itemVideoHTML($colPC)?>
+                    <?=itemVideoHTML($colPC)?>
+                    <?=itemVideoHTML($colPC)?>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- Loading scripts -->
     <?=scripts()?>

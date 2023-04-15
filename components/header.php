@@ -1,6 +1,4 @@
 <?php
-    require_once('layout.php');
-
     function headerHTML(){
         $url = $_SESSION["url"];
         ?>

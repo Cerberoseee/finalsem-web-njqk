@@ -38,6 +38,9 @@
         width: 500px;
         overflow-x: scroll;
     }
+    .carousel__item{
+        width: calc(100%/3);
+    }
 }
 /* Less than tablet */
 @media only screen and (max-width: 768px){
@@ -50,6 +53,9 @@
     .profile__filter-cate{
         width: 400px;
         overflow-x: scroll;
+    }
+    .carousel__item{
+        width: calc(100%/2);
     }
 }
 /* Mobile */
@@ -76,5 +82,8 @@
     }
     #menu-nav__notifi{
         display: block;
+    }
+    .carousel__item{
+        width: 100%;
     }
 }

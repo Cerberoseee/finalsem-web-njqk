@@ -1,6 +1,12 @@
 <?php
-    require_once('layout.php');
+    
     function menuHTML(){
+        // Check login
+        $isLogin = false;
+        if(isset($_SESSION["account"])){
+            $isLogin = true;
+            $account = $_SESSION['account'];
+        }
         $url = $_SESSION["url"];
         ?>
         <div class="nav__menu-list p-1">                         
@@ -10,22 +16,6 @@
                         <i class="fa-solid fa-bars"></i>
                     </span>
                 </li>
-                <li id="menu-nav__login-btn">
-                    <a href="<?=$url?>/login.php">
-                        <span class="mr-h-5">
-                        <i class="fa-solid fa-right-to-bracket"></i>
-                    </span>
-                    Login 
-                    </a>
-                </li>
-                <li id="menu-nav__register-btn">
-                    <a href="<?=$url?>/register.php">
-                        <span class="mr-h-5">
-                        <i class="fa-solid fa-user-plus"></i>
-                    </span>
-                    Register 
-                    </a>
-                </li>
                 <li>
                     <a href="<?=$url?>">
                         <span class="mr-h-5">
@@ -34,30 +24,73 @@
                     Home 
                     </a>
                 </li>
-                <li id="menu-nav__notifi">
-                    <a href="<?=$url?>/account/notification.php">
-                        <span class="mr-h-5">
-                        <i class="fa-solid fa-bell"></i>
-                    </span>
-                    Notification 
-                    </a>
-                </li>
-                <li>
-                    <a href="<?=$url?>/account/history.php">
-                        <span class="mr-h-5">
-                            <i class="fa-solid fa-video"></i>
-                        </span>
-                        History
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <span class="mr-h-5">
-                            <i class="fa-solid fa-house"></i>
-                        </span>
-                        Your videos
-                    </a>
-                </li>
+                <?php
+                    if($isLogin){
+                        ?>
+                        <li id="menu-nav__notifi">
+                            <a href="<?=$url?>/account/notification.php">
+                                <span class="mr-h-5">
+                                <i class="fa-solid fa-bell"></i>
+                            </span>
+                            Notification 
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?=$url?>/account/history.php">
+                                <span class="mr-h-5">
+                                    <i class="fa-solid fa-video"></i>
+                                </span>
+                                History
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="mr-h-5">
+                                    <i class="fa-solid fa-house"></i>
+                                </span>
+                                Your videos
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?=$url?>/account/setting.php">
+                                <span class="mr-h-5">
+                                    <i class="fa-solid fa-gear"></i>
+                                </span>
+                                Setting
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?=$url?>/logout.php">
+                                <span class="mr-h-5">
+                                    <i class="fa-solid fa-right-from-bracket"></i>
+                                </span>
+                                Log out
+                            </a>
+                        </li>
+                        <?php
+                    }else{
+                        ?>
+                        <li id="menu-nav__login-btn">
+                            <a href="<?=$url?>/login.php">
+                                <span class="mr-h-5">
+                                <i class="fa-solid fa-right-to-bracket"></i>
+                            </span>
+                            Login 
+                            </a>
+                        </li>
+                        <li id="menu-nav__register-btn">
+                            <a href="<?=$url?>/register.php">
+                                <span class="mr-h-5">
+                                <i class="fa-solid fa-user-plus"></i>
+                            </span>
+                            Register 
+                            </a>
+                        </li>
+                        <?php
+                    }
+                ?>
+                
+                
                 <li id="category-show">
                     <span class="mr-h-5">
                         <i class="fa-brands fa-discourse"></i>
@@ -82,27 +115,17 @@
                             Music
                         </a></li>
                 </ul>
-                <li>
-                    <a href="<?=$url?>/account/setting.php">
-                        <span class="mr-h-5">
-                            <i class="fa-solid fa-gear"></i>
-                        </span>
-                        Setting
-                    </a>
-                </li>
-                <li>
-                    <a href="<?=$url?>/logout.php">
-                        <span class="mr-h-5">
-                            <i class="fa-solid fa-right-from-bracket"></i>
-                        </span>
-                        Log out
-                    </a>
-                </li>
             </ul>
         </div>
         <?php
     }
     function navHTML(){
+        // Check login
+        $isLogin = false;
+        if(isset($_SESSION["account"])){
+            $isLogin = true;
+            $account = $_SESSION['account'];
+        }
         $url = getUrl();
         ?>
         <nav class="nav sticky-nav py-1">
@@ -135,17 +158,27 @@
                     </div>
                 </div>
                 
-                <!-- <div class="nav__avatar" title="Your account management">
-                    <img src="/assets/icons/Avatar.png" alt="SVG Image">
-                </div> -->
-                <div class="nav__account-access">
-                    <a id="nav__login-btn" href="<?=$url?>/login.php" class="btn btn-primary">
-                        <span><i class="fa-solid fa-right-to-bracket"></i></span>
-                        Login</a>
-                    <a id="nav__register-btn" href="<?=$url?>/register.php" class="btn btn-outline-primary">
-                        <span><i class="fa-solid fa-user-plus"></i></span>
-                        Register</a>
-                </div>
+                
+                <?php
+                    if($isLogin){
+                        ?>
+                        <div class="nav__avatar" title="Your account management">
+                            <img src="<?=$url?>/api/assets/default/avatar.jpg" alt="SVG Image">
+                        </div>
+                        <?php
+                    }else{
+                        ?>
+                        <div class="nav__account-access">
+                            <a id="nav__login-btn" href="<?=$url?>/login.php" class="btn btn-primary">
+                                <span><i class="fa-solid fa-right-to-bracket"></i></span>
+                                Login</a>
+                            <a id="nav__register-btn" href="<?=$url?>/register.php" class="btn btn-outline-primary">
+                                <span><i class="fa-solid fa-user-plus"></i></span>
+                                Register</a>
+                        </div>
+                        <?php
+                    }
+                ?>
                 
             </div>
         </nav>

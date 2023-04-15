@@ -60,6 +60,11 @@ body{
     width: 50px;
     cursor: pointer;
 }
+.nav__avatar > img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
 /* Nav notification */
 .nav__noti-list{
     position: absolute;
@@ -476,7 +481,19 @@ body{
     border-bottom-left-radius: 12px;
     border-top-left-radius: 12px;
 }
-
+.pr-video-item__content-info{
+    display: flex;
+    flex-direction: row;
+}
+.pr-video-item__content-info > img{
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+}
+.pr-video-item__content-details {
+    display: flex;
+    flex-direction: column;
+}
 .register__success, .register__loading{
     position: relative;
     background-color: #202029;
@@ -488,4 +505,93 @@ body{
 }
 .register__success-icon{
     font-size: 64px;
+}
+
+/* Carousel */
+.wrapper__carousel{
+    position: relative;
+}
+.wrapper__carousel .carousel{
+    white-space: nowrap;
+    cursor: pointer;
+    scroll-behavior: smooth;
+}
+.carousel{
+    overflow: hidden;
+}
+.carousel.dragging{
+    cursor: grab;
+    scroll-behavior: auto;   
+}
+.carousel.dragging .carousel__item{
+    pointer-events: none;
+}
+.carousel__item{
+    position: relative;
+    width: calc(100%/4);
+    white-space: normal;
+    object-fit: cover;
+    display: inline-block;
+    margin-left: 12px;
+    border-radius: 12px;
+}
+.carousel__item:first-child, .carousel__item:last-child{
+    margin-left: 0;
+}
+.carousel__item-img > img{
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+}
+.carousel__item-img::after{
+    border-radius: 12px;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(2, 0, 36, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+}
+.carousel__item-details > img{
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+}
+.carousel__item-heading{
+    width: 100%;
+}
+.carousel__item-content{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    padding: 12px;
+}
+.carousel__item-details{
+    display: flex;
+}
+.carousel__content-info{
+    flex-direction: column;
+}
+.wrapper__carousel > i{
+    position: absolute;
+    padding: 15px;
+    background-color: var(--primary-color);
+    border-radius: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.wrapper__carousel > i:hover{
+    background-color: var(--primary-color-light);
+    cursor: pointer;
+
+}
+.wrapper__carousel  > i:first-child{
+    left: -24px;
+    z-index: 11;
+}
+.wrapper__carousel  > i:last-child{
+    right: -24px;
 }

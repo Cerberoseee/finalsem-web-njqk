@@ -1,6 +1,7 @@
 <?php
     require_once('../components/layout.php');
     $url = $_SESSION["url"];
+    $colPC = 2;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,12 +77,12 @@
                         </div>
                     </div>
                     <div class="row profile__video-list">
-                        <?=itemVideoHTML()?>
-                        <?=itemVideoHTML()?>
-                        <?=itemVideoHTML()?>
-                        <?=itemVideoHTML()?>
-                        <?=itemVideoHTML()?>
-                        <?=itemVideoHTML()?>
+                        <?=itemVideoHTML($colPC)?>
+                        <?=itemVideoHTML($colPC)?>
+                        <?=itemVideoHTML($colPC)?>
+                        <?=itemVideoHTML($colPC)?>
+                        <?=itemVideoHTML($colPC)?>
+                        <?=itemVideoHTML($colPC)?>
                     </div>
                 </div>
             </div>
@@ -95,12 +96,12 @@
                         </div>
                     </div>
                     <div class="row profile__video-list">
-                        <?=itemVideoHTML()?>
-                        <?=itemVideoHTML()?>
-                        <?=itemVideoHTML()?>
-                        <?=itemVideoHTML()?>
-                        <?=itemVideoHTML()?>
-                        <?=itemVideoHTML()?>
+                        <?=itemVideoHTML($colPC)?>
+                        <?=itemVideoHTML($colPC)?>
+                        <?=itemVideoHTML($colPC)?>
+                        <?=itemVideoHTML($colPC)?>
+                        <?=itemVideoHTML($colPC)?>
+                        <?=itemVideoHTML($colPC)?>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,9 @@
 <?php
     require_once('./components/layout.php');
-
+    if(isset($_SESSION["account"])){
+        unset($_SESSION["account"]);
+        header("Location: index.php");  
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

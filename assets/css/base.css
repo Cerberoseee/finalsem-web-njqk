@@ -339,6 +339,7 @@ ul > li{
 .text-fade{
     color: var(--primary-fade-color);
 }
+.text-center{text-align: center;}
 
 /* Width */
 .w-1{width: 1rem;}

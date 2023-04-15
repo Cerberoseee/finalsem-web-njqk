@@ -6,8 +6,10 @@
   require 'PHPMailer/src/Exception.php';
   require 'PHPMailer/src/PHPMailer.php';
   require 'PHPMailer/src/SMTP.php';
- 
+  require_once '../components/layout.php';
   function sendVerifyEmail($email, $dbCon) {
+    $url = $_SESSION["url"];
+
     $cm = "select * from users where email = ?";
     $exec = $dbCon -> prepare($cm);
     $exec -> bind_param("s", $email);
@@ -54,7 +56,7 @@
 
       //Template email here
       $mail->Subject = 'Verify Email';
-      $mail->Body    = 'https://localhost/finalsem-web-njqk/api/verify-mail.php?token=' . $token; 
+      $mail->Body    = "$urlqw/api/verify-mail.php?token=$token"; 
   
       $mail->send();
       return true;

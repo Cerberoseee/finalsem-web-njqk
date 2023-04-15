@@ -28,18 +28,20 @@
 
     //In case of no username found
     if (!$data) {
-      die(json_encode(array("status" => false, "data" => "No user found")));
+      die(json_encode(array("status" => false, "data" => "No user found or wrong password")));
     } 
 
 
     //Verify login with hashed password
     $encrypted_password = $data["password"];
     if(!password_verify($password, $encrypted_password)) {
-      die(json_encode(array("status" => false, "data" => "Wrong password")));
+      die(json_encode(array("status" => false, "data" => "No user found or wrong password")));
     }
     
     //Return true to the login
     echo json_encode(array("status" => true, "data" => "success"));
+    session_start();
+    $_SESSION["account"] = $data["email"];
 
   }
   else {

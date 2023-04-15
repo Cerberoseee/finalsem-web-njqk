@@ -1,6 +1,6 @@
 <?php
     require_once('./components/layout.php');
-
+    $url = $_SESSION["url"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,25 +14,26 @@
         <div id="register__container-bg"></div>
         <div class="row flex-center">
             <div class="login-form col-4 col-md-6">
-                <form method="post">
+                <form id="login" method="post">
                     <div class="form-header mt-2">
                         <legend>JQK WIBUTAPCODE</legend>
                         <small>Join with us</small>
                     </div>
                     <div class="form-input">
                         <label>Email</label>
-                        <input type="email" placeholder="Email">
+                        <input id="email" type="email" placeholder="Email" require>
                     </div>
                     <div class="form-input">
                             <label>Password</label>
-                            <input type="password" placeholder="Password">
+                            <input id="password" type="password" placeholder="Password" require> 
                     </div>
                     <div class="form-input form-checkbox">
-                        <input type="checkbox" name="" id="">
+                        <input id="showpass" type="checkbox" name="" id="">
                         <label for="">Show password</label>
                     </div>
-                    
-                    
+                    <div class="form-input text-center">
+                        <label class="alert"></label>
+                    </div>
                     <button type="submit" class="btn btn-primary flex-center mb-1 mx-auto">Login</button>
                     <small>If you do not have an account, you should click here to <a class="text-link-light" href="register.php">register</a></small>
                 </form>
@@ -41,5 +42,6 @@
     </div>
     <!-- Loading scripts -->
     <?=scripts()?>
+    <script src="<?=$url?>/assets/js/module/login.js" type="module"></script>
 </body>
 </html>
