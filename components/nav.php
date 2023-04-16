@@ -6,7 +6,7 @@
         if(isset($_SESSION["account"])){
             $isLogin = true;
             $account = $_SESSION['account'];
-            print_r($account);
+            // print_r($account);
         }
         $url = $_SESSION["url"];
         ?>
@@ -170,7 +170,7 @@
                     if($isLogin){
                         ?>
                         <div class="nav__avatar" title="Your account management">
-                            <a href="<?=$url?>/account/profile.php">
+                            <a href="<?=$url?>/account/profile.php?id=<?=$account['id']?>">
                                 <img src="<?=$url?>/api/assets/default/avatar.jpg" alt="SVG Image">
                             </a>
                         </div>

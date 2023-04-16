@@ -64,8 +64,7 @@
     $result = $exec -> get_result();
     $data = $result -> fetch_assoc();
 
-    // $account = array("userId"=> $data["userId"], "email"=> $data["email"]);
-    $account = $id;
+    $account = array("id"=> $data["userId"], "email"=> $data["email"]);
     return $account;
   }
 ?>
