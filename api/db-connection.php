@@ -9,6 +9,6 @@
   $dbCon = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
 
   if ($dbCon -> connect_error) {
-    die(son_encode( array('status' => false, 'data' =>" Connection error! " . $conn -> connect_error )));
+    die(json_encode( array('status' => false, 'data' =>" Connection error! " . $conn -> connect_error )));
   }
 ?>
