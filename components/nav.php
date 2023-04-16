@@ -6,6 +6,7 @@
         if(isset($_SESSION["account"])){
             $isLogin = true;
             $account = $_SESSION['account'];
+            print_r($account);
         }
         $url = $_SESSION["url"];
         ?>
@@ -35,6 +36,14 @@
                             Notification 
                             </a>
                         </li>
+                        <li id="menu-nav__profile">
+                            <a href="<?=$url?>/account/profile.php">
+                                <span class="mr-h-5">
+                                <i class="fa-solid fa-user"></i>
+                            </span>
+                            Your Profile 
+                            </a>
+                        </li>
                         <li>
                             <a href="<?=$url?>/account/history.php">
                                 <span class="mr-h-5">
@@ -44,7 +53,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="<?=$url?>/account/myvideo.php">
                                 <span class="mr-h-5">
                                     <i class="fa-solid fa-house"></i>
                                 </span>
@@ -88,9 +97,7 @@
                         </li>
                         <?php
                     }
-                ?>
-                
-                
+                ?> 
                 <li id="category-show">
                     <span class="mr-h-5">
                         <i class="fa-brands fa-discourse"></i>
@@ -163,7 +170,9 @@
                     if($isLogin){
                         ?>
                         <div class="nav__avatar" title="Your account management">
-                            <img src="<?=$url?>/api/assets/default/avatar.jpg" alt="SVG Image">
+                            <a href="<?=$url?>/account/profile.php">
+                                <img src="<?=$url?>/api/assets/default/avatar.jpg" alt="SVG Image">
+                            </a>
                         </div>
                         <?php
                     }else{

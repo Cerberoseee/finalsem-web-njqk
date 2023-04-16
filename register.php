@@ -1,6 +1,6 @@
 <?php
     require_once('./components/layout.php');
-
+    $url = $_SESSION["url"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -107,6 +107,6 @@
     </div>
     <!-- Loading scripts -->
     <?=scripts()?>
-    <script src="./assets/js/module/register.js" type="module"></script>
+    <script src="<?=$url?>/assets/js/module/register.js" type="module"></script>
 </body>
 </html>

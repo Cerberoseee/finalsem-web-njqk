@@ -60,7 +60,7 @@ body{
     width: 50px;
     cursor: pointer;
 }
-.nav__avatar > img{
+.nav__avatar img{
     width: 100%;
     height: 100%;
     border-radius: 50%;
@@ -109,7 +109,7 @@ body{
     text-decoration: none;
     color: white;
 }
-#menu-nav__login-btn, #menu-nav__register-btn, #menu-nav__notifi{
+#menu-nav__login-btn, #menu-nav__register-btn, #menu-nav__notifi, #menu-nav__profile{
     display: none;
 }
 #category-list{
