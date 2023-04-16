@@ -12,6 +12,7 @@
   $email = isset($account["email"]) ? $account["email"] : null;
   $password = isset($account["password"]) ? $account["password"] : null;
 
+
   if($email != null && $password != null) {
     $cm = "SELECT * FROM users where email = ?";
     $exec = $dbCon -> prepare($cm);
@@ -30,7 +31,6 @@
     if (!$data) {
       die(json_encode(array("status" => false, "data" => "No user found or wrong password")));
     } 
-
 
     //Verify login with hashed password
     $encrypted_password = $data["password"];
@@ -56,6 +56,10 @@
     $cm = "SELECT * FROM users where userId = ?";
     $exec = $dbCon -> prepare($cm);
     $exec -> bind_param("s", $id);
+
+    if (!$exec -> execute()) {
+      die(json_encode(array("status" => false, "data" => "Execute query failed")));
+    }
 
     $result = $exec -> get_result();
     $data = $result -> fetch_assoc();
