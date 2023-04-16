@@ -56,7 +56,7 @@
 
       //Template email here
       $mail->Subject = 'Verify Email';
-      $mail->Body    = "$urlqw/api/verify-mail.php?token=$token"; 
+      $mail->Body    = "$url/api/verify-mail.php?token=$token"; 
   
       $mail->send();
       return true;
