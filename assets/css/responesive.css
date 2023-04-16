@@ -60,10 +60,13 @@
 }
 /* Mobile */
 @media only screen and (max-width: 612px){
-    #menu-nav__login-btn, #menu-nav__register-btn{
+    #menu-nav__login-btn, #menu-nav__register-btn, #menu-nav__profile{
         display: block;
     }
     .nav__account-access{
+        display: none;
+    }
+    .nav__avatar{
         display: none;
     }
     .video__extension-like-dis > *{

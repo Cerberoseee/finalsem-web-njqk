@@ -41,11 +41,27 @@
     //Return true to the login
     echo json_encode(array("status" => true, "data" => "success"));
     session_start();
-    $_SESSION["account"] = $data["email"];
+    $_SESSION["account"] = $data["userId"];
 
   }
   else {
     //No parameter is provided or not enough
     die(json_encode(array("status" => false, "data" => "Not enough paramaters")));
+  }
+
+  // Get information of user by id
+  function _info(){
+	$id = 384053704;
+	// Get data from users table
+	$cm = "SELECT * FROM users where userId = ?";
+    $exec = $dbCon -> prepare($cm);
+    $exec -> bind_param("s", $id);
+
+	$result = $exec -> get_result();
+	$data = $result -> fetch_assoc();
+
+	// $account = array("userId"=> $data["userId"], "email"=> $data["email"]);
+	$account = $data["email"];
+	return $account;
   }
 ?>
