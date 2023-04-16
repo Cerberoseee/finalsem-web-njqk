@@ -53,8 +53,7 @@
   function _info($id, $dbCon){
 
     // Get data from users table
-    $id = '3946831338';
-    $cm = "SELECT * FROM users where userId = 3946831338";
+    $cm = "SELECT * FROM users where userId = ?";
     $exec = $dbCon -> prepare($cm);
     $exec -> bind_param("s", $id);
 
