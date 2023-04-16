@@ -41,7 +41,7 @@
     //Return true to the login
     echo json_encode(array("status" => true, "data" => "success"));
     session_start();
-    $_SESSION["account"] = $data["userId"];
+    $_SESSION["account"] = _info($data["userId"]);
 
   }
   else {
@@ -50,18 +50,19 @@
   }
 
   // Get information of user by id
-  function _info(){
-	$id = 384053704;
-	// Get data from users table
-	$cm = "SELECT * FROM users where userId = ?";
+  function _info($id){
+
+    // Get data from users table
+    $id = '3946831338';
+    $cm = "SELECT * FROM users where userId = 3946831338";
     $exec = $dbCon -> prepare($cm);
     $exec -> bind_param("s", $id);
 
-	$result = $exec -> get_result();
-	$data = $result -> fetch_assoc();
+    $result = $exec -> get_result();
+    $data = $result -> fetch_assoc();
 
-	// $account = array("userId"=> $data["userId"], "email"=> $data["email"]);
-	$account = $data["email"];
-	return $account;
+    // $account = array("userId"=> $data["userId"], "email"=> $data["email"]);
+    $account = $id;
+    return $account;
   }
 ?>
