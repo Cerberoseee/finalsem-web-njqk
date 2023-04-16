@@ -112,8 +112,9 @@
       $mail->isHTML(true);
 
       //Template email here
+      $url = $_SESSION["url"];
       $mail->Subject = 'Reset Password Email';
-      $mail->Body    = "https://$server/finalsem-web-njqk/test.php?token=" . $token; 
+      $mail->Body    = "https://$server/finalsem-web-njqk/test.php?token=" . $token;  
   
       $mail->send();
       return true;
