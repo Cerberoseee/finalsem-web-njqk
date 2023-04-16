@@ -41,7 +41,7 @@
     //Return true to the login
     echo json_encode(array("status" => true, "data" => "success"));
     session_start();
-    $_SESSION["account"] = _info($data["userId"]);
+    $_SESSION["account"] = _info($data["userId"], $dbCon);
 
   }
   else {
@@ -50,7 +50,7 @@
   }
 
   // Get information of user by id
-  function _info($id){
+  function _info($id, $dbCon){
 
     // Get data from users table
     $id = '3946831338';
