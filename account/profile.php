@@ -1,6 +1,12 @@
 <?php
     require_once('../components/layout.php');
     $url = $_SESSION["url"];
+    // Check login
+    $isLogin = false;
+    if(isset($_SESSION["account"])){
+        $isLogin = true;
+        $account = $_SESSION['account'];
+    }
     $colPC = 2;
 ?>
 <!DOCTYPE html>
@@ -22,7 +28,7 @@
             <div class="row">
                 <div class="col-6">
                     <div class="profile__avatar">
-                        <img src="<?=$url?>/assets/imgs/avatar-meo-cute-1.jpg" alt="">
+                        <img src="<?=$url?>/api/<?=$account["avatarPath"]?>" alt="">
                     </div>
                 </div>
                 <div class="col-6">

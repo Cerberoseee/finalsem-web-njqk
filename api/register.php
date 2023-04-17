@@ -34,7 +34,7 @@
     //crc32() is used to convert the ID to numeric
     $id = crc32(uniqid());
     $today = date("Y-m-d");
-    $defaultAvatarPath = "/assets/default/avatar.jpeg";
+    $defaultAvatarPath = "/assets/default/avatar.jpg";
 
     $existed = [];
 

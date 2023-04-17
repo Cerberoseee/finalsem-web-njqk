@@ -35,6 +35,14 @@
                             Notification 
                             </a>
                         </li>
+                        <li id="menu-nav__upload">
+                            <a href="<?=$url?>/account/upload.php">
+                                <span class="mr-h-5">
+                                <i class="fa-solid fa-upload"></i>
+                            </span>
+                            Upload a video 
+                            </a>
+                        </li>
                         <li id="menu-nav__profile">
                             <a href="<?=$url?>/account/profile.php">
                                 <span class="mr-h-5">
@@ -57,14 +65,6 @@
                                     <i class="fa-solid fa-house"></i>
                                 </span>
                                 Your videos
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?=$url?>/account/setting.php">
-                                <span class="mr-h-5">
-                                    <i class="fa-solid fa-gear"></i>
-                                </span>
-                                Setting
                             </a>
                         </li>
                         <li>
@@ -109,18 +109,32 @@
                             Music
                         </a></li>
                         <li><a href="">
-                            Music
+                            Gaming
                         </a></li>
                         <li><a href="">
-                            Music
+                            Comedy
                         </a></li>
                         <li><a href="">
-                            Music
+                            Drama
                         </a></li>
                         <li><a href="">
-                            Music
+                            Movie
                         </a></li>
                 </ul>
+                <?php
+                    if($isLogin){
+                        ?>
+                        <li>
+                            <a href="<?=$url?>/account/setting.php>">
+                                <span class="mr-h-5">
+                                    <i class="fa-solid fa-gear"></i>
+                                </span>
+                                Setting
+                            </a>
+                        </li>
+                        <?php
+                    }
+                ?>
             </ul>
         </div>
         <?php
@@ -169,8 +183,8 @@
                     if($isLogin){
                         ?>
                         <div class="nav__avatar" title="Your account management">
-                            <a href="<?=$url?>/account/profile.php?id=<?=$account['id']?>">
-                                <img src="<?=$url?>/api/assets/default/avatar.jpg" alt="SVG Image">
+                            <a href="<?=$url?>/account/profile.php?id=<?=$account['userId']?>">
+                                <img src="<?=$url?>/api/<?=$account["avatarPath"]?>" alt="SVG Image">
                             </a>
                         </div>
                         <?php
