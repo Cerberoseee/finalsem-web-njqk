@@ -103,10 +103,10 @@
         </div>
         <div class="register__success text-center mt-5">
             <h2 class="register__loading-title">WIBUTAP</h2>
-            <img class="mx-auto" src="./assets/imgs/amalie-steiness.gif" alt="">
+            <img class="mx-auto register__success-img" src="./assets/imgs/Checkmark.gif" alt="">
             <span class="register__success-text d-block">SUCCESS</span>
-            <span>Please check your email to verify your account!</span>
-            <span class="d-block register__success-icon"><i class="fa-solid fa-envelope"></i></span>
+            <span class="register__loading-content">Your account has been successfully created</span>
+            <span class="text-fade d-block">Please check your registered email for email verification</span>
         </div>
     </div>
     <!-- Loading scripts -->

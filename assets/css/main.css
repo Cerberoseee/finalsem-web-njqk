@@ -513,7 +513,7 @@ body{
     padding: 2rem 3rem;
     text-align: center;
     margin: 0 auto;
-    display: block;
+    display: none;
 }
 .register__loading-content{
     color: var(--primary-color-light);
@@ -523,6 +523,10 @@ body{
 }
 .register__success-text{
     color: #14FF00;
+}
+.register__success-img{
+    max-width: 100px;
+    max-height: 100px;
 }
 /* Carousel */
 .wrapper__carousel{
