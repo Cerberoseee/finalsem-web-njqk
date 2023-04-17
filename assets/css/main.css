@@ -390,7 +390,13 @@ body{
     border-radius: 12px;
     z-index: 1000;
 }
-
+.pwd_nxcqa{
+    justify-content: space-between;
+    flex-direction: row;
+}
+.pwd_nxcqa > a{
+    color: var(--primary-color-light);
+}
 /* Profile */
 .profile__background{
     position: relative;
@@ -419,6 +425,9 @@ body{
 }
 .profile__tag{
     color: var(--primary-fade-color);
+}
+.profile__bio{
+    font-weight: 200;
 }
 .profile__filter{
     display: flex;
