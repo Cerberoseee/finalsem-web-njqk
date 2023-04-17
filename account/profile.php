@@ -28,13 +28,13 @@
             <div class="row">
                 <div class="col-6">
                     <div class="profile__avatar">
-                        <img src="<?=$url?>/api/<?=$account["avatarPath"]?>" alt="">
+                        <img class="profile__avatar-img" src="<?=$url?>/api/<?=$account["avatarPath"]?>" alt="">
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="profile__feature float-right">
-                        <a href="<?=$url?>account/profile.php?type=edit" class="btn btn-outline-primary rounded">Edit profile</a>
-                        <a href="<?=$url?>account/profile.php?type=manage" class="btn btn-primary rounded">Manage videos</a>
+                        <a href="<?=$url?>account/profile.php?id=<?=$account["userId"]?>&type=edit" class="btn btn-outline-primary rounded">Edit profile</a>
+                        <a href="<?=$url?>account/profile.php?id=<?=$account["userId"]?>&type=manage" class="btn btn-primary rounded">Manage videos</a>
                     </div>
                 </div>
             </div>
@@ -136,5 +136,6 @@
     </div>
     <!-- Loading scripts -->
     <?=scripts()?>
+    <script src="<?=$url?>/assets/js/module/get-profile.js" type="module"></script>
 </body>
 </html>
