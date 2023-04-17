@@ -2,7 +2,6 @@
     require_once('./components/layout.php');
     if(isset($_SESSION["account"])){
         unset($_SESSION["account"]);
-        header("Location: index.php");  
     }
     $url = $_SESSION["url"];
 ?>

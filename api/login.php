@@ -40,12 +40,9 @@
     
     //Return true to the login
 
-    echo json_encode(array("status" => true, "data" => array(
-      "id"=> $data["userId"], "email" => $data["email"]
-    )
-    ));
     session_start();
     $_SESSION["account"] = _info($data["userId"], $dbCon);
+    echo json_encode(array("status" => true, "data" => $_SESSION["account"]));
 
   }
   else {
@@ -55,7 +52,7 @@
 
   // Get information of user by id
   function _info($id, $dbCon){
-
+    $account = [];
     // Get data from users table
     $cm = "SELECT * FROM users where userId = ?";
     $exec = $dbCon -> prepare($cm);
@@ -66,9 +63,35 @@
     }
 
     $result = $exec -> get_result();
-    $data = $result -> fetch_assoc();
+    $data = $result->fetch_assoc();
+    unset($data["password"]);
+    $account = $data;
+    // Get data from users table
+    $cm = "SELECT * FROM users_account where userId = ?";
+    $exec = $dbCon -> prepare($cm);
+    $exec -> bind_param("s", $id);
+    if (!$exec -> execute()) {
+      die(json_encode(array("status" => false, "data" => "Execute query failed")));
+    }
 
-    $account = array("id"=> $data["userId"], "email"=> $data["email"]);
+    $result = $exec -> get_result();
+    $data = $result->fetch_assoc();
+    unset($data["userId"]);
+    $account += $data;
+
+    // Get data from users_info table
+    $cm = "SELECT * FROM users_info where userId = ?";
+    $exec = $dbCon -> prepare($cm);
+    $exec -> bind_param("s", $id);
+    if (!$exec -> execute()) {
+      die(json_encode(array("status" => false, "data" => "Execute query failed")));
+    }
+
+    $result = $exec -> get_result();
+    $data = $result->fetch_assoc();
+    unset($data["userId"]);
+    $account += $data;
+
     return $account;
   }
 ?>
