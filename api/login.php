@@ -44,8 +44,8 @@
       "id"=> $data["userId"], "email" => $data["email"]
     )
     ));
-    // session_start();
-    // $_SESSION["account"] = _info($data["userId"], $dbCon);
+    session_start();
+    $_SESSION["account"] = _info($data["userId"], $dbCon);
 
   }
   else {

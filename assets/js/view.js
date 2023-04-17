@@ -1,4 +1,5 @@
 import {$, $$} from './module/config.js';
+import * as conf from './module/config.js';
 const app = (()=>{
     let errorText = '';
     try{
