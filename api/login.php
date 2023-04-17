@@ -39,9 +39,13 @@
     }
     
     //Return true to the login
-    echo json_encode(array("status" => true, "data" => "success"));
-    session_start();
-    $_SESSION["account"] = _info($data["userId"], $dbCon);
+
+    echo json_encode(array("status" => true, "data" => array(
+      "id"=> $data["userId"], "email" => $data["email"]
+    )
+    ));
+    // session_start();
+    // $_SESSION["account"] = _info($data["userId"], $dbCon);
 
   }
   else {

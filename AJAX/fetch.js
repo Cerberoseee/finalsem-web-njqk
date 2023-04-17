@@ -39,11 +39,17 @@ export function login(account){
     .then((res)=>{
         if(res.status === true){
             $('.alert').innerText = "You are login successfully";
+            sessionStorage.setItem("profile", JSON.stringify(res.data));
             setTimeout(()=>{
                 window.location.href = "index.php";
-            }, 5000);
+            }, 3000);
         }else{
             $('.alert').innerText = "You are login failed";
         }
     })
+}
+
+// Fecth to Logout
+export function logout(){
+    sessionStorage.removeItem("profile");
 }

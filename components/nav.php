@@ -2,7 +2,7 @@
     
     function menuHTML(){
         // Check login
-        $isLogin = false;
+        $isLogin = true;
         if(isset($_SESSION["account"])){
             $isLogin = true;
             $account = $_SESSION['account'];

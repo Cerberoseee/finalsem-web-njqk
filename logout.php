@@ -4,6 +4,7 @@
         unset($_SESSION["account"]);
         header("Location: index.php");  
     }
+    $url = $_SESSION["url"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,5 +21,6 @@
     </div>
     <!-- Loading scripts -->
     <?=scripts()?>
+    <script src="<?=$url?>/assets/js/module/logout.js" type="module"></script>
 </body>
 </html>
