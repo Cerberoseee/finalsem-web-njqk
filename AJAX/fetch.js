@@ -67,6 +67,7 @@ export function profile(id){
             $('.profile__avatar-img').url = url+account.avatarPath;
             $('.profile__name').innerText = account.channelName;
             $('.profile__tag').innerText = "@"+account.username;
+            $('.profile__bio').innerText = account.bio;
         }else{
             console.log("error");
         }

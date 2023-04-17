@@ -34,7 +34,10 @@
                     <div class="form-input text-center">
                         <label class="alert"></label>
                     </div>
-                    <button type="submit" class="btn btn-primary flex-center mb-1 mx-auto">Login</button>
+                    <div class="form-input pwd_nxcqa">
+                        <a href="<?=$url?>/forget_password.php">Forget password?</a>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </div>
                     <small>If you do not have an account, you should click here to <a class="text-link-light" href="register.php">register</a></small>
                 </form>
             </div>

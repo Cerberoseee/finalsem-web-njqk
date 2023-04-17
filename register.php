@@ -75,7 +75,7 @@
                         <label for="">Gender</label>
                         <div class="input-radio-group">
                             <div class="input-group">
-                                <input id="male" type="radio" name="gender" value="male"/>
+                                <input id="male" type="radio" name="gender" value="male" checked/>
                                 <label for="">Male</label>
                             </div>
                             <div class="input-group">
@@ -96,7 +96,8 @@
             </div>
         </div>
         <div class="register__loading text-center">
-            <img src="./assets/imgs/amalie-steiness.gif" alt="">
+            <h2 class="register__loading-title">WIBUTAP</h2>
+            <img src="" alt="">
         </div>
         <div class="register__success text-center mt-5">
             <h3 class="register__success-title">Congratualion! ! ! </h3>
