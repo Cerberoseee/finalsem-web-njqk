@@ -55,6 +55,7 @@
       $mail->isHTML(true);
 
       //Template email here
+      $url = $_SESSION["url"];
       $mail->Subject = 'Verify Email';
       $mail->Body    = "$url/api/verify-mail.php?token=$token"; 
   
