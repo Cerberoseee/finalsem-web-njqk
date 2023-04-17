@@ -16,7 +16,7 @@
             <div class="login-form col-4 col-md-6">
                 <form id="login" method="post">
                     <div class="form-header mt-2">
-                        <legend>JQK WIBUTAPCODE</legend>
+                        <legend>WIBUTAP</legend>
                         <small>Join with us</small>
                     </div>
                     <div class="form-input">

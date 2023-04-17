@@ -8,6 +8,7 @@
     email: email
     phone number: phone
     date of birth: dob
+    bio: the saying of channel
   */
 
   
@@ -25,6 +26,7 @@
   $phoneNumber = isset($account["phone"]) ? $account["phone"] : null;
   $dOb = isset($account["dob"]) ? $account["dob"] : null;
   $role = "user";
+  $bio = "";
   $status = "verify";
   $tokenRole = 1; //1 activate account 2 reset password  
 
@@ -64,9 +66,9 @@
       $exec -> bind_param("sss", $id, $email, $password);
       $exec -> execute();
 
-      $cm = "insert into users_account values (?, ?, ?, ?, ?, ?)";
+      $cm = "insert into users_account values (?, ?, ?, ?, ?, ?, ?)";
       $exec = $dbCon -> prepare($cm);
-      $exec -> bind_param("ssssss", $id, $fullName, $today, $defaultAvatarPath, $role, $status);
+      $exec -> bind_param("sssssss", $id, $fullName, $bio, $today, $defaultAvatarPath, $role, $status);
       $exec -> execute();
       
       $cm = "insert into users_info values (?, ?, ?, ?, ?)";

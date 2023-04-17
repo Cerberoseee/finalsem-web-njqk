@@ -97,11 +97,14 @@
         </div>
         <div class="register__loading text-center">
             <h2 class="register__loading-title">WIBUTAP</h2>
-            <img src="" alt="">
+            <img class="mx-auto" src="./assets/imgs/amalie-steiness.gif" alt="">
+            <span class="register__loading-content d-block">Waiting for verification...</span>
+            <span class="text-fade d-block">This proccess won’t take long</span>
         </div>
         <div class="register__success text-center mt-5">
-            <h3 class="register__success-title">Congratualion! ! ! </h3>
-            <p>You are become a member of JQKTube</p>
+            <h2 class="register__loading-title">WIBUTAP</h2>
+            <img class="mx-auto" src="./assets/imgs/amalie-steiness.gif" alt="">
+            <span class="register__success-text d-block">SUCCESS</span>
             <span>Please check your email to verify your account!</span>
             <span class="d-block register__success-icon"><i class="fa-solid fa-envelope"></i></span>
         </div>

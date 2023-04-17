@@ -397,6 +397,9 @@ body{
 .pwd_nxcqa > a{
     color: var(--primary-color-light);
 }
+.pwd_nxcqa > .btn:hover{
+    background: var(--primary-color-light);
+}
 /* Profile */
 .profile__background{
     position: relative;
@@ -510,12 +513,17 @@ body{
     padding: 2rem 3rem;
     text-align: center;
     margin: 0 auto;
-    display: none;
+    display: block;
+}
+.register__loading-content{
+    color: var(--primary-color-light);
 }
 .register__success-icon{
     font-size: 64px;
 }
-
+.register__success-text{
+    color: #14FF00;
+}
 /* Carousel */
 .wrapper__carousel{
     position: relative;
