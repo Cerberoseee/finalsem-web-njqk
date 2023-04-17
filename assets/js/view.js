@@ -140,7 +140,7 @@ const app = (()=>{
         const carousel = $('.carousel');
         let firstItem = carousel.querySelectorAll('.carousel__item')[0];
         let arrowIcons = $$('.wrapper__carousel > i');
-        let firstWidth = firstItem.clientWidth + 12;
+        let firstWidth = firstItem.clientWidth;
         let scrollWidth = carousel.scrollWidth - carousel.clientWidth;
 
         const showHideIcon = ()=>{
@@ -157,7 +157,7 @@ const app = (()=>{
         const autoSlide = ()=> {
             if(carousel.scrollLeft == (carousel.scrollWidth - carousel.clientWidth)) return;
             posDiff = Math.abs(posDiff);
-            let firstItemWidth = firstItem.clientWidth + 12;
+            let firstItemWidth = firstItem.clientWidth;
             let valDifference = firstItemWidth - posDiff;
 
             if(carousel.scrollLeft > prevScrollLeft){

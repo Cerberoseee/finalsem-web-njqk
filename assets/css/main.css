@@ -553,7 +553,6 @@ body{
     white-space: normal;
     object-fit: cover;
     display: inline-block;
-    margin-left: 12px;
     border-radius: 12px;
 }
 .carousel__item:first-child, .carousel__item:last-child{
