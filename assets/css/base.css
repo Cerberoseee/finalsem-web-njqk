@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap');
 :root{
+    --main-background: #202029;
+    --secondary-background: #2D2F3C;
+    --secondary-btn-grey: #404352;
+    --main-blue: #2B4F90;
+    --disable-grey: #6D7280;
+    --main-grey: #8899A6;
+    --main-white: #FFFFFF;
+    --secondary-blue: #45AEFF;
+    --search-bar: #181823;
+    --alert-red: #FF0404;
+    --success-green: #14FF00;
+    --disable-blue: #252F61;
     --background-web: #202029;
     --font: 'Roboto', sans-serif;
     --primary-color: #2B4F90;
@@ -12,7 +24,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    color: white;
+    color: var(--main-white);
     scroll-behavior: smooth;
     transition: 0.5s;
 }
@@ -24,17 +36,17 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: var(--primary-background);
+    background: var(--second-color);
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
+    background: var(--main-blue);
 }
   
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--primary-color-light);
+    background: var(--secondary-blue);
 }
 .d-block{display: block !important;}
 .d-flex{display: flex !important;}
@@ -137,12 +149,12 @@ a{
     margin-top: 5rem;
 }
 .active{
-    background-color: var(--primary-color) !important;
+    background-color: var(--main-blue) !important;
     color: white !important;
 }
 /* Button */
 .btn{
-    background: var(--primary-background);
+    background: var(--main-background);
     color: white;
     border: none;
     border-radius: 8px;
@@ -151,7 +163,7 @@ a{
     cursor: pointer;
 }
 .btn-group{
-    background-color: var(--primary-background);
+    background-color: var(--secondary-background);
     padding: 4px 4px;
     border-radius: 24px;
 }
@@ -160,11 +172,11 @@ a{
     padding: 8px 12px;
 }
 .btn-group > * {
-    color: var(--primary-fade-color);
+    color: var(--disable-grey);
     background-color: transparent;
 }
 .btn-group > .btn-active{
-    background-color: var(--primary-color);
+    background-color: var(--main-blue);
     color: white;
 }
 .btn-link{
@@ -174,29 +186,29 @@ a{
     font-size: 0.9rem;
 }
 .btn-link--blue{
-    text-decoration: var(--primary-color-light);
-    color: var(--primary-color-light);
+    text-decoration: var(--secondary-blue);
+    color: var(--secondary-blue);
 }
 .btn-primary{
     color: white;
-    background-color: var(--primary-color);
+    background-color: var(--main-blue);
 }
 .btn-outline-primary{
     background-color: transparent;
-    border: var(--primary-color-light) 1px solid;
+    border: var(--secondary-blue) 1px solid;
     color: white;
     outline-offset: -2px;
 }
 
 .btn-second{
-    color: var(--primary-fade-color);
-    background: var(--second-color);
+    color: var(--disable-grey);
+    background: var(--disable-blue);
 }
 .btn-outline-second{
     background-color: transparent;
-    border: var(--second-color) 1px solid;
+    border: var(--disable-blue) 1px solid;
     outline-offset: -1px;
-    color: white;
+    color: var(--main-white);
 }
 
 .btn-md{
@@ -334,10 +346,10 @@ ul > li{
     font-size: 0.9rem;
 }
 .text-link-light{
-    color: var(--primary-color-light);
+    color: var(--secondary-blue);
 }
 .text-fade{
-    color: var(--primary-fade-color);
+    color: var(--secondary-blue);
 }
 .text-center{text-align: center;}
 
@@ -381,14 +393,14 @@ form{
 .form-input > input{
     margin-top: 8px;
     background-color: #2A2C37;
-    border: 1px solid var(--primary-fade-color);
+    border: 1px solid var(--main-grey);
     padding: .6rem 1.2rem;
     border-radius: 8px;
-    color: white;
+    color: var(--main-white);
     font-size: 1rem;
 }
 .form-input > input:focus{
-    outline: 1px solid var(--primary-color-light);
+    outline: 1px solid var(--secondary-blue);
 }
 .form-checkbox{
     display: block;
@@ -403,13 +415,13 @@ form{
     padding: .5rem 1rem;
     border-radius: 8px;
     background-color: #2A2C37;
-    color: white;
+    color: var(--main-white);
     font-size: large;
-    outline: 1px solid white;
+    outline: 1px solid var(--main-white);
     margin: 0 1rem;
 }
 .input-select:focus{
-    outline: 1px solid var(--primary-color-light);
+    outline: 1px solid var(--secondary-blue);
 }
 .input-radio-group{
     display: flex;
@@ -419,8 +431,8 @@ form{
     font-size: small;
 }
 .alert-error{
-    color: red;
+    color: var(--alert-red);
 }
 form > button:hover{
-    background-color: var(--primary-color-light);
+    background-color: var(--secondary-blue);
 }
