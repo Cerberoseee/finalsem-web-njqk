@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <?php
-                    if($isLogin){
+                    if($isLogin && $_GET['id'] === $account['userId']){
                         ?>
                         <div class="col-6">
                             <div class="profile__feature float-right">
