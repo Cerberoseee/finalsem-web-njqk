@@ -24,8 +24,8 @@
     }
 
     // item in list of videos
-    function itemVideoHTML($colPC){
-        videoItem_List($colPC);
+    function itemVideoHTML(){
+        videoItem_List();
     }
     // item playlist of videos
     function itemPlaylistHTML(){

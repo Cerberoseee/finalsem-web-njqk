@@ -7,7 +7,6 @@
         $isLogin = true;
         $account = $_SESSION['account'];
     }
-    $colPC = 2;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -83,12 +82,12 @@
                         </div>
                     </div>
                     <div class="row profile__video-list">
-                        <?=itemVideoHTML($colPC)?>
-                        <?=itemVideoHTML($colPC)?>
-                        <?=itemVideoHTML($colPC)?>
-                        <?=itemVideoHTML($colPC)?>
-                        <?=itemVideoHTML($colPC)?>
-                        <?=itemVideoHTML($colPC)?>
+                        <?=itemVideoHTML()?>
+                        <?=itemVideoHTML()?>
+                        <?=itemVideoHTML()?>
+                        <?=itemVideoHTML()?>
+                        <?=itemVideoHTML()?>
+                        <?=itemVideoHTML()?>
                     </div>
                 </div>
             </div>
@@ -102,12 +101,12 @@
                         </div>
                     </div>
                     <div class="row profile__video-list">
-                        <?=itemVideoHTML($colPC)?>
-                        <?=itemVideoHTML($colPC)?>
-                        <?=itemVideoHTML($colPC)?>
-                        <?=itemVideoHTML($colPC)?>
-                        <?=itemVideoHTML($colPC)?>
-                        <?=itemVideoHTML($colPC)?>
+                        <?=itemVideoHTML()?>
+                        <?=itemVideoHTML()?>
+                        <?=itemVideoHTML()?>
+                        <?=itemVideoHTML()?>
+                        <?=itemVideoHTML()?>
+                        <?=itemVideoHTML()?>
                     </div>
                 </div>
             </div>

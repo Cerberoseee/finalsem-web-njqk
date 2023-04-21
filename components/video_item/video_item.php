@@ -1,8 +1,8 @@
 <?php
-    function videoItem_List($colPC){
+    function videoItem_List(){
         $url = $_SESSION["url"];
         ?>
-        <div class="col-<?=$colPC?> col-md-3 col-sm-6">
+        <div class="col-2 col-md-3 col-sm-6">
             <a href="<?=$url?>/watch.php">
                 <div class="profile__video-item">
                     <div class="pr-video-item__img">

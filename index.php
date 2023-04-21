@@ -1,7 +1,6 @@
 <?php
     require_once('./components/layout.php');
     $url = $_SESSION["url"];
-    $colPC = 3;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,12 +34,12 @@
                     </div>
                 </div>
                 <div class="row profile__video-list">
-                    <?=itemVideoHTML($colPC)?>
-                    <?=itemVideoHTML($colPC)?>
-                    <?=itemVideoHTML($colPC)?>
-                    <?=itemVideoHTML($colPC)?>
-                    <?=itemVideoHTML($colPC)?>
-                    <?=itemVideoHTML($colPC)?>
+                    <?=itemVideoHTML()?>
+                    <?=itemVideoHTML()?>
+                    <?=itemVideoHTML()?>
+                    <?=itemVideoHTML()?>
+                    <?=itemVideoHTML()?>
+                    <?=itemVideoHTML()?>
                 </div>
             </div>
         </div>
@@ -54,17 +53,17 @@
                     </div>
                 </div>
                 <div class="row profile__video-list">
-                    <?=itemVideoHTML($colPC)?>
-                    <?=itemVideoHTML($colPC)?>
-                    <?=itemVideoHTML($colPC)?>
-                    <?=itemVideoHTML($colPC)?>
-                    <?=itemVideoHTML($colPC)?>
-                    <?=itemVideoHTML($colPC)?>
-                    <?=itemVideoHTML($colPC)?>
-                    <?=itemVideoHTML($colPC)?>
-                    <?=itemVideoHTML($colPC)?>
-                    <?=itemVideoHTML($colPC)?>
-                    <?=itemVideoHTML($colPC)?>
+                    <?=itemVideoHTML()?>
+                    <?=itemVideoHTML()?>
+                    <?=itemVideoHTML()?>
+                    <?=itemVideoHTML()?>
+                    <?=itemVideoHTML()?>
+                    <?=itemVideoHTML()?>
+                    <?=itemVideoHTML()?>
+                    <?=itemVideoHTML()?>
+                    <?=itemVideoHTML()?>
+                    <?=itemVideoHTML()?>
+                    <?=itemVideoHTML()?>
                 </div>
             </div>
         </div>
