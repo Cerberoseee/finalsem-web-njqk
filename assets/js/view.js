@@ -1,3 +1,4 @@
+import { profile } from '../../AJAX/fetch.js';
 import {$, $$} from './module/config.js';
 import * as conf from './module/config.js';
 const app = (()=>{
@@ -30,7 +31,7 @@ const app = (()=>{
     }catch(e){
         errorText += e;
     }
-
+    
     try{
         // Change state of btn group
         const btn_groups = $$('.btn-group');
@@ -47,21 +48,6 @@ const app = (()=>{
         });
     }
     catch(e){
-        errorText += e;
-    }
-
-    try{
-        // Change state of profile__filter
-        const profile__filter = $('.profile-filter-list').querySelectorAll('.profile-filter-item');
-        profile__filter.forEach(element => {
-            element.onclick = ()=>{
-                profile__filter.forEach(emt=>{
-                    emt.classList.remove('active');
-                });
-                element.classList.add('active');
-            }
-        });
-    }catch(e){
         errorText += e;
     }
 

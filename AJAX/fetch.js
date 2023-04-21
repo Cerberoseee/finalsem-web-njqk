@@ -64,10 +64,13 @@ export function profile(id){
     .then(res=>{
         if(res.status === true){
             const account = res.data;
-            $('.profile__avatar-img').url = url+account.avatarPath;
+            $('.profile__avatar-img').src = url+"api/"+account.avatarPath;
             $('.profile__name').innerText = account.channelName;
             $('.profile__tag').innerText = "@"+account.username;
             $('.profile__bio').innerText = account.bio;
+            $('.pr-about__day').innerText = account.dateOfBirth;
+            $('.pr-about__email').innerText = account.email;
+            $('.pr-about__createAt').innerText = account.dateCreated;
         }else{
             console.log("error");
         }

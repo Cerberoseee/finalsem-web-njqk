@@ -615,3 +615,13 @@ body{
 .wrapper__carousel  > i:last-child{
     right: -24px;
 }
+.profile__list-url{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.profile__home, .profile__playlist, .profile__liked,
+.profile__videos, .profile__about{
+    display: none;
+}
