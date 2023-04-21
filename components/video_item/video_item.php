@@ -2,7 +2,7 @@
     function videoItem_List(){
         $url = $_SESSION["url"];
         ?>
-        <div class="col-2 col-md-3 col-sm-6">
+        <div class="col-2 col-lg-3 col-md-4 col-sm-6">
             <a href="<?=$url?>/watch.php">
                 <div class="profile__video-item">
                     <div class="pr-video-item__img">
@@ -27,7 +27,7 @@
     function videoItem_Playlist(){
         $url = $_SESSION["url"];
         ?>
-        <div class="col-2 col-md-3 col-sm-6">
+        <div class="col-2 col-lg-3 col-md-4 col-sm-6">
             <a href="<?=$url?>/watch.php?playlist=sf08s7df9">
                 <div class="profile__video-playlist">
                     <div class="pr-video-item__img">

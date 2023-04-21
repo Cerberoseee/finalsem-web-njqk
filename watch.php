@@ -1,5 +1,6 @@
 <?php
     require_once('./components/layout.php');
+    $url = $_SESSION['url'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,5 +18,6 @@
     </div>
     <!-- Loading scripts -->
     <?=scripts()?>
+    <script src="<?=$url?>/assets/js/videoplayer.js"></script>
 </body>
 </html>
