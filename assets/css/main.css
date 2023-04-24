@@ -554,6 +554,7 @@ body{
     object-fit: cover;
     display: inline-block;
     border-radius: 12px;
+    margin-left: 12px;
 }
 .carousel__item:first-child, .carousel__item:last-child{
     margin-left: 0;
@@ -624,4 +625,67 @@ body{
 .profile__home, .profile__playlist, .profile__liked,
 .profile__videos, .profile__about{
     display: none;
+}
+.profile__info-group{
+    margin-top: 1rem;
+}
+.profile__info-group > .profile__info-input{
+    padding: 12px 16px;
+    border: 1px solid var(--secondary-blue);
+    border-radius: 12px;
+    display: inline-block;
+    margin-top: 0.5rem;
+}
+.profile__info-group > .profile__info-input:focus{
+    outline: 1px solid var(--secondary-blue);
+}
+.profile__info-group > .profile__info-input::after{
+    content: "15/30";
+    position: relative;
+    font-size: smaller;
+    color: var(--main-grey);
+    margin-left: 24px;
+}
+.form-input.profile__info-gender{
+    flex-direction: row;
+}
+.form-input.profile__info-dob{
+    flex-direction: unset;
+}
+.container__profile.container__profile--manage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.container__profile--manage .profile__avatar{
+    left: 50%;
+    transform: translateX(-50%);
+}
+.cell__video-img > img{
+    max-width: 200px;
+    max-height: 150px;
+    border-radius: 12px;
+}
+.cell__video{
+    display: flex;
+    flex-direction: row;
+}
+.cell__video-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.cell__video-functions > ul > li{
+    margin: 0 6px;
+}
+.table__videos{
+    background-color: var(--secondary-background);
+    padding: 1rem 2rem;
+    border-radius: 12px;
+}
+.table__videos > tbody > tr > td{
+    padding: 12px 48px;
+    vertical-align: top;
+    font-weight: 200;
 }

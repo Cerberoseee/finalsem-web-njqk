@@ -48,6 +48,7 @@
 ::-webkit-scrollbar-thumb:hover {
     background: var(--secondary-blue);
 }
+.hr-color{ border: 1px solid var(--disable-grey);}
 .d-block{display: block !important;}
 .d-flex{display: flex !important;}
 .d-none{display: none !important;} 
