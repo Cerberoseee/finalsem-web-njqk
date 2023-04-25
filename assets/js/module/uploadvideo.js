@@ -100,14 +100,18 @@ import {$,$$} from './config.js';
     const selectThumbnail = $('#upload_thumb'); //For upload thumbnail
     
 
-    const formUpload = {
-        userId: JSON.parse(sessionStorage.profile).userId,
-        video: "",
-        thumbnail: "",
-        title: "",
-        description: "",
-        tags: "",
-        age_restric: "",
+    try{
+        const formUpload = {
+            userId: JSON.parse(sessionStorage.profile).userId,
+            video: "",
+            thumbnail: "",
+            title: "",
+            description: "",
+            tags: "",
+            age_restric: "",
+        }
+    }catch(e){
+        
     }
     // Select file for video
     selectVideo.onclick=()=>{

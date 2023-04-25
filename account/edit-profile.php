@@ -53,19 +53,19 @@
                     <div class="profile__info">
                         <div class="profile__info-group">
                             <div class="d-block" for="">Profile name</div>
-                            <span class="profile__info-input profile__name" contenteditable>Shigeo Tokuda</span>
+                            <span id="profilename" class="profile__info-input profile__info-input--limited profile__name" contenteditable>Shigeo Tokuda</span>
                         </div>
                         <div class="profile__info-group">
                             <div class="d-block" for="">User name</div>
-                            <span class="profile__info-input profile__tag" contenteditable>@tokuda.jav</span>
+                            <span class="profile__info-input profile__info-input--limited profile__tag" contenteditable>tokuda.jav</span>
                         </div>
                         <div class="profile__info-group">
                             <div class="d-block" for="">Bio</div>
-                            <span class="profile__info-input profile__bio" contenteditable>Actor</span>
+                            <span class="profile__info-input profile__info-input--limited profile__bio" contenteditable>Actor</span>
                         </div>
                         <div class="profile__info-group">
                             <div class="d-block" for="">About</div>
-                            <span class="profile__info-input profile__about" contenteditable>
+                            <span class="profile__info-input profile__info-input--limited profile__about" contenteditable>
                             Hello, I'm Ryo Yamada. I play a range of popular video games and music make content on those stuff. Maybe you like horror games, or funny games, or comedy sketches, or animations, or compilations, or reactions, or reviews, or challenges, or cryptic lore, or mind-crippling ennui, or stuff-that-is-guaranteed-to-probably-make-you-cry? Whatever you're into I'm sure there's something for you down in the briny deep of my video page. So why not dive in?
 Enjoy my interesting yet crude music.
 The subject matter of the content on this channel is intended for audiences 13+ and in some cases 17+ . Viewer discretion is advised.
@@ -111,5 +111,6 @@ The subject matter of the content on this channel is intended for audiences 13+ 
     </div>
     <!-- Loading scripts -->
     <?=scripts()?>
+    <script src="<?=$url?>/assets/js/module/edit-profile.js" type="module"></script>
 </body>
 </html>
