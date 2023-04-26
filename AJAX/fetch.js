@@ -79,22 +79,49 @@ export function profile(id){
 
 // Upload video
 export function upload_video(form){
-    var xhr = new XMLHttpRequest();
-    xhr.open("post", `${url}api/upload-video.php`);
-    xhr.upload.addEventListener("progress", ({loaded, total})=>{
-        let fileLoad = Math.floor((loaded / total) * 100);
-        let fileTotal = Math.floor(total / 1000);
-        
-        var proHTML = `
-        <span>
-            <i class="fa-solid fa-upload"></i>
-            </span>
-            <span>
-                Uploading... <span id="percent__numbers">${fileLoad}</span>%
-            </span>
-        <span class="upload__percent-progress"></span>
-        `;
-        $('upload__percent').innerHTML = proHTML;
+    const fileInput = document.getElementById('fileInput');
+    const file = fileInput.files[0];
+    const formData = new FormData();
+    formData.append('file', file);
+
+    const xhr = new XMLHttpRequest();
+
+    xhr.upload.addEventListener('progress', (event) => {
+    if (event.lengthComputable) {
+        const progressPercentage = Math.round((event.loaded / event.total) * 100);
+        console.log(`Upload progress: ${progressPercentage}%`);
+    }
     });
-    xhr.send(form);
+
+    xhr.open('POST', 'upload.php');
+    xhr.onload = () => {
+    if (xhr.status === 200) {
+        console.log('File uploaded successfully:', xhr.responseText);
+    } else {
+        console.error('Failed to upload file:', xhr.statusText);
+    }
+    };
+    xhr.onerror = () => {
+    console.error('Failed to upload file:', xhr.statusText);
+    };
+    xhr.send(formData);
+
+    // var xhr = new XMLHttpRequest();
+    // xhr.open("post", `${url}api/upload-video.php`);
+    // xhr.upload.addEventListener("progress", ({loaded, total})=>{
+    //     let fileLoad = Math.floor((loaded / total) * 100);
+    //     let fileTotal = Math.floor(total / 1000);
+        
+    //     var proHTML = `
+    //     <span>
+    //         <i class="fa-solid fa-upload"></i>
+    //         </span>
+    //         <span>
+    //             Uploading... <span id="percent__numbers">${fileLoad}</span>%
+    //         </span>
+    //     <span class="upload__percent-progress"></span>
+    //     `;
+    //     $('upload__percent').innerHTML = proHTML;
+    // });
+    // xhr.send(form);
 }
