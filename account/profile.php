@@ -35,8 +35,8 @@
                         ?>
                         <div class="col-6">
                             <div class="profile__feature float-right">
-                                <a href="<?=$url?>account/profile.php?id=<?=$account["userId"]?>&type=edit" class="btn btn-outline-primary rounded">Edit profile</a>
-                                <a href="<?=$url?>account/profile.php?id=<?=$account["userId"]?>&type=manage" class="btn btn-primary rounded">Manage videos</a>
+                                <a href="<?=$url?>account/edit-profile.php" class="btn btn-outline-primary rounded">Edit profile</a>
+                                <a href="<?=$url?>account/manage-video.php" class="btn btn-primary rounded">Manage videos</a>
                             </div>
                         </div>
                         <?php
