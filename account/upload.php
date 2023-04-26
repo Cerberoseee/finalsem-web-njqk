@@ -6,7 +6,7 @@
     if(isset($_SESSION["account"])){
         $isLogin = true;
         $account = $_SESSION['account'];
-    }
+    } 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -123,6 +123,7 @@
                                 <img id="upload_input" src="<?=$url?>/assets/imgs/Browse-video-button.png" alt="">
                                 <span class="my-1">Select a video file to upload</span>
                                 <div class="video__preview text-center">
+                                  <!-- Nho them AJAX vao cho nay !-->
                                     <span>Preview</span>
                                     <video class="d-block" id="video__preview-src" controls>
                                         <source>

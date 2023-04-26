@@ -2,7 +2,6 @@
   require_once("db-connection.php");
 
   $userId = isset($_POST["userId"]) ? $_POST["userId"] : null;
-  $videoId = isset($_POST["videoId"]) ? $_POST["videoId"] : null;
   $file = isset($_FILES) ? $_FILES : null;
 
 
