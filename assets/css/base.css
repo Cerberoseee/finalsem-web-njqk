@@ -209,6 +209,9 @@ a{
     color: white;
     background-color: var(--main-blue);
 }
+.btn-primary:hover{
+    background-color: var(--secondary-blue);
+}
 .btn-outline-primary{
     background-color: transparent;
     border: var(--secondary-blue) 1px solid;
@@ -406,14 +409,17 @@ form{
     font-weight: lighter;
     font-size: medium;
 }
-.form-input > input{
+.form-input > input, .form-input > textarea{
     margin-top: 8px;
-    background-color: #2A2C37;
+    background-color: var(--secondary-background);
     border: 1px solid var(--main-grey);
     padding: .6rem 1.2rem;
     border-radius: 8px;
     color: var(--main-white);
     font-size: 1rem;
+}
+.form-input > textarea{
+    height: 200px;
 }
 .form-input > input:focus{
     outline: 1px solid var(--secondary-blue);

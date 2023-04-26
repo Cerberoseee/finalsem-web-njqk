@@ -76,3 +76,25 @@ export function profile(id){
         }
     })
 }
+
+// Upload video
+export function upload_video(form){
+    var xhr = new XMLHttpRequest();
+    xhr.open("post", `${url}api/upload-video.php`);
+    xhr.upload.addEventListener("progress", ({loaded, total})=>{
+        let fileLoad = Math.floor((loaded / total) * 100);
+        let fileTotal = Math.floor(total / 1000);
+        
+        var proHTML = `
+        <span>
+            <i class="fa-solid fa-upload"></i>
+            </span>
+            <span>
+                Uploading... <span id="percent__numbers">${fileLoad}</span>%
+            </span>
+        <span class="upload__percent-progress"></span>
+        `;
+        $('upload__percent').innerHTML = proHTML;
+    });
+    xhr.send(form);
+}

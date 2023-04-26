@@ -43,7 +43,7 @@
                     </div>
                     <div class="form-input">
                         <label>Phone</label>
-                        <input id="phone" type="number" name="phone" placeholder="Phone number">
+                        <input id="phone" type="text" name="phone" placeholder="Phone number">
                         <small class="alert-error"></small>
                     </div>
                     <div class="form-input-group">
