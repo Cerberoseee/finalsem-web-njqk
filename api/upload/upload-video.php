@@ -1,14 +1,13 @@
 <?php 
-  require_once("db-connection.php");
+  require_once("../db-connection.php");
 
   $userId = isset($_POST["userId"]) ? $_POST["userId"] : null;
   $file = isset($_FILES) ? $_FILES : null;
   $title = isset($_POST["title"]) ? $_POST["title"] : null;
-
   function processThumbnailUpload($file, $videoId) {
     $path = "../../uploads/videos/" . $videoId;
     if ( ! is_dir($path)) {
-      mkdir($path);
+      mkdir($path, 0777, true);
     }
     move_uploaded_file($file["tmp_name"], $path . "/" . basename("thumbnail.") . pathinfo($file["name"], PATHINFO_EXTENSION));
 
@@ -18,8 +17,9 @@
   function processVideoUpload($file, $videoId) {
     $path = "../../uploads/videos/" . $videoId ;
     if ( ! is_dir($path)) {
-      mkdir($path);
+      mkdir($path, 0777, true);
     }
+    
     move_uploaded_file($file["tmp_name"], $path . "/" . basename("video.") . pathinfo($file["name"], PATHINFO_EXTENSION));
 
     return "uploads/videos/" . $videoId . "/" . basename("thumbnail.") . pathinfo($file["name"], PATHINFO_EXTENSION);
@@ -36,8 +36,10 @@
     //SQL Execution here
 
 
-    unlink("../../uploads/videos/temp/" . $userId . "/" . basename("video.") . pathinfo($file["name"], PATHINFO_EXTENSION));
-    echo json_encode(array("status" => "true", "content" => "Upload success"));
+    //unlink("../../uploads/videos/temp/" . $userId . "/" . basename("video.") . pathinfo($file["video"]["name"], PATHINFO_EXTENSION));
+    echo json_encode(array("status" => true, "header" =>
+      array("content" => "Upload sucessfully", "id"=> $videoId)
+    ));
   }
 
 ?>

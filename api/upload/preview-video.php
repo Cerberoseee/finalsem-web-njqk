@@ -1,5 +1,5 @@
 <?php 
-  require_once("db-connection.php");
+  require_once("../db-connection.php");
   $file = isset($_FILES) ? $_FILES : null;
   $userId = isset($_POST["userId"]) ? $_POST["userId"] : null;
 

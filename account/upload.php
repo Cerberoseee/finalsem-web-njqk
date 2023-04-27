@@ -192,7 +192,15 @@
                             <button class="btn btn-primary">BACK</button>
                         </div>
                         <div class="upload__percent text-fade">
-                            
+                            <span>
+                                <i class="fa-solid fa-upload"></i>
+                                </span>
+                                <span>
+                                    Uploading... <span id="percent__numbers">0</span>%
+                                </span>
+                            <div class="upload__percent-progress">
+                                <span class="upload__percent-progress-1"></span>
+                            </div>
                         </div>
                         <div class="upload__footer-forward">
                             <button class="btn btn-primary">NEXT</button>

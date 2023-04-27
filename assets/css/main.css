@@ -764,21 +764,17 @@ body{
     border-radius: 12px;
     width: 200px;
     background-color: var(--main-grey);
-    display: inline-block;
     position: relative;
-    z-index: 40;
+
 }
-.upload__percent-progress::after{
-    content: "";
-    background-color: var(--secondary-blue);
-    position: absolute;
-    width: 69%;
+.upload__percent-progress-1{
     height: 4px;
-    display: inline-block;
-    bottom: 0;
-    z-index: 39;
     border-radius: 12px;
+    width: 0%;
+    background-color: var(--main-blue);
+    position: absolute;
 }
+
 .upload__thumbnail{
     text-align: center;
 }
@@ -831,3 +827,4 @@ body{
     max-width: 400px;
 }
 #btn_confirm{display: block;}
+.upload__percent{display: none;}

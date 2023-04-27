@@ -1,4 +1,5 @@
 import {$,$$} from './config.js';
+import { upload_video } from '../../../AJAX/fetch.js';
 (()=>{
     const stepSate = {
         state: 0,
@@ -16,7 +17,11 @@ import {$,$$} from './config.js';
                 if(param === 5){
                     $('.upload__footer-forward').querySelector('button').style.display = "none";
                     $('#btn_confirm').style.display = "block";
-                }else{
+                }else if(param > 5){
+                    $('.upload__footer-forward').querySelector('button').style.display = "none";
+                    $('#btn_confirm').style.display = "none";
+                }
+                else{
                     $('#btn_confirm').style.display = "none";
                     $('.upload__footer-forward').querySelector('button').style.display = "block";
                 }
@@ -100,18 +105,15 @@ import {$,$$} from './config.js';
     const selectThumbnail = $('#upload_thumb'); //For upload thumbnail
     
 
-    try{
-        const formUpload = {
-            userId: JSON.parse(sessionStorage.profile).userId,
-            video: "",
-            thumbnail: "",
-            title: "",
-            description: "",
-            tags: "",
-            age_restric: "",
-        }
-    }catch(e){
-        
+    
+    const formUpload = {
+        userId: JSON.parse(sessionStorage.profile).userId,
+        video: "",
+        thumbnail: "",
+        title: "",
+        description: "",
+        tags: "",
+        age_restric: "",
     }
     // Select file for video
     selectVideo.onclick=()=>{
@@ -154,6 +156,7 @@ import {$,$$} from './config.js';
         formUpload.tags = $('#tags').value;
         formUpload.age_restric = $('input[name="age"]:checked').value;
         console.log(formUpload);
+        upload_video(formUpload);
     }
 
 })();

@@ -79,49 +79,47 @@ export function profile(id){
 
 // Upload video
 export function upload_video(form){
-    const fileInput = document.getElementById('fileInput');
-    const file = fileInput.files[0];
-    const formData = new FormData();
-    formData.append('file', file);
+
+    var data = new FormData();
+    data.append('userId', form.userId);
+    data.append('video', form.video);
+    data.append('thumbnail', form.thumbnail);
+    data.append('title', form.title);
+    data.append('description', form.description);
+    data.append('tags', form.tags);
+    data.append('age_restric', form.age_restric);  
+
 
     const xhr = new XMLHttpRequest();
+    xhr.open("POST", `${url}api/upload/upload-video.php`, true);
 
-    xhr.upload.addEventListener('progress', (event) => {
-    if (event.lengthComputable) {
-        const progressPercentage = Math.round((event.loaded / event.total) * 100);
-        console.log(`Upload progress: ${progressPercentage}%`);
-    }
+    xhr.upload.addEventListener("progress", function(event) {
+        const progress = Math.round((event.loaded / event.total) * 100);
+        console.log(`File uploading progress: ${progress.toFixed(2)}%`);
+        const uploadview = $('.upload__percent');
+        uploadview.style.display = "block";
+        percent__numbers.innerText = progress;
+        $('.upload__percent-progress-1').style.width = progress + "%";
     });
 
-    xhr.open('POST', 'upload.php');
-    xhr.onload = () => {
-    if (xhr.status === 200) {
-        console.log('File uploaded successfully:', xhr.responseText);
-    } else {
-        console.error('Failed to upload file:', xhr.statusText);
-    }
-    };
-    xhr.onerror = () => {
-    console.error('Failed to upload file:', xhr.statusText);
-    };
-    xhr.send(formData);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                const res = JSON.parse(xhr.responseText);
+                if(res.status === true){
+                    let header = res.header;
+                    window.setTimeout(()=> {
+                        window.location.href = `${url}/watch.php?video=${header.id}`;
+                    }, 3000);
 
-    // var xhr = new XMLHttpRequest();
-    // xhr.open("post", `${url}api/upload-video.php`);
-    // xhr.upload.addEventListener("progress", ({loaded, total})=>{
-    //     let fileLoad = Math.floor((loaded / total) * 100);
-    //     let fileTotal = Math.floor(total / 1000);
-        
-    //     var proHTML = `
-    //     <span>
-    //         <i class="fa-solid fa-upload"></i>
-    //         </span>
-    //         <span>
-    //             Uploading... <span id="percent__numbers">${fileLoad}</span>%
-    //         </span>
-    //     <span class="upload__percent-progress"></span>
-    //     `;
-    //     $('upload__percent').innerHTML = proHTML;
-    // });
-    // xhr.send(form);
+                }else{
+                    console.error("Error to upload");
+                }
+            } else {
+                console.error("Error: " + xhr.status);
+            }
+        }
+    };
+
+    xhr.send(data);
 }
