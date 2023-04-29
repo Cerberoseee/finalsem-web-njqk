@@ -188,10 +188,10 @@ const app = (()=>{
     // Account navigation
     try{
         $('#nav__avatar-id').onclick = ()=>{
-            if($('.nav__profile-options').style.display === "none"){
-                $('.nav__profile-options').style.display = "block";
-            }else{
+            if($('.nav__profile-options').style.display == "block"){
                 $('.nav__profile-options').style.display = "none";
+            }else{
+                $('.nav__profile-options').style.display = "block";
             }
         }
         

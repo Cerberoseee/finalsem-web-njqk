@@ -125,7 +125,7 @@
                     if($isLogin){
                         ?>
                         <li>
-                            <a href="<?=$url?>/account/setting.php>">
+                            <a href="<?=$url?>/account/setting.php">
                                 <span class="mr-h-5">
                                     <i class="fa-solid fa-gear"></i>
                                 </span>
