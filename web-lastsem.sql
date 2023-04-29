@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 29, 2023 at 06:16 PM
+-- Generation Time: Apr 29, 2023 at 06:28 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.5
 
@@ -55,7 +55,7 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`userId`, `email`, `password`) VALUES
+REPLACE INTO `users` (`userId`, `email`, `password`) VALUES
 ('1067903176', 'minhky.book@gmailfgdfgdfg.com', '$2y$10$KHaiXYN4mDD0R81czWr.0uqvvftUbHB1TQaJAJl2W/4izOV6GCFky'),
 ('1996292138', 'minhky.book123@gmail.com', '$2y$10$5q6.lNv7uArV/Rkh1OM68ODSnhvHWVes9Kp39J853IQEe4KOmdlXG'),
 ('315051053', 'tranlethaison123@gmail.com', '$2y$10$d8Ln.aAeLVaa7XhoDSddIuTCVokaWiDx0d7ON9am5eL.pXcouncQ2'),
@@ -89,7 +89,7 @@ CREATE TABLE `users_account` (
 -- Dumping data for table `users_account`
 --
 
-INSERT INTO `users_account` (`userId`, `channelName`, `bio`, `dateCreated`, `avatarPath`, `role`, `status`, `about`, `gender`, `location`, `followers`, `backgroundPath`) VALUES
+REPLACE INTO `users_account` (`userId`, `channelName`, `bio`, `dateCreated`, `avatarPath`, `role`, `status`, `about`, `gender`, `location`, `followers`, `backgroundPath`) VALUES
 ('1067903176', 'Minh Kỳ', '', '2023-04-17', '/assets/default/avatar.jpg', 'user', 'verify', '', '', '', 0, ''),
 ('1996292138', 'Minh Kỳ', '', '2023-04-17', '/assets/default/avatar.jpg', 'user', 'verify', '', '', '', 0, ''),
 ('315051053', 'Son Tran', '', '2023-04-26', '/assets/default/avatar.jpg', 'user', 'active', '', '', '', 0, ''),
@@ -116,7 +116,7 @@ CREATE TABLE `users_info` (
 -- Dumping data for table `users_info`
 --
 
-INSERT INTO `users_info` (`userId`, `fullName`, `username`, `phoneNumber`, `dateOfBirth`) VALUES
+REPLACE INTO `users_info` (`userId`, `fullName`, `username`, `phoneNumber`, `dateOfBirth`) VALUES
 ('1067903176', 'Minh Kỳ', 'minhky.book', '079824452342', '2023-01-01'),
 ('1996292138', 'Minh Kỳ', 'minhky.jav', '645645642', '2023-01-01'),
 ('315051053', 'Son Tran', 'cerberose', '0914811647', '1996-11-24'),
@@ -142,7 +142,7 @@ CREATE TABLE `users_token` (
 -- Dumping data for table `users_token`
 --
 
-INSERT INTO `users_token` (`userToken`, `userId`, `role`, `createdAt`) VALUES
+REPLACE INTO `users_token` (`userToken`, `userId`, `role`, `createdAt`) VALUES
 ('036e4b2aae653602af383a61bbb6efc2', '537518991', 1, '2023-04-17 17:14:15'),
 ('12ca9c72f57760f15e3a4ed87e97a76d', '469900228', 1, '2023-04-17 17:04:37'),
 ('141509fdb9cf946999427307346b18a7', '4168852681', 1, '2023-04-17 17:03:20'),
