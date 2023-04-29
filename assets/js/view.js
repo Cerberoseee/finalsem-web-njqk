@@ -185,5 +185,19 @@ const app = (()=>{
         console.log(e);
         errorText+= e;
     }
+    // Account navigation
+    try{
+        $('#nav__avatar-id').onclick = ()=>{
+            if($('.nav__profile-options').style.display === "none"){
+                $('.nav__profile-options').style.display = "block";
+            }else{
+                $('.nav__profile-options').style.display = "none";
+            }
+        }
+        
+    }
+    catch(e){
+        errorText += e;
+    }
     console.error(errorText);
 })();

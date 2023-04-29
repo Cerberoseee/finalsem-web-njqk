@@ -162,6 +162,15 @@
             <div class="nav__search">
                 <span id="nav__search-icon" title="Click here to search video"><img src="<?=$url?>/assets/icons/search.svg" alt="search icon"></span>
                 <input class="nav_search-input" type="search" placeholder="Search..."/>
+                <div class="nav__search-list">
+                    <ul>
+                        <li><a href="<?=$url?>/search.php?keyword=">Một trời đã xa</a></li>
+                        <li><a href="<?=$url?>/search.php?keyword=">Một trời đã xa</a></li>
+                        <li><a href="<?=$url?>/search.php?keyword=">Một trời đã xa</a></li>
+                        <li><a href="<?=$url?>/search.php?keyword=">Một trời đã xa</a></li>
+                        <li><a href="<?=$url?>/search.php?keyword=">Một trời đã xa</a></li>
+                    </ul>
+                </div>
             </div>
             <div class="nav__account">
                 <div class="nav__notification" title="Notifications">
@@ -170,10 +179,7 @@
                     </span>
                     <div class="nav__noti-list">
                         <ul>
-                            <li>1. Bạn đã được 10 like</li>
-                            <li>1. </li>
-                            <li>1. </li>
-                            <li>1. </li>
+                            <li class="text-fade">No any notifications</li>
                         </ul>
                     </div>
                 </div>
@@ -183,9 +189,54 @@
                     if($isLogin){
                         ?>
                         <div class="nav__avatar" title="Your account management">
-                            <a href="<?=$url?>/account/profile.php?id=<?=$account['userId']?>">
-                                <img src="<?=$url?>/api/<?=$account["avatarPath"]?>" alt="SVG Image">
-                            </a>
+                            <img id="nav__avatar-id" src="<?=$url?>/api/<?=$account["avatarPath"]?>" alt="SVG Image">
+                            <div class="nav__profile-options">
+                                <div class="profile-options__info mb-1">
+                                    <img src="<?=$url?>/api/<?=$account["avatarPath"]?>" alt="SVG Image">
+                                    <div class="profile-options__info-details ml-h-5">
+                                        <h3  class="profile-options__info-name">Minh Kỳ</h3>
+                                        <span  class="profile-options__info-username text-fade">@minhky0211</span>
+                                    </div>
+                                </div>
+                                <hr class="hr-color">
+                                <ul class="profile-options__list">
+                                    <li>
+                                        <a href="<?=$url?>/account/profile.php?id=<?=$account["userId"]?>" class="profile-options__item">
+                                            <img src="<?=$url?>/assets/icons/Profile expand/Menu/Icon/Profile.svg" alt="">
+                                            <span class="ml-h-5">Your channel</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="<?=$url?>/account/manage-video.php" class="profile-options__item">
+                                            <img src="<?=$url?>/assets/icons/Profile expand/Menu/Icon/managevideo.svg" alt="">
+                                            <span class="ml-h-5">Manage video</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="profile-options__item">
+                                            <img src="<?=$url?>/assets/icons/Profile expand/Menu/Icon/Darkmode.svg" alt="">
+                                            <span class="ml-h-5">Dark mode</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="<?=$url?>/account/setting.php" class="profile-options__item">
+                                            <img src="<?=$url?>/assets/icons/Profile expand/Menu/Icon/Setting.svg" alt="">
+                                            <span class="ml-h-5">Setting</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <hr class="hr-color">
+                                <ul class="profile-options__list">
+                                    <li>
+                                        <a href="<?=$url?>logout.php" class="profile-options__item">
+                                            <img src="<?=$url?>/assets/icons/Profile expand/Menu/Icon/Log out.svg" alt="">
+                                            <span class="ml-h-5">Logout</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- <a href="<?=$url?>/account/profile.php?id=<?=$account['userId']?>">
+                            </a> -->
                         </div>
                         <?php
                     }else{
