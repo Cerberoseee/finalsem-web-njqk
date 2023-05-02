@@ -83,23 +83,7 @@ const app = (()=>{
         errorText += e;
     }
 
-    try{
-        // Showmore in description of videopage
-        let flag = false;
-        $('#showhide').onclick ??=()=>{
-            if(!flag){
-                $('#showmore').style.display = "block";
-                $('#showhide').innerText = "Show less";
-                flag = !flag;
-            }else{
-                $('#showmore').style.display = "none";
-                $('#showhide').innerText = "Show more";
-                flag = !flag;
-            }
-        }
-    }catch(e){
-        errorText += e;
-    }
+    
     try{
         $('.btn__create-follow').onclick =()=>{
             $('.btn__create-follow').innerHTML = `Followed <small><i class="fa-solid fa-check"></i></small>`;
@@ -198,6 +182,26 @@ const app = (()=>{
     }
     catch(e){
         errorText += e;
+    }
+    // Share video
+    try{
+        $('#share-video').onclick =()=>{
+            if($('.share__popup').style.display !== "block"){
+                $('.share__popup').style.display = "block";
+                $('.share__popup--src').value = window.location.href;
+            }
+        }
+        $('.share__popup-exit').onclick=()=>{
+            $('.share__popup').style.display = "none";
+            $('#copy-link').innerHTML = "Copy";
+        }
+        $('#copy-link').onclick=()=>{
+            navigator.clipboard.writeText($('.share__popup--src').value);
+            $('#copy-link').innerHTML = "Copied !";
+        }
+    }
+    catch(e){
+        errorText+=e;
     }
     console.error(errorText);
 })();

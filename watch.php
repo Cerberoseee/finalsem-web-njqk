@@ -18,6 +18,7 @@
     </div>
     <!-- Loading scripts -->
     <?=scripts()?>
+    <script src="<?=$url?>/assets/js/module/getvideo.js" type="module"></script>
     <script src="<?=$url?>/assets/js/videoplayer.js"></script>
 </body>
 </html>

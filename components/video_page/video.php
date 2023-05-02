@@ -7,10 +7,10 @@
         <div class="video__container">
             <div class="content-video">
                 <div class="video-thumbnails">
-                    <img id="thumb" src="<?=$url?>/uploads/videos/<?=$videoId?>/thumbnail.jpg" alt="">
+                    <img id="thumb" src="" alt="">
                 </div>
                 <video id="player">
-                    <source src="<?=$url?>/uploads/videos/<?=$videoId?>/video.mp4" type="video/mp4">
+                    <source id="player_src" src="" type="video/mp4">
                 </video>
             </div>
         </div>

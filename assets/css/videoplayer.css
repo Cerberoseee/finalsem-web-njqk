@@ -43,6 +43,7 @@ body {
 .content-video {
     display: flex;
     justify-content: center;
+    height: 100%;
     max-height: 800px;
 }
 
