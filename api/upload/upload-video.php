@@ -46,15 +46,25 @@
     $exec->bind_param("sssissiisssi", $videoId, $title, $description, $views, $thumbnailPath, $tags, $likes, $dislikes, $uploadTime, $status, $videoPath, $restric);
     $exec->execute();
     $error = $exec->error;
+
     if ($error) {
-        echo "Error: " . $error;
-    } else {
-        $result = $exec->get_result();
-        // do something with the result
-        echo json_encode(array("status" => true, "header" =>
-          array("content" => "Upload sucessfully", "id"=> $videoId)
-        ));
-    }
+      die("Error: " . $error);
+    } 
+
+    // do something with the result
+
+    $cm = "INSERT INTO video_channel VALUES (?, ?)";
+    $exec = $dbCon->prepare($cm);
+    $exec->bind_param("ss", $userId, $videoId);
+    $exec->execute();
+
+    if ($error) {
+      die("Error: " . $error);
+    } 
+    
+    echo json_encode(array("status" => true, "header" =>
+      array("content" => "Upload sucessfully", "id"=> $videoId)
+    ));
 
 
     
