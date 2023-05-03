@@ -1,4 +1,4 @@
-import { profile } from '../../AJAX/fetch.js';
+import { profile, search } from '../../AJAX/fetch.js';
 import {$, $$} from './module/config.js';
 import * as conf from './module/config.js';
 const app = (()=>{
@@ -104,71 +104,7 @@ const app = (()=>{
         errorText+=e;
     }
 
-    // Carousel
-    try{
-        let isDrag = false, isDragging = false, prevPageX, prevScrollLeft, posDiff;
-        const carousel = $('.carousel');
-        let firstItem = carousel.querySelectorAll('.carousel__item')[0];
-        let arrowIcons = $$('.wrapper__carousel > i');
-        let firstWidth = firstItem.clientWidth;
-        let scrollWidth = carousel.scrollWidth - carousel.clientWidth;
-
-        const showHideIcon = ()=>{
-            arrowIcons[0].style.display = carousel.scrollLeft == 0? "none":"block";
-            arrowIcons[1].style.display = carousel.scrollLeft == scrollWidth? "none":"block";
-        }
-        arrowIcons.forEach(icon=>{
-            icon.addEventListener("click", ()=>{
-                carousel.scrollLeft += icon.id == "carousel-left-arrow"? -firstWidth : firstWidth;
-                setTimeout(()=> showHideIcon(), 60);
-            });
-
-        });
-        const autoSlide = ()=> {
-            if(carousel.scrollLeft == (carousel.scrollWidth - carousel.clientWidth)) return;
-            posDiff = Math.abs(posDiff);
-            let firstItemWidth = firstItem.clientWidth;
-            let valDifference = firstItemWidth - posDiff;
-
-            if(carousel.scrollLeft > prevScrollLeft){
-                return carousel.scrollLeft += posDiff > firstItemWidth / 4? valDifference : posDiff;
-            }
-            carousel.scrollLeft -= posDiff > firstItemWidth / 4? valDifference : -posDiff;
-        }
-        const dragStart = (e)=>{
-            isDrag = true;
-            prevPageX = e.pageX || e.touches[0].pageX;
-            prevScrollLeft = carousel.scrollLeft;
-        }
-        const dragStop = ()=>{
-            carousel.classList.remove("dragging");
-            if(!isDragging) return;
-            isDragging = false;
-            isDrag = false;
-            autoSlide();
-        }
-        const dragging = (e)=>{
-            if(!isDrag) return;
-            e.preventDefault();
-            isDragging = true;
-            carousel.classList.add("dragging");
-            posDiff = (e.pageX || e.touches[0].pageX) - prevPageX;
-            carousel.scrollLeft = prevScrollLeft - posDiff;
-            showHideIcon();
-
-        }
-        carousel.addEventListener("mousemove", dragging);
-        carousel.addEventListener("touchstart", dragStart);
-
-        carousel.addEventListener("touchmove", dragging);
-        carousel.addEventListener("mousedown", dragStart)
-        carousel.addEventListener("mouseup", dragStop)
-        carousel.addEventListener("touchend", dragStop)
-        carousel.addEventListener("mouseleave", dragStop)
-    }catch(e){
-        console.log(e);
-        errorText+= e;
-    }
+    
     // Account navigation
     try{
         $('#nav__avatar-id').onclick = ()=>{
@@ -201,6 +137,18 @@ const app = (()=>{
         }
     }
     catch(e){
+        errorText+=e;
+    }
+
+    // Search video
+    try{
+        const query = $('.nav_search-input');
+        window.addEventListener("keyup", e =>{
+            if(e.key === "Enter"){
+                window.location.href = `${conf.url}/search.php?query=${query.value}`;
+            }
+        })
+    }catch(e){
         errorText+=e;
     }
     console.error(errorText);

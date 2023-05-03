@@ -33,14 +33,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row profile__video-list">
-                    <?=itemVideoHTML()?>
-                    <?=itemVideoHTML()?>
-                    <?=itemVideoHTML()?>
-                    <?=itemVideoHTML()?>
-                    <?=itemVideoHTML()?>
-                    <?=itemVideoHTML()?>
-                </div>
+                <div class="row profile__video-list profile__video-list--recommend"></div>
             </div>
         </div>
         <div class="row">

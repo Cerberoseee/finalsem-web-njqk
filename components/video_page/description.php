@@ -8,12 +8,12 @@
             <div class="video__extension my-1">
                 <div class="video__creater">
                     <div class="video__creater-avt">
-                        <img src="<?=$url?>/assets/icons/subcriberavt.png" alt="">
+                        <img id="video__creater-avt--img" src="<?=$url?>/assets/icons/subcriberavt.png" alt="">
                     </div>
                     <div class="video__creater-details">
                         <div class="creater__details-heading">
                             <span class="video__creater-name mr-h-5">John Smith</span>
-                            <span class="video__creater-subs mr-h-5">100k subcribers</span>
+                            <span class="video__creater-subs mr-h-5"><span id="video__creater-subs--text"></span> subcribers</span>
                         </div>
                         <button class="btn btn-outline-primary btn__create-follow">Follow</button>
                     </div>
@@ -45,7 +45,7 @@
                         <li>
                             <button class="btn btn__extension-share rounded">
                                 <span class="cmt__item-func-text text-align-center">
-                                    . . . 
+                                    <img src="<?=$url?>/assets/icons/threedot.svg" alt="">
                                 </span>
                             </button>
                         </li>

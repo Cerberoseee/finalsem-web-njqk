@@ -32,8 +32,9 @@
     $tags = isset($_POST["tags"]) ? $_POST["tags"] : "";
     $views = 0;
     // Change the line below to your timezone!
-    date_default_timezone_set('Asia/Ho_Chi_Minh');
-    $uploadTime = date('m/d/Y h:i:s a', time());
+    $timezone = new DateTimeZone('Asia/Ho_Chi_Minh');
+    $currentTime = new DateTime('now', $timezone);
+    $uploadTime = $currentTime->format('m/d/Y h:i:s a');
     
     $description = isset($_POST["description"]) ? $_POST["description"] : "";
     $ageRestricted = isset($_POST["age_restric"]) ? $_POST["age_restric"] : "";

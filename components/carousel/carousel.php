@@ -27,19 +27,8 @@
         ?>
         <div class="wrapper__carousel">
             <i id="carousel-left-arrow" class="fa-solid fa-arrow-left"></i>
-            <div class="carousel">
-                <?=carouselItem()?>
-                <?=carouselItem()?>
-                <?=carouselItem()?>
-                <?=carouselItem()?>
-                <?=carouselItem()?>
-                <?=carouselItem()?>
-                <?=carouselItem()?>
-                <?=carouselItem()?>
-                <?=carouselItem()?>
-                <?=carouselItem()?>
-                <?=carouselItem()?>
-                <?=carouselItem()?>
+            <div class="carousel video__trending-list">
+                
             </div>
             <i id="carousel-right-arrow" class="fa-solid fa-arrow-right"></i>
         </div>

@@ -1,13 +1,15 @@
 <?php 
-  require_once("../db-connection.php");
+  require_once("db-connection.php");
 
-  $type = isset($_POST["type"]) ? $_POST["type"] : null;
+  $data = file_get_contents("php://input");
+  $query = json_decode($data, true);
+  $type = isset($query["type"]) ? $query["type"] : null;
   //enum "user" | "search | "all" | "top" | "trend" | null
 
   switch ($type) {
     //User
     case "user":
-      $userId = isset($_POST["userid"]) ? $_POST["userid"] : null;
+      $userId = isset($query["userid"]) ? $query["userid"] : null;
 
       if ($userId != null) {
         $cm = "SELECT * FROM video 
@@ -28,15 +30,15 @@
           $data_arr[] = $row;
         }
       
-        echo json_encode(array("status" => "ok", "data" => $data_arr));
+        echo json_encode(array("status" => true, "data" => $data_arr));
       } else {
-        echo json_encode(array("status" => "failed", "data" => "Not enough parameter"));
+        echo json_encode(array("status" => false, "data" => "Not enough parameter"));
       }
       break;
 
     //Search
     case "search":
-      $title = isset($_POST["title"]) ? "%" . $_POST["title"] . "%" : null;
+      $title = isset($query["title"]) ? "%" . $query["title"] . "%" : null;
 
       if ($title != null) {
         $cm = "SELECT * FROM video 
@@ -56,9 +58,9 @@
           $data_arr[] = $row;
         }
       
-        echo json_encode(array("status" => "ok", "data" => $data_arr));
+        echo json_encode(array("status" => true, "data" => $data_arr));
       } else {
-        echo json_encode(array("status" => "failed", "data" => "Not enough parameter"));
+        echo json_encode(array("status" => false, "data" => "Not enough parameter"));
       }
       break;
 
@@ -79,7 +81,7 @@
         $data_arr[] = $row;
       }
 
-      echo json_encode(array("status" => "ok", "data" => $data_arr));
+      echo json_encode(array("status" => true, "data" => $data_arr));
       break;
 
     //Top view
@@ -100,7 +102,7 @@
         $data_arr[] = $row;
       }
 
-      echo json_encode(array("status" => "ok", "data" => $data_arr));
+      echo json_encode(array("status" => true, "data" => $data_arr));
       break;
 
     //Trending
@@ -121,12 +123,12 @@
         $data_arr[] = $row;
       }
 
-      echo json_encode(array("status" => "ok", "data" => $data_arr));
+      echo json_encode(array("status" => true, "data" => $data_arr));
       break;
     
     //null
     case null:
-      die(json_encode(array("status" => "failed", "data" => "Not enough parameter")));
+      die(json_encode(array("status" => false, "data" => "Not enough parameter")));
       break;
     
   }
