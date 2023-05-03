@@ -11,3 +11,4 @@ function getServer(){
 
 // Save the server url into the session
 sessionStorage.setItem("serverURL", getServer());
+export const url = sessionStorage.getItem("serverURL");

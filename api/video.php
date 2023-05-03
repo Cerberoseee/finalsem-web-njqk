@@ -1,5 +1,5 @@
 <?php
-    require_once('../db-connection.php');
+    require_once('db-connection.php');
 
     // Get video from db
     if(isset($_GET["id"])){

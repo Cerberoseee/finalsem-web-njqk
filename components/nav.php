@@ -44,11 +44,11 @@
                             </a>
                         </li>
                         <li id="menu-nav__profile">
-                            <a href="<?=$url?>/account/profile.php">
+                            <a href="<?=$url?>/account/profile.php?id=<?=$account["userId"]?>">
                                 <span class="mr-h-5">
                                 <i class="fa-solid fa-user"></i>
                             </span>
-                            Your Profile 
+                            My Profile 
                             </a>
                         </li>
                         <li>
@@ -194,8 +194,8 @@
                                 <div class="profile-options__info mb-1">
                                     <img src="<?=$url?>/api/<?=$account["avatarPath"]?>" alt="SVG Image">
                                     <div class="profile-options__info-details ml-h-5">
-                                        <h3  class="profile-options__info-name">Minh Kỳ</h3>
-                                        <span  class="profile-options__info-username text-fade">@minhky0211</span>
+                                        <h3  class="profile-options__info-name"><?=$account["fullName"]?></h3>
+                                        <span  class="profile-options__info-username text-fade">@<?=$account["username"]?></span>
                                     </div>
                                 </div>
                                 <hr class="hr-color">
@@ -235,8 +235,6 @@
                                     </li>
                                 </ul>
                             </div>
-                            <!-- <a href="<?=$url?>/account/profile.php?id=<?=$account['userId']?>">
-                            </a> -->
                         </div>
                         <?php
                     }else{

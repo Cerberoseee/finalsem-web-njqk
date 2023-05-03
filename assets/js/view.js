@@ -1,4 +1,4 @@
-import { profile } from '../../AJAX/fetch.js';
+import { profile, search } from '../../AJAX/fetch.js';
 import {$, $$} from './module/config.js';
 import * as conf from './module/config.js';
 const app = (()=>{
@@ -201,6 +201,18 @@ const app = (()=>{
         }
     }
     catch(e){
+        errorText+=e;
+    }
+
+    // Search video
+    try{
+        const query = $('.nav_search-input');
+        window.addEventListener("keyup", e =>{
+            if(e.key === "Enter"){
+                window.location.href = `${conf.url}/search.php?query=${query.value}`;
+            }
+        })
+    }catch(e){
         errorText+=e;
     }
     console.error(errorText);
