@@ -4,7 +4,10 @@
     // Get video from db
     if(isset($_GET["id"])){
         $videoID = $_GET["id"];
-        $cm = "SELECT * FROM video where videoId = ?";
+        $cm = "SELECT * FROM video 
+          JOIN video_channel ON video.videoId = video_channel.videoId 
+          JOIN users_account ON video_channel.userId = users_account.userId 
+        WHERE video.videoId = ? ";
         $exec = $dbCon -> prepare($cm);
         $exec -> bind_param("s", $videoID);
 
