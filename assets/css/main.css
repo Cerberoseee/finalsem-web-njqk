@@ -532,6 +532,7 @@ body{
 .pr-video-item__img > img{
     width: 100%;
     border-radius: 12px;
+    max-height: 150px;
 }
 .pr-video-item__content-title, .pr-video-item__content-more{
     font-weight: 300;

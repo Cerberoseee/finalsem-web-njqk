@@ -52,24 +52,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="row profile__video-list">
-                    <?=itemVideoHTML()?>
-                    <?=itemVideoHTML()?>
-                    <?=itemVideoHTML()?>
-                    <?=itemVideoHTML()?>
-                    <?=itemVideoHTML()?>
-                    <?=itemVideoHTML()?>
-                    <?=itemVideoHTML()?>
-                    <?=itemVideoHTML()?>
-                    <?=itemVideoHTML()?>
-                    <?=itemVideoHTML()?>
-                    <?=itemVideoHTML()?>
-                </div>
+                <div class="row profile__video-list profile__video-list--all"></div>
             </div>
         </div>
     </div>
     <!-- Loading scripts -->
     <?=scripts()?>
+    <script src="<?=$url?>/assets/js/module/all-video.js" type="module"></script>
 </body>
 </html>
 

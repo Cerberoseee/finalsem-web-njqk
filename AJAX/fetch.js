@@ -126,7 +126,7 @@ export function upload_video(form){
 
 // Get video and comment
 export function getVideo(id){
-    fetch(`${url}/api/video.php?id=${id}`)
+    fetch(`${url}/api/query/video.php?id=${id}`)
     .then(res => res.json())
     .then(data => {
         if(data.status === true){
@@ -170,4 +170,49 @@ export function getVideo(id){
             console.error("Error");
         }
     })
+}
+
+// Get all video fromdatabase
+export function getAllVideo(block){
+    fetch(`${url}/api/query/query-all.php`)
+    .then(res => res.json())
+    .then(data => {
+        const container = block;
+        if(data.status === true){
+            const videos = data.data;
+
+            const list = videos.map(video => {
+                if(video.name.length > 30){
+                    video.name = video.name.slice(0,30) + "...";
+                }
+                return `
+                <div class="col-2 col-lg-3 col-md-4 col-sm-6" title=${video.name}>
+                    <a href="${url}/watch.php?video=${video.videoId}">
+                        <div class="profile__video-item">
+                            <div class="pr-video-item__img">
+                                <img src="${url}/${video.thumbnailPath}" alt="${video.name}">
+                            </div>
+                            <div class="pr-video-item__content">
+                                <h3 class="pr-video-item__content-title">${video.name}</h3>
+                                <div class="pr-video-item__content-info">
+                                    <img src="${url}/assets/imgs/avatar-meo-cute-1.jpg" alt="">
+                                    <div class="pr-video-item__content-details ml-h-5">
+                                        <span>Bocchi</span>
+                                        <span class="pr-video-item__content-more text-fade">April 1, 2012 • 14k <i class="fa-solid fa-eye text-fade"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                `;
+            }).join("");
+            
+            container.innerHTML = list;
+            console.log(videos);
+            console.log(container);
+        }else{
+            console.log("Lỗi kết nối hoặc database");
+        }
+    });
 }
