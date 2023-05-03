@@ -14,5 +14,5 @@
     $data_arr[] = $row;
   }
 
-  echo json_encode(array("status" => "ok", "data" => $data_arr));
+  echo json_encode(array("status" => true, "data" => $data_arr));
 ?>

@@ -31,7 +31,9 @@
     $videoPath = processVideoUpload($file["video"], $videoId);
     $tags = isset($_POST["tags"]) ? $_POST["tags"] : "";
     $views = 0;
-    $uploadTime = date("yyyy-MM-dd hh:mm:ss");
+    // Change the line below to your timezone!
+    date_default_timezone_set('Asia/Ho_Chi_Minh');
+    $uploadTime = date('m/d/Y h:i:s a', time());
     
     $description = isset($_POST["description"]) ? $_POST["description"] : "";
     $ageRestricted = isset($_POST["age_restric"]) ? $_POST["age_restric"] : "";
@@ -65,11 +67,6 @@
     echo json_encode(array("status" => true, "header" =>
       array("content" => "Upload sucessfully", "id"=> $videoId)
     ));
-
-
-    
-    //unlink("../../uploads/videos/temp/" . $userId . "/" . basename("video.") . pathinfo($file["video"]["name"], PATHINFO_EXTENSION));
-    
   }
 
 ?>
