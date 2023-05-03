@@ -45,7 +45,7 @@
                         <li>
                             <button class="btn btn__extension-share rounded">
                                 <span class="cmt__item-func-text text-align-center">
-                                    . . . 
+                                    <img src="<?=$url?>/assets/icons/threedot.svg" alt="">
                                 </span>
                             </button>
                         </li>

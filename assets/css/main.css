@@ -408,6 +408,8 @@ body{
 /* Like dislike */
 .video__extension-like-dis{
     width: 400px;
+    display: flex;
+    align-items: center;
 }
 .btn-group-like-dis{
     background-color: var(--primary-color);
