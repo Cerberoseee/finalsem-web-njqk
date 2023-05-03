@@ -87,7 +87,7 @@
       $cm = "SELECT * FROM video 
         JOIN video_channel ON video.videoId = video_channel.videoId 
         JOIN users_account ON video_channel.userId = users_account.userId 
-      ORDER BY views DESC";
+      ORDER BY video.views DESC";
       $exec = $dbCon->prepare($cm);
 
       if (!$exec -> execute()) {
@@ -108,7 +108,7 @@
       $cm = "SELECT * FROM video 
         JOIN video_channel ON video.videoId = video_channel.videoId 
         JOIN users_account ON video_channel.userId = users_account.userId 
-      ORDER BY likeCount DESC";
+      ORDER BY video.likeCount DESC";
       $exec = $dbCon->prepare($cm);
 
       if (!$exec -> execute()) {
