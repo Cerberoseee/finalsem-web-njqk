@@ -3,6 +3,9 @@
 
   $type = isset($_POST["type"]) ? $_POST["type"] : null;
   $videoId = isset($_POST["videoid"]) ? $_POST["videoid"] : null;
+  $userId = isset($_POST["userid"]) ? $_POST["userid"] : null;
+
+  $content = isset($_POST["comment"]) ? $_POST["comment"] : null;
 
   if ($type != null) {
     if ($type == "like") {
@@ -30,5 +33,56 @@
 
       echo json_encode(array("status" => "ok", "data" => "Executed succecss"));
     }
+
+    if ($type == "playlist") {
+      $cm = "INSERT INTO video_playlist VALUES (?, ?)";
+
+      $exec = $dbCon -> prepare($cm);
+      $exec -> bind_param("ss", $userId, $videoId);
+
+      if (!$exec -> execute()) {
+        die(json_encode(array("status" => false, "data" => "Execute query failed")));
+      }
+
+      echo json_encode(array("status" => "ok", "data" => "Executed succecss"));
+    }
+
+    if ($type == "post-comment") {
+      $id = crc32(uniqid());
+      
+      $cm = "INSERT INTO comment VALUES (?, ?, ?, ?)";
+
+      $exec = $dbCon -> prepare($cm);
+      $exec -> bind_param("ssss", $id, $userId, $content, $videoId);
+
+      if (!$exec -> execute()) {
+        die(json_encode(array("status" => false, "data" => "Execute query failed")));
+      }
+
+      echo json_encode(array("status" => "ok", "data" => "Executed succecss"));
+    }
+
+    if ($type == "get-comment") {
+      $id = crc32(uniqid());
+      
+      $cm = "SELECT * FROM comment 
+        JOIN users_account ON comment.userId = users_account.userId
+      WHERE comment.videoId = ?";
+
+      $exec = $dbCon -> prepare($cm);
+      $exec -> bind_param("s", $videoId);
+
+      if (!$exec -> execute()) {
+        die(json_encode(array("status" => false, "data" => "Execute query failed")));
+      }
+
+      $result = $exec -> get_result();
+      $data_arr = [];
+      while($row = $result->fetch_assoc()) {
+        $data_arr[] = $row;
+      }
+    
+      echo json_encode(array("status" => true, "data" => $data_arr));
+    } 
   }
 ?>
