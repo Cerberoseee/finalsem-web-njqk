@@ -15,7 +15,7 @@
         die(json_encode(array("status" => false, "data" => "Execute query failed")));
       }
 
-      echo json_encode(array("status" => "ok", "data" => "Executed succecss"));
+      echo json_encode(array("status" => true, "data" => "Executed succecss"));
     }
     
     if ($type == "dislike") {
@@ -28,7 +28,7 @@
         die(json_encode(array("status" => false, "data" => "Execute query failed")));
       }
 
-      echo json_encode(array("status" => "ok", "data" => "Executed succecss"));
+      echo json_encode(array("status" => true, "data" => "Executed succecss"));
     }
   }
 ?>

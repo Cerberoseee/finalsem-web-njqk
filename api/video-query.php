@@ -9,13 +9,13 @@
   switch ($type) {
     //User
     case "user":
-      $userId = isset($query["userid"]) ? $query["userid"] : null;
+      $userId = isset($query["id"]) ? $query["id"] : null;
 
       if ($userId != null) {
         $cm = "SELECT * FROM video 
           JOIN video_channel ON video.videoId = video_channel.videoId 
           JOIN users_account ON video_channel.userId = users_account.userId 
-        WHERE video.userId = ?";
+        WHERE video_channel.userId = ?";
         
         $exec = $dbCon->prepare($cm);
         $exec -> bind_param("s", $userId);

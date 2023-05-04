@@ -25,6 +25,7 @@
   $email = isset($account["email"]) ? $account["email"] : null;
   $phoneNumber = isset($account["phone"]) ? $account["phone"] : null;
   $dOb = isset($account["dob"]) ? $account["dob"] : null;
+  $gender = isset($account["gender"]) ? $account["gender"] : null;
   $role = "user";
   $bio = "";
   $status = "verify";
@@ -36,8 +37,11 @@
     //crc32() is used to convert the ID to numeric
     $id = crc32(uniqid());
     $today = date("Y-m-d");
-    $defaultAvatarPath = "/assets/default/avatar.jpg";
-
+    $defaultAvatarPath = "/assets/imgs/default/avatar_default.jpg";
+    $defaultBackgroundPath = "/assets/imgs/default/background_default.jpg";
+    $defaultLocation = "Asia/Viet Nam";
+    $followers = 0;
+    $about = "";
     $existed = [];
 
     //Checking existed information
@@ -66,9 +70,9 @@
       $exec -> bind_param("sss", $id, $email, $password);
       $exec -> execute();
 
-      $cm = "insert into users_account values (?, ?, ?, ?, ?, ?, ?)";
+      $cm = "insert into users_account values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
       $exec = $dbCon -> prepare($cm);
-      $exec -> bind_param("sssssss", $id, $fullName, $bio, $today, $defaultAvatarPath, $role, $status);
+      $exec -> bind_param("ssssssssssis", $id, $fullName, $bio, $today, $defaultAvatarPath, $role, $status, $about, $gender, $defaultLocation, $followers, $defaultBackgroundPath);
       $exec -> execute();
       
       $cm = "insert into users_info values (?, ?, ?, ?, ?)";

@@ -1,6 +1,6 @@
 import { profile, search } from '../../AJAX/fetch.js';
-import {$, $$} from './module/config.js';
-import * as conf from './module/config.js';
+import {$, $$, url} from './module/config.js';
+import { exportRecomended, exportTopviews} from './module/all-video.js';
 const app = (()=>{
     let errorText = '';
     try{
@@ -53,15 +53,39 @@ const app = (()=>{
 
     try{
         // Change state of recommend tab
-        const tabs_recmd = $('.video__recommends-tab').querySelectorAll('button');
-        tabs_recmd?.forEach(element => {
-            element.onclick = ()=>{
-                tabs_recmd.forEach(emt=>{
-                    emt.classList.remove('active');
-                });
-                element.classList.add('active');
+        const tabsState = {
+            state: "recommened__tab",
+            setState(param){
+                if(param !== this.state){
+                    this.default();
+                    this.state = param;
+
+                    if(this.state === "top-views__tab"){
+                        $(`#${this.state}`).classList.add('active');
+                        exportTopviews();
+
+                    }else if(this.state === "recommened__tab"){
+                        $(`#${this.state}`).classList.add('active');
+                        exportRecomended();
+                    }else{
+                        console.log("This state is not exist!");
+                    }
+                }
+            },
+            default(){
+                $(`#${this.state}`).classList.remove('active');
             }
-        });
+        }
+        // First loading
+        $(`#${tabsState.state}`).classList.add('active');
+        exportRecomended();
+        // Chnage state
+        const tabs_recmd = $('.video__recommends-tab').querySelectorAll('button');
+            tabs_recmd?.forEach(element => {
+                element.onclick = ()=>{
+                    tabsState.setState(element.id);
+                }
+            });
     }catch(e){
         errorText += e;
     }
@@ -145,7 +169,7 @@ const app = (()=>{
         const query = $('.nav_search-input');
         window.addEventListener("keyup", e =>{
             if(e.key === "Enter"){
-                window.location.href = `${conf.url}/search.php?query=${query.value}`;
+                window.location.href = `${url}/search.php?query=${query.value}`;
             }
         })
     }catch(e){

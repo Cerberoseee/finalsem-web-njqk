@@ -189,10 +189,10 @@
                     if($isLogin){
                         ?>
                         <div class="nav__avatar" title="Your account management">
-                            <img id="nav__avatar-id" src="<?=$url?>/api/<?=$account["avatarPath"]?>" alt="SVG Image">
+                            <img id="nav__avatar-id" src="<?=$url?><?=$account["avatarPath"]?>" alt="SVG Image">
                             <div class="nav__profile-options">
                                 <div class="profile-options__info mb-1">
-                                    <img src="<?=$url?>/api/<?=$account["avatarPath"]?>" alt="SVG Image">
+                                    <img src="<?=$url?><?=$account["avatarPath"]?>" alt="SVG Image">
                                     <div class="profile-options__info-details ml-h-5">
                                         <h3  class="profile-options__info-name"><?=$account["fullName"]?></h3>
                                         <span  class="profile-options__info-username text-fade">@<?=$account["username"]?></span>
