@@ -294,3 +294,7 @@ export async function getVideosUser(id){
         }
     }
 }
+
+export async function processPlaylist(){
+
+}

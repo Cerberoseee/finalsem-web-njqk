@@ -1,5 +1,5 @@
 import {$,$$, url} from './config.js';
-import { getVideo } from '../../../AJAX/fetch.js';
+import { getVideo, processPlaylist } from '../../../AJAX/fetch.js';
 (async ()=>{
     const urlParams = new URLSearchParams(window.location.search);
     const data = await getVideo(urlParams.get('video'));
@@ -52,4 +52,5 @@ import { getVideo } from '../../../AJAX/fetch.js';
         downloadLink.download = "Video.mp4";
         downloadLink.click();
     }
+
 })();
