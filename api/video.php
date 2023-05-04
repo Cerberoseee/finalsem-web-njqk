@@ -4,6 +4,17 @@
     // Get video from db
     if(isset($_GET["id"])){
         $videoID = $_GET["id"];
+        $userID = $_GET["userid"];
+
+        $cm = "INSERT INTO user_history(userId, videoId) VALUES (?, ?)";
+
+        $exec = $dbCon -> prepare($cm);
+        $exec -> bind_param("ss", $videoID, $userID);
+
+        //In case of execution failed
+        if (!$exec -> execute()) {
+          die(json_encode(array("status" => false, "data" => "Execute query failed")));
+        }
 
         $cm = "UPDATE video SET views = views + 1 WHERE videoId = ?";
 

@@ -59,6 +59,56 @@
     
             $account += $data;
     
+            $cm = "SELECT * FROM user_history JOIN video ON user_history.videoId = video.videoId WHERE user_history.userId = ?";
+
+            $exec = $dbCon -> prepare($cm);
+            $exec -> bind_param("s", $userID);
+    
+            //In case of execution failed
+            if (!$exec -> execute()) {
+              die(json_encode(array("status" => false, "data" => "Execute query failed")));
+            }
+
+            $result = $exec -> get_result();
+            $data_arr = [];
+            while($row = $result->fetch_assoc()) {
+              $data_arr[] = $row;
+            }
+
+            $account += array( "history" => $data_arr);
+
+            $cm = "SELECT * FROM user_playlist JOIN video ON user_playlist.videoId = video.videoId WHERE user_playlist.userId = ?";
+
+            $exec = $dbCon -> prepare($cm);
+            $exec -> bind_param("s", $userID);
+    
+            //In case of execution failed
+            if (!$exec -> execute()) {
+              die(json_encode(array("status" => false, "data" => "Execute query failed")));
+            }
+
+            $result = $exec -> get_result();
+            $data_arr = [];
+            while($row = $result->fetch_assoc()) {
+              $data_arr[] = $row;
+            }
+            
+            $account += array( "playlist" => $data_arr);
+
+            $cm = "SELECT COUNT(*) FROM video WHERE video.userId = ?";
+            
+            $exec = $dbCon->prepare($cm);
+            $exec -> bind_param("s", $userId);
+          
+            if (!$exec -> execute()) {
+              die(json_encode(array("status" => false, "data" => "Execute query failed")));
+            }
+          
+            $result = $exec -> get_result();
+            $data = $result -> fetch_assoc();
+          
+            $account += array( "videoCount" => $data);
+          
             echo json_encode(array("status"=> true, "data" => $account));
         }else{
             echo json_encode(array("status"=> false, "data" => "userID is not exist or correct"));
