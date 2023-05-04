@@ -21,7 +21,7 @@
     <!-- Container -->
     <div class="container-fluid">
         <div class="profile__background">
-            <img id="profile__background--img" src="<?=$url?>/assets/imgs/bg-profile.jpg" alt="">
+            <img id="profile__background--img" src="<?=$url?>" alt="">
         </div>
         <div class="container container__profile">
             <div class="row">
