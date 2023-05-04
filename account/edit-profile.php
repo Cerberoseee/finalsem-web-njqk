@@ -21,13 +21,19 @@
     <!-- Container -->
     <div class="container-fluid">
         <div class="profile__background">
-            <img src="<?=$url?>/assets/imgs/bg-profile.jpg" alt="">
+            <div id="background-change" class="profile__avatar-replace">
+                <span><i class="fa-solid fa-camera-retro"></i></span>
+            </div>
+            <img id="profile__background--img" src="<?=$url.$account["backgroundPath"]?>" alt="">
         </div>
         <div class="container container__profile">
             <div class="row">
                 <div class="col-6">
                     <div class="profile__avatar">
-                        <img src="<?=$url?>/api/<?=$account["avatarPath"]?>" class="profile__avatar-img" src="" alt="">
+                        <div id="avatar-change" class="profile__avatar-replace">
+                            <span><i class="fa-solid fa-camera-retro"></i></span>
+                        </div>
+                        <img src="<?=$url.$account["avatarPath"]?>" class="profile__avatar-img" src="" alt="">
                     </div>
                 </div>
                 <?php
@@ -35,8 +41,8 @@
                         ?>
                         <div class="col-6">
                             <div class="profile__feature float-right">
-                                <a href="<?=$url?>account/profile.php?id=<?=$account["userId"]?>&type=edit" class="btn btn-outline-primary rounded">Cancel</a>
-                                <a href="<?=$url?>account/profile.php?id=<?=$account["userId"]?>&type=manage" class="btn btn-primary rounded">Save changes</a>
+                                <a href="<?=$url?>account/profile.php?id=<?=$account["userId"]?>" class="btn btn-outline-primary rounded">Cancel</a>
+                                <a id="save" class="btn btn-primary rounded">Save changes</a>
                             </div>
                         </div>
                         <?php
@@ -53,41 +59,37 @@
                     <div class="profile__info">
                         <div class="profile__info-group">
                             <div class="d-block" for="">Profile name</div>
-                            <span id="profilename" class="profile__info-input profile__info-input--limited profile__name" contenteditable>Shigeo Tokuda</span>
+                            <span id="profilename" class="profile__info-input profile__info-input--limited profile__name" contenteditable><?=$account["channelName"]?></span>
                         </div>
                         <div class="profile__info-group">
                             <div class="d-block" for="">User name</div>
-                            <span class="profile__info-input profile__info-input--limited profile__tag" contenteditable>tokuda.jav</span>
+                            <span class="profile__info-input profile__info-input--limited profile__tag" contenteditable><?=$account["username"]?></span>
                         </div>
                         <div class="profile__info-group">
                             <div class="d-block" for="">Bio</div>
-                            <span class="profile__info-input profile__info-input--limited profile__bio" contenteditable>Actor</span>
+                            <span class="profile__info-input profile__info-input--limited profile__bio" contenteditable><?=$account["bio"]?></span>
                         </div>
                         <div class="profile__info-group">
                             <div class="d-block" for="">About</div>
-                            <span class="profile__info-input profile__info-input--limited profile__about" contenteditable>
-                            Hello, I'm Ryo Yamada. I play a range of popular video games and music make content on those stuff. Maybe you like horror games, or funny games, or comedy sketches, or animations, or compilations, or reactions, or reviews, or challenges, or cryptic lore, or mind-crippling ennui, or stuff-that-is-guaranteed-to-probably-make-you-cry? Whatever you're into I'm sure there's something for you down in the briny deep of my video page. So why not dive in?
-Enjoy my interesting yet crude music.
-The subject matter of the content on this channel is intended for audiences 13+ and in some cases 17+ . Viewer discretion is advised.
-                            </span>
+                            <span class="profile__info-input profile__info-input--limited profile__about" contenteditable><?=$account["about"]?></span>
                         </div>
                         <div class="profile__info-group">
                             <div class="d-block" for="">Email</div>
-                            <span class="profile__info-input profile__bio" contenteditable>YamdaryoKessoku@gmail.com</span>
+                            <span class="profile__info-input profile__email" contenteditable><?=$account["email"]?></span>
                         </div>
                         <div class="form-input profile__info-gender">
                             <label for="">Gender</label>
                             <div class="input-radio-group ml-h-5">
                                 <div class="input-group">
-                                    <input id="male" type="radio" name="gender" value="male" checked/>
+                                    <input id="male" type="radio" name="gender" value="male" <?=$account["gender"] == "male"? "checked": "";?>/>
                                     <label for="">Male</label>
                                 </div>
                                 <div class="input-group">
-                                    <input id="female" type="radio" name="gender" value="female"/>
+                                    <input id="female" type="radio" name="gender" value="female" <?=$account["gender"] == "female"? "checked": "";?>/>
                                     <label for="">Female</label>
                                 </div>
                                 <div class="input-group">
-                                    <input id="other" type="radio" name="gender" value="other"/>
+                                    <input id="other" type="radio" name="gender" value="other"<?=$account["gender"] == "other"? "checked": "";?>/>
                                     <label for="">Other</label>
                                 </div>
                             </div>
@@ -102,7 +104,7 @@ The subject matter of the content on this channel is intended for audiences 13+ 
                         </div>
                         <div class="profile__info-group">
                             <div class="d-block" for="">Location</div>
-                            <span class="profile__info-input profile__location" contenteditable>Japan</span>
+                            <span class="profile__info-input profile__location" contenteditable><?=$account["location"]?></span>
                         </div>
                     </div>
                 </div>

@@ -45,4 +45,11 @@ import { getVideo } from '../../../AJAX/fetch.js';
     }else{
         console.log(data);  
     }
+
+    $('#download-video').onclick=()=>{
+        const downloadLink = document.createElement("a");
+        downloadLink.href = $('#player').src;
+        downloadLink.download = "Video.mp4";
+        downloadLink.click();
+    }
 })();

@@ -42,12 +42,18 @@
                                 </span>
                             </button>
                         </li>
-                        <li>
-                            <button class="btn btn__extension-share rounded">
+                        <li id="more-option-construct">
+                            <button id="more-options" class="btn btn__extension-share rounded">
                                 <span class="cmt__item-func-text text-align-center">
                                     <img src="<?=$url?>/assets/icons/threedot.svg" alt="">
                                 </span>
                             </button>
+                            <div class="more__options">
+                                <ul class="more__options-list"> 
+                                    <li>Add to playlist</li>
+                                    <li id="download-video">Download</li>
+                                </ul>
+                            </div>
                         </li>
                     </ul>
                     <hr class="mt-1">

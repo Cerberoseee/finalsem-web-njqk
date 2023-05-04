@@ -234,7 +234,7 @@ export function exportTopviews(){
                 const list = videos.map(video => {
                     return `
                     <div class="video__list-item my-1">
-                        <a href="${url}/watch.php?video=${video.videoId}">
+                        <a class="video__list-item--flex" href="${url}/watch.php?video=${video.videoId}">
                             <div class="video__thumb">
                                 <span class="video__thumb-timer">00:07</span>
                                 <img id="video__list-item--img" src="${url}/${video.thumbnailPath}" alt="">

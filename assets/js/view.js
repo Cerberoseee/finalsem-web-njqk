@@ -167,11 +167,27 @@ const app = (()=>{
     // Search video
     try{
         const query = $('.nav_search-input');
-        window.addEventListener("keyup", e =>{
+        query.addEventListener("keyup", e =>{
             if(e.key === "Enter"){
                 window.location.href = `${url}/search.php?query=${query.value}`;
             }
         })
+        
+        $('#nav__search-icon').onclick=()=>{
+            window.location.href = `${url}/search.php?query=${query.value}`;
+        }
+    }catch(e){
+        errorText+=e;
+    }
+
+    try{
+        $('#more-options').onclick =()=>{
+            if($('.more__options').style.display === "block"){
+                $('.more__options').style.display = "none";
+            }else{
+                $('.more__options').style.display = "block";
+            }
+        }
     }catch(e){
         errorText+=e;
     }
