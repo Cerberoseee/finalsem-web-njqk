@@ -21,7 +21,7 @@
     <!-- Container -->
     <div class="container-fluid">
         <div class="profile__background">
-            <img src="<?=$url?>/assets/imgs/bg-profile.jpg" alt="">
+            <img id="profile__background--img" src="<?=$url?>/assets/imgs/bg-profile.jpg" alt="">
         </div>
         <div class="container container__profile">
             <div class="row">
@@ -55,7 +55,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="profile__figures">
-                        <span>569 <span class="text-fade">Followers</span></span>
+                        <span id="profile__figures--followers">569 <span class="text-fade">Followers</span></span>
                         <span>69 <span class="text-fade">Videos</span></span>
                     </div>
                 </div>
@@ -89,14 +89,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row profile__video-list">
-                            <?=itemVideoHTML()?>
-                            <?=itemVideoHTML()?>
-                            <?=itemVideoHTML()?>
-                            <?=itemVideoHTML()?>
-                            <?=itemVideoHTML()?>
-                            <?=itemVideoHTML()?>
-                        </div>
+                        <div class="row profile__video-list profile__video-list--user"></div>
                     </div>
                 </div>
                 <div class="row">
