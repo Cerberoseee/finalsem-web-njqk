@@ -262,7 +262,7 @@ export async function getTopviews(){
             'Content-Type': 'application/json; charset=utf-8'
         },
         method: "POST",
-        body: JSON.stringify({type: "top", })
+        body: JSON.stringify({type: "top"})
     });
     const data = await respone.json();
     if(data.status){
@@ -286,8 +286,6 @@ export async function getVideosUser(id){
     });
     const data = await respone.json();
     if(data.status){
-        console.log(1);
-
         return data.data;
     }else{
         return new { 

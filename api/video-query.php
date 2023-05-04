@@ -43,7 +43,7 @@
       if ($title != null) {
         $cm = "SELECT * FROM video 
           JOIN video_channel ON video.videoId = video_channel.videoId 
-          JOIN users_account ON video_channel.userId = users_account.userId 
+          JOIN users_account ON video_channel.userId = users_account.userId
         WHERE video.name LIKE ?";
         $exec = $dbCon->prepare($cm);
         $exec -> bind_param("s", $title);
@@ -68,7 +68,7 @@
     case "all":
       $cm = "SELECT * FROM video 
       JOIN video_channel ON video.videoId = video_channel.videoId 
-      JOIN users_account ON video_channel.userId = users_account.userId ";
+      JOIN users_account ON video_channel.userId = users_account.userId GROUP BY video.videoId";
       $exec = $dbCon->prepare($cm);
 
       if (!$exec -> execute()) {
@@ -86,10 +86,9 @@
 
     //Top view
     case "top":
-      $cm = "SELECT * FROM video 
-        JOIN video_channel ON video.videoId = video_channel.videoId 
+      $cm = "SELECT * FROM video JOIN video_channel ON video.videoId = video_channel.videoId 
         JOIN users_account ON video_channel.userId = users_account.userId 
-      ORDER BY video.views DESC";
+        GROUP BY video.videoId ORDER BY video.views DESC;";
       $exec = $dbCon->prepare($cm);
 
       if (!$exec -> execute()) {
@@ -110,7 +109,7 @@
       $cm = "SELECT * FROM video 
         JOIN video_channel ON video.videoId = video_channel.videoId 
         JOIN users_account ON video_channel.userId = users_account.userId 
-      ORDER BY video.likeCount DESC";
+      GROUP BY video.videoId ORDER BY video.likeCount DESC";
       $exec = $dbCon->prepare($cm);
 
       if (!$exec -> execute()) {

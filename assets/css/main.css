@@ -271,7 +271,7 @@ body{
 }
 .video__thumb-timer{
     position: absolute;
-    right: 0;
+    left: 0;
     bottom: 4px;
     background-color: var(--primary-color);
     padding: 0.2rem 0.6rem;
@@ -498,6 +498,26 @@ body{
     position: absolute;
     top: -7rem;
     
+}
+.profile__background > .profile__avatar-replace{
+    border-radius: 0;
+}
+.profile__avatar-replace{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 34px;
+    background-color: var(--secondary-background);
+    border-radius: 50%;
+    opacity: 0.3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.profile__avatar-replace:hover{
+    opacity: 0.7;
 }
 .profile__avatar > img{
     height: 10rem;
