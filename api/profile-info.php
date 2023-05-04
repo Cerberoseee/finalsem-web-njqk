@@ -77,7 +77,7 @@
 
             $account += array( "history" => $data_arr);
 
-            $cm = "SELECT * FROM user_playlist JOIN video ON user_playlist.videoId = video.videoId WHERE user_playlist.userId = ?";
+            $cm = "SELECT * FROM video_playlist WHERE userId = ?";
 
             $exec = $dbCon -> prepare($cm);
             $exec -> bind_param("s", $userID);
@@ -110,6 +110,8 @@
             $account += array( "videoCount" => $data);
           
             echo json_encode(array("status"=> true, "data" => $account));
+
+
         }else{
             echo json_encode(array("status"=> false, "data" => "userID is not exist or correct"));
         }
