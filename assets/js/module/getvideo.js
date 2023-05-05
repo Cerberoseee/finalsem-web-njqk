@@ -1,8 +1,10 @@
-import {$,$$, url} from './config.js';
-import { getVideo, processPlaylist } from '../../../AJAX/fetch.js';
+import {$,$$, url, userId} from './config.js';
+import { getVideo, processPlaylist, processComment } from '../../../AJAX/fetch.js';
 (async ()=>{
+    // Load video
     const urlParams = new URLSearchParams(window.location.search);
-    const data = await getVideo(urlParams.get('video'));
+    const videoId = urlParams.get('video');
+    const data = await getVideo(videoId);
     if(data){
         const video = data;
         console.log(video);
@@ -45,12 +47,66 @@ import { getVideo, processPlaylist } from '../../../AJAX/fetch.js';
     }else{
         console.log(data);  
     }
-
+    // Download video
     $('#download-video').onclick=()=>{
         const downloadLink = document.createElement("a");
         downloadLink.href = $('#player').src;
         downloadLink.download = "Video.mp4";
         downloadLink.click();
     }
+    // Get the playlist
+    const playlist = await processPlaylist("query-playlist", {userId});
+    if(playlist && playlistRender(playlist));
 
+    // Create a new playlist
+    $('#create-playlist').onclick = async ()=>{
+        let name = $('#playlist-text').value;
+        name = name.replaceAll('  ', ' ');
+        if(name && userId){
+            const createPlaylist = await processPlaylist("create-playlist",{ userId, name});
+            if(createPlaylist && playlistRender(createPlaylist));
+        }
+    }
+    // Save to playlist
+    $('#save-playlist').onclick = async ()=>{
+        const selectedPlaylist = $('input[name="playlist_name"]:checked').value;
+        if(selectedPlaylist){
+            const selectedPlaylist_Add = await processPlaylist("add-playlist", {videoId, selectedPlaylist})
+            if(selectedPlaylist_Add){
+                $('#alert-add-platlist').innerText = "Adding this video is success!";
+            }
+        }
+    }
+
+    // Post comment
+    $('#post-cmt').onclick = async ()=>{
+        let comment = $('#comments__post-textarea').value;
+        comment = comment.replaceAll('  ', ' ');
+        if(comment && userId){
+            const postCmt = await processComment("post-comment", {
+                userId, comment, videoId
+            });
+            if(postCmt){
+                $('#comments__post-textarea').value = "";
+                $('#comments__post-textarea').style.cssText = `
+                    height: 2.5rem;
+                    outline: none;
+                `;
+                $('.comments__textarea-func').style.display = "none";
+            }
+        }
+    }
 })();
+
+function playlistRender(playlist){
+    let playlistContainer = $('.playlist__list');
+    const list = playlist.map(item => {
+        return `
+        <li class="playlist__item">
+            <input class="mr-h-5" type="radio" name="playlist_name" id="${item.playlistId}" value="${item.playlistId}">
+            <label for="">${item.playlistName}</label>
+        </li>
+        `;
+    }).join("");
+    playlistContainer.innerHTML = list;
+}

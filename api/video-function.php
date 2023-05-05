@@ -1,13 +1,16 @@
 <?php 
   require_once("db-connection.php");
 
-  $type = isset($_POST["type"]) ? $_POST["type"] : null;
-  $videoId = isset($_POST["videoid"]) ? $_POST["videoid"] : null;
-  $userId = isset($_POST["userid"]) ? $_POST["userid"] : null;
+  $data = file_get_contents("php://input");
+  $filter = json_decode($data, true);
 
-  $playlistId = isset($_POST["playlistid"]) ? $_POST["playlistid"] : null;
+  $type = isset($filter["type"]) ? $filter["type"] : null;
+  $videoId = isset($filter["videoId"]) ? $filter["videoId"] : null;
+  $userId = isset($filter["userId"]) ? $filter["userId"] : null;
 
-  $content = isset($_POST["comment"]) ? $_POST["comment"] : null;
+  $playlistId = isset($filter["playlistid"]) ? $filter["playlistid"] : null;
+
+  $content = isset($filter["comment"]) ? $filter["comment"] : null;
 
   if ($type != null) {
     if ($type == "like") {
@@ -41,7 +44,7 @@
     if ($type == "post-comment") {
       $id = crc32(uniqid());
       
-      $cm = "INSERT INTO comment VALUES (?, ?, ?, ?)";
+      $cm = "INSERT INTO comments VALUES (?, ?, ?, ?)";
 
       $exec = $dbCon -> prepare($cm);
       $exec -> bind_param("ssss", $id, $userId, $content, $videoId);
@@ -50,21 +53,26 @@
         die(json_encode(array("status" => false, "data" => "Execute query failed")));
       }
 
-      $result = $exec -> get_result();
-      $data_arr = [];
-      while($row = $result->fetch_assoc()) {
-        $data_arr[] = $row;
+      // Return posted cmt
+      $cm = "SELECT * FROM comments WHERE commentId = ? AND userId = ? AND videoId = ?";
+
+      $exec = $dbCon -> prepare($cm);
+      $exec -> bind_param("sss", $id, $userId, $videoId);
+      if (!$exec -> execute()) {
+        die(json_encode(array("status" => false, "data" => "Execute query failed")));
       }
+      $result = $exec -> get_result();
+      $data = $result->fetch_assoc();
     
-      echo json_encode(array("status" => true, "data" => $data_arr));
+      echo json_encode(array("status" => true, "data" => $data));
     }
 
     if ($type == "get-comment") {
       $id = crc32(uniqid());
       
-      $cm = "SELECT * FROM comment 
-        JOIN users_account ON comment.userId = users_account.userId
-      WHERE comment.videoId = ?";
+      $cm = "SELECT * FROM comments 
+        JOIN users_account ON comments.userId = users_account.userId
+      WHERE comments.videoId = ?";
 
       $exec = $dbCon -> prepare($cm);
       $exec -> bind_param("s", $videoId);

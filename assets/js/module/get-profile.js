@@ -1,4 +1,4 @@
-import {$,$$, url} from './config.js';
+import {$,$$, url, userId} from './config.js';
 import { profile, getVideosUser } from '../../../AJAX/fetch.js';
 const profileApp = (()=>{
     function showHideFilterItem(itemClass){
@@ -64,7 +64,7 @@ const profileApp = (()=>{
     // Query Parameters
     const urlParam = new URL(`${window.location.href}`);
     const searchParams = urlParam.searchParams;
-    if(searchParams.get('id')){
+    if(searchParams.get('id') || userId){
         // Get information of profile
         const data = await profile(searchParams.get('id'))
         if(data){
@@ -77,12 +77,45 @@ const profileApp = (()=>{
             $('.pr-about__day').innerText = account.dateOfBirth;
             $('.pr-about__email').innerText = account.email;
             $('.pr-about__createAt').innerText = account.dateCreated;
-            $('#profile__figures--followers').innerText = account.followers + " followers";
+            $('#profile__figures--followers').innerText = account.followers + " Followers";
+            $('#profile__figures--videos').innerText = account.videoCount;
+
+            // Playlist
+            const tabPlaylist = $('.profile__playlist');
+            const containerPlaylist = $('.profile__video-list--playlist');
+             const playlist = account.playlist.map(item =>{
+                return `
+                <div class="col-2 col-lg-3 col-md-4 col-sm-6">
+                    <a href="${url}/watch.php?video=${item.firstVideo}&playlist=${item.playlistId}&ratio=1">
+                        <div class="profile__video-playlist">
+                            <div class="pr-video-item__img">
+                                <div class="pr-video-item__img-banner">
+                                    <div class="img-banner__info">
+                                        <h3 class="img-banner__info-count">${item.count}</h3>
+                                        <span>videos</span>
+                                        <span><img src="${url}/assets/icons/playlist.svg" alt=""></span>
+                                        <span class="text-fade">Public</span>
+                                    </div>
+                                </div>
+                                <img src="${url}/assets/imgs/modern-tokyo-street-background.jpg" alt="">
+                            </div>
+                            <div class="pr-video-item__content">
+                                <h3 class="pr-video-item__content-title">${item.playlistName}</h3>
+                                <span class="pr-video-item__content-more text-fade d-block">View full playlist</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                `;
+            }).join("");
+            containerPlaylist.innerHTML = playlist;
+            tabPlaylist.innerHTML = playlist;
         }
 
         // Get videos of user
         const videosUser = await getVideosUser(searchParams.get('id'));
         if(videosUser){
+            const tabUser = $('.profile__videos');
             const container = $('.profile__video-list--user');
             const list = videosUser.map(video => {
                 return `
@@ -109,6 +142,7 @@ const profileApp = (()=>{
             }).join("");
 
             container.innerHTML = list;
+            tabUser.innerHTML = list;
         }
     }else{
         console.log('error');

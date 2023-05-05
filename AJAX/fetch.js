@@ -1,62 +1,26 @@
 import {$, $$, url} from '../assets/js/module/config.js';
 
 // Search on bar
-export function search(title){
-    console.log(title);
-    fetch('./api/video-query.php',{
+export async function search(title){
+
+    const respone = await fetch('./api/video-query.php',{
         headers: { 
             'Accept': 'application/json',
             'Content-Type': 'application/json; charset=utf-8'
         },
         method: "POST",
         body: JSON.stringify({type: "search", title})
-    })
-    .then(res => res.json())
-    .then(data => {
-        if(data.status){
-            const videos = data.data;
-            const container = $('.search__video-list');
-
-            const list = videos.map(video =>{
-                if(video.name.length > 30){
-                    video.name = video.name.slice(0,30) + "...";
-                }
-                if(video.description.length > 50){
-                    video.description = video.description.slice(0,50) + "...";
-                }
-                return `
-                <div class="col-12">
-                    <a href="${url}/watch.php?video=${video.videoId}">
-                        <div class="profile__video-item profile__video-item--search">
-                            <div class="pr-video-item__img">
-                                <img src="${url}/${video.thumbnailPath}" alt="${video.name}">
-                            </div>
-                            <div class="pr-video-item__content">
-                                <h3 class="pr-video-item__content-title">${video.name}</h3>
-                                <div class="pr-video-item__content-info mt-h-5">
-                                    <img src="${url}/api/${video.avatarPath}" alt="">
-                                    <div class="pr-video-item__content-details ml-h-5">
-                                        <span class="pr-video-item__content-more text-fade">${video.uploadTime} • ${video.views} <i class="fa-solid fa-eye text-fade"></i></span>
-                                        <span>${video.channelName}</span>
-                                    </div>
-                                </div>
-                                <div class="video-item__description mt-h-5">
-                                    <p class="text-fade">
-                                        ${video.description}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                `
-            }).join("");
-
-            container.innerHTML = list;
-        }else{
-            console.log("Lỗi search");
+    });
+    const data = await respone.json();
+    if(data.status){
+        return data.data;
+    }else{
+        return new { 
+            status: data.status,
+            header: "There is an error in connection or database"
         }
-    })
+    }
+
 }
 // Fetch to register page
 export function register(account){
@@ -295,6 +259,95 @@ export async function getVideosUser(id){
     }
 }
 
-export async function processPlaylist(){
+export async function processPlaylist(type, info){
+    // Create playlist
+    if(type === "create-playlist"){
 
+        const respone = await fetch(`${url}/api/playlist.php`,{
+            headers: { 
+                'Accept': 'application/json',
+                'Content-Type': 'application/json; charset=utf-8'
+            },
+            method: "POST",
+            body: JSON.stringify({type, userId: info.userId, name: info.name})
+        });
+        const data = await respone.json();
+        if(data.status){
+            return data.data;
+        }else{
+            return new { 
+                status: data.status,
+                header: "There is an error in connection or database"
+            }
+        }
+    }
+    // Get allplatlist
+    else if(type === "query-playlist"){
+        const respone = await fetch(`${url}/api/playlist.php`,{
+            headers: { 
+                'Accept': 'application/json',
+                'Content-Type': 'application/json; charset=utf-8'
+            },
+            method: "POST",
+            body: JSON.stringify({type, userId: info.userId})
+        });
+        const data = await respone.json();
+        if(data.status){
+            return data.data;
+        }else{
+            return new { 
+                status: data.status,
+                header: "There is an error in connection or database"
+            }
+        }
+    }
+    // Add playlist
+    else if(type === "add-playlist"){
+        const respone = await fetch(`${url}/api/playlist.php`,{
+            headers: { 
+                'Accept': 'application/json',
+                'Content-Type': 'application/json; charset=utf-8'
+            },
+            method: "POST",
+            body: JSON.stringify({type, playlistid: info.selectedPlaylist, videoid: info.videoId})
+        });
+        const data = await respone.json();
+        if(data.status){
+            return data.data;
+        }else{
+            return new { 
+                status: data.status,
+                header: "There is an error in connection or database"
+            }
+        }
+    }
+}
+
+// Process comments
+export async function processComment(type, info){
+    // Post comment
+    if(type === "post-comment"){
+        const respone = await fetch(`${url}/api/video-function.php`,{
+            headers: { 
+                'Accept': 'application/json',
+                'Content-Type': 'application/json; charset=utf-8'
+            },
+            method: "POST",
+            body: JSON.stringify({
+                type,
+                userId: info.userId,
+                videoId: info.videoId,
+                comment: info.comment
+            })
+        });
+        const data = await respone.json();
+        if(data.status){
+            return data.data;
+        }else{
+            return new { 
+                status: data.status,
+                header: "There is an error in connection or database"
+            }
+        }
+    }
 }

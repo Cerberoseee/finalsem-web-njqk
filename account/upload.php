@@ -22,7 +22,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="profile__background">
-                <img src="<?=$url?>/assets/imgs/bg-profile.jpg" alt="">
+                <img src="<?=$url.$account["backgroundPath"]?>" alt="">
             </div>
         </div>
         <div class="row">
@@ -31,20 +31,20 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="profile__avatar">
-                                <img src="<?=$url?>/api/<?=$account["avatarPath"]?>" class="profile__avatar-img" src="" alt="">
+                                <img src="<?=$url.$account["avatarPath"]?>" class="profile__avatar-img" src="" alt="">
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12">
                             <div class="profile__info">
-                                <div class="profile__name">Shigeo Tokuda</div>
-                                <div class="profile__tag">@tokuda.jav</div>
-                                <div class="profile__bio mt-1">Actor</div>
+                                <div class="profile__name"><?=$account["channelName"]?></div>
+                                <div class="profile__tag">@<?=$account["username"]?></div>
+                                <div class="profile__bio mt-1"><?=$account["bio"]?></div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-12">
                             <div class="profile__filter">
                                 <div class="profile__filter-cate">
@@ -58,7 +58,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -183,7 +183,24 @@
                         </div>
                         <!-- Confirm -->
                         <div class="upload__confirm mt-4">
-
+                            <div class="upload__confirm-block">
+                                <div class="upload__confirm-video">
+                                    <video class="d-block mb-1" id="video-confirm-src" controls>
+                                        <source>
+                                    </video>
+                                    <label id="text-videoname" for="">Name of video</label>
+                                </div>
+                                <div class="upload__confirm-content mt-1">
+                                    <div class="confirm__content-group">
+                                        <label for="">Description</label>
+                                        <span class="d-block" id="desc__preview">Text</span>
+                                    </div>
+                                    <div class="confirm__content-group">
+                                        <label for="">Tags</label>
+                                        <span class="d-block" id="tags__preview">Text</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <!-- Unload percents/footer -->

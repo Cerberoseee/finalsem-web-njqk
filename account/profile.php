@@ -56,7 +56,7 @@
                 <div class="col-12">
                     <div class="profile__figures">
                         <span id="profile__figures--followers">569 <span class="text-fade">Followers</span></span>
-                        <span>69 <span class="text-fade">Videos</span></span>
+                        <span><span id="profile__figures--videos">69</span> <span class="text-fade">Videos</span></span>
                     </div>
                 </div>
             </div>
@@ -85,14 +85,14 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="profile__video-heading-tag">
-                                    <h3>Your videos <i class="fa-solid fa-caret-right"></i></h3>
+                                    <h3>My videos <i class="fa-solid fa-caret-right"></i></h3>
                                 </div>
                             </div>
                         </div>
                         <div class="row profile__video-list profile__video-list--user"></div>
                     </div>
                 </div>
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-12">
                         <div class="row">
                             <div class="col-12">
@@ -110,7 +110,7 @@
                             <?=itemVideoHTML()?>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="row">
                     <div class="col-12">
                         <div class="row">
@@ -120,16 +120,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row profile__video-list">
-                            <?=itemPlaylistHTML()?>
-                            <?=itemPlaylistHTML()?>
-                            <?=itemPlaylistHTML()?>
-                            <?=itemPlaylistHTML()?>
-                            <?=itemPlaylistHTML()?>
-                            <?=itemPlaylistHTML()?>
-                            <?=itemPlaylistHTML()?>
-                            <?=itemPlaylistHTML()?>
-                        </div>
+                        <div class="row profile__video-list profile__video-list--playlist"></div>
                     </div>
                 </div>
             </div>
@@ -152,12 +143,7 @@
                             <div class="col-12">
                                 <h3>About</h3>
                                 <div class="pr-about__content">
-                                    <p>
-                                    Hello, I'm Ryo Yamada. I play a range of popular video games and music make content on those stuff. Maybe you like horror games, or funny games, or comedy sketches,
-                                    or animations, or compilations, or reactions, or reviews, or challenges, or cryptic lore, or mind-crippling ennui, or stuff-that-is-guaranteed-to-probably-make-you-cry? 
-                                    Whatever you're into I'm sure there's something for you down in the briny deep of my video page. So why not dive in? Enjoy my interesting yet crude music.
-                                    The subject matter of the content on this channel is intended for audiences 13+ and in some cases 17+ . Viewer discretion is advised.
-                                    </p>
+                                    <p><?=$account["about"]?></p>
                                 </div>
                             </div>
                         </div>
@@ -167,11 +153,11 @@
                                 <ul class="profile__list-url">
                                     <li>
                                         <img class="mr-h-5" src="<?=$url?>/assets/icons/email.svg" alt="">
-                                        <span class="pr-about__email">admin@gmail.com</span>
+                                        <span class="pr-about__email"><?=$account["email"]?></span>
                                     </li>
                                     <li>
                                         <img class="mr-h-5" src="<?=$url?>/assets/icons/date.svg" alt="">
-                                        <span class="pr-about__createAt">30 March 2002</span>
+                                        <span class="pr-about__createAt"><?=$account["dateCreated"]?></span>
                                     </li>
                                     <li>
                                         <img class="mr-h-5" src="<?=$url?>/assets/icons/Link.svg" alt="">
@@ -201,15 +187,15 @@
                         <ul class="profile__list-url">
                             <li>
                                 <img class="mr-h-5" src="<?=$url?>/assets/icons/gender.svg" alt="">
-                                <span class="pr-about__gender">Female</span>
+                                <span class="pr-about__gender"><?=$account["gender"]?></span>
                             </li>
                             <li>
                                 <img class="mr-h-5" src="<?=$url?>/assets/icons/Birthday.svg" alt="">
-                                <span class="pr-about__day">30 March 2002</span>
+                                <span class="pr-about__day"><?=$account["dateOfBirth"]?></span>
                             </li>
                             <li>
                                 <img class="mr-h-5" src="<?=$url?>/assets/icons/location.svg" alt="">
-                                <span class="pr-about__location">Japan</span>
+                                <span class="pr-about__location"><?=$account["location"]?></span>
                             </li>
                         </ul>
                     </div>

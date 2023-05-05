@@ -58,7 +58,8 @@
             unset($data["userId"]);
     
             $account += $data;
-    
+
+            // History
             $cm = "SELECT * FROM user_history JOIN video ON user_history.videoId = video.videoId WHERE user_history.userId = ?";
 
             $exec = $dbCon -> prepare($cm);
@@ -77,6 +78,7 @@
 
             $account += array( "history" => $data_arr);
 
+            // Playlist
             $cm = "SELECT * FROM video_playlist WHERE userId = ?";
 
             $exec = $dbCon -> prepare($cm);
@@ -90,12 +92,33 @@
             $result = $exec -> get_result();
             $data_arr = [];
             while($row = $result->fetch_assoc()) {
+              $cm = "SELECT * FROM playlist_detail WHERE playlistId = ?";
+              $exec = $dbCon->prepare($cm);
+              $exec -> bind_param("s", $row["playlistId"]);
+            
+              if (!$exec -> execute()) {
+                die(json_encode(array("status" => false, "data" => "Execute query failed")));
+              }
+            
+              $resultTemp = $exec -> get_result();
+              $videosPlaylist = $resultTemp->num_rows;
+              if($videosPlaylist >= 1){
+                // Get first video
+                $firstRow = $resultTemp->fetch_assoc();
+                
+                $row += array("count" => $videosPlaylist, "firstVideo"=> $firstRow["videoId"]);
+              }else{
+                $row += array("count" => 0);
+              }
+              
               $data_arr[] = $row;
             }
+
             
             $account += array( "playlist" => $data_arr);
 
-            $cm = "SELECT COUNT(*) FROM video WHERE video.userId = ?";
+            // Number of videos
+            $cm = "SELECT COUNT(*) FROM video_channel WHERE video_channel.userId = ?";
             
             $exec = $dbCon->prepare($cm);
             $exec -> bind_param("s", $userId);
@@ -105,7 +128,7 @@
             }
           
             $result = $exec -> get_result();
-            $data = $result -> fetch_assoc();
+            $data = $result->num_rows;
           
             $account += array( "videoCount" => $data);
           

@@ -24,12 +24,16 @@
     </div>
     <div class="playlist__popup">
         <span class="playlist__popup-exit"><i class="fa-solid fa-circle-xmark"></i></span>
+        <label for="">Add a new playlist</label>
+        <div class="playlist__create mt-h-5 mb-1">
+            <input id="playlist-text" type="text" class="input input-primary mr-h-5">
+            <button class="btn btn-primary" id="create-playlist">Create</button>
+        </div>
         <h4>Save to</h4>
-        <ul class="more__options-list"> 
-            <li id="playlist">Playlist1</li>
-            <li id="playlist">Playlist2</li>
-        </ul>
-        <button class="btn btn-primary" id="save-playlist">Save</button>
+
+        <ul class="more__options-list mt-h-5 playlist__list"></ul>
+        <button class="btn btn-primary mt-1" id="save-playlist">Save</button>
+        <span class="alert d-block text-center" id="alert-add-platlist"></span>
     </div>
     <!-- Loading scripts -->
     <?=scripts()?>

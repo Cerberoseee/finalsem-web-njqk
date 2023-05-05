@@ -12,3 +12,6 @@ function getServer(){
 // Save the server url into the session
 sessionStorage.setItem("serverURL", getServer());
 export const url = sessionStorage.getItem("serverURL");
+// User id
+let userid_Temp = sessionStorage.getItem("profile") != undefined ? JSON.parse(sessionStorage.getItem("profile")).userId: "";
+export const userId = userid_Temp;

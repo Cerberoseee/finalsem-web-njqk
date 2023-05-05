@@ -218,7 +218,9 @@ a{
     color: white;
     outline-offset: -2px;
 }
-
+.btn-outline-primary:hover, .btn-outline-second:hover{
+    background-color: var(--secondary-blue);
+}
 .btn-second{
     color: var(--disable-grey);
     background: var(--disable-blue);
@@ -457,4 +459,18 @@ form{
 }
 form > button:hover{
     background-color: var(--secondary-blue);
+}
+.input{
+    padding: 1rem;
+    outline: none;
+    border: none;
+    border-radius: 12px;
+    width: 100%;
+}
+
+.input-primary{
+    background-color: var(--main-background);
+}
+input[type="radio"], input[type="checkbox"]{
+    cursor: pointer;
 }

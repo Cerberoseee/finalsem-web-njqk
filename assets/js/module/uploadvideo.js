@@ -50,6 +50,10 @@ import { upload_video } from '../../../AJAX/fetch.js';
                         const step_block = $('#step_4');
                         activeBar(step_block);
                         this.showContent($('.upload__stric'));
+                        $('#video-confirm-src').src = $('#video__preview-src').src;
+                        $('#text-videoname').innerText = $('#title').value;
+                        $('#desc__preview').innerText = $('#desc').value;
+                        $('#tags__preview').innerText = $('#tags').value;
                     }
                     break;
                     case 5:{

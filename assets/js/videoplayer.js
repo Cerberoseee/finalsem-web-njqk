@@ -540,104 +540,104 @@ try{
         });
     
         // Events of hot keys
-        window.addEventListener("keydown",(e)=>{
-            console.log(e.key);
-            switch(e.key){
-                case " ":{
-                    e.preventDefault();
-                    controls.player.setPlayPause();
-                }
-                    break;
-                case "ArrowRight": controls.player.setForward();
-                    break;
-                case "ArrowLeft": controls.player.setBackward();
-                    break;
-                case "ArrowUp": {
-                    e.preventDefault();
-                    volume.value = parseFloat(volume.value) + 0.1;
-                    controls.volume.setVolume();
-                }
-                    break;
-                case "ArrowDown": {
-                    e.preventDefault();
-                    volume.value -= 0.1;
-                    controls.volume.setVolume();
-                }
-                    break;
-                case "0":{
-                    controls.player.setZero();
-                }
-                    break;
-                case "1":{
-                    controls.player.setOne();
-                }
-                    break;
-                case "2":{
-                    controls.player.setTwo();
-                }
-                    break;
-                case "3":{
-                    controls.player.setThree();
-                }
-                    break;
-                case "4":{
-                    controls.player.setFour();
-                }
-                    break;
-                case "5":{
-                    controls.player.setFive();
-                }
-                    break;
-                case "6":{
-                    controls.player.setSix();
-                }
-                    break;
-                case "7":{
-                    controls.player.setSeven();
-                }
-                    break;
-                case "8":{
-                    controls.player.setEight();
-                }
-                    break;
-                case "9":{
-                    controls.player.setEight();
-                }
-                    break;
-                case "t":
-                case "T":{
-                    if(controls.view.flagView){
-                        controls.view.setTheaterView();
-                        controls.view.flagView = !controls.view.flagView;
-                    }else{
-                        controls.view.setDefaultView();
-                        controls.view.flagView = !controls.view.flagView;
-                    }
-                }
-                    break;
-                case "f":
-                case "F":{
-                    controls.view.setFullView();
-                }
-                    break;
-                case "k":
-                case "K":{
-                    controls.player.setPlayPause();
-                }
-                    break;
-                case "m":
-                case "M":{
-                    if(controls.volume.flagVol){
-                        controls.volume.setMuted();
-                        controls.volume.flagVol = !controls.volume.flagVol;
-                    }else{
-                        controls.volume.setNoMuted();
-                        controls.volume.flagVol = !controls.volume.flagVol;
-                    }
-                }
-                break;
-            }
-        });
+        // window.addEventListener("keydown",(e)=>{
+        //     console.log(e.key);
+        //     switch(e.key){
+        //         case " ":{
+        //             e.preventDefault();
+        //             controls.player.setPlayPause();
+        //         }
+        //             break;
+        //         case "ArrowRight": controls.player.setForward();
+        //             break;
+        //         case "ArrowLeft": controls.player.setBackward();
+        //             break;
+        //         case "ArrowUp": {
+        //             e.preventDefault();
+        //             volume.value = parseFloat(volume.value) + 0.1;
+        //             controls.volume.setVolume();
+        //         }
+        //             break;
+        //         case "ArrowDown": {
+        //             e.preventDefault();
+        //             volume.value -= 0.1;
+        //             controls.volume.setVolume();
+        //         }
+        //             break;
+        //         case "0":{
+        //             controls.player.setZero();
+        //         }
+        //             break;
+        //         case "1":{
+        //             controls.player.setOne();
+        //         }
+        //             break;
+        //         case "2":{
+        //             controls.player.setTwo();
+        //         }
+        //             break;
+        //         case "3":{
+        //             controls.player.setThree();
+        //         }
+        //             break;
+        //         case "4":{
+        //             controls.player.setFour();
+        //         }
+        //             break;
+        //         case "5":{
+        //             controls.player.setFive();
+        //         }
+        //             break;
+        //         case "6":{
+        //             controls.player.setSix();
+        //         }
+        //             break;
+        //         case "7":{
+        //             controls.player.setSeven();
+        //         }
+        //             break;
+        //         case "8":{
+        //             controls.player.setEight();
+        //         }
+        //             break;
+        //         case "9":{
+        //             controls.player.setEight();
+        //         }
+        //             break;
+        //         case "t":
+        //         case "T":{
+        //             if(controls.view.flagView){
+        //                 controls.view.setTheaterView();
+        //                 controls.view.flagView = !controls.view.flagView;
+        //             }else{
+        //                 controls.view.setDefaultView();
+        //                 controls.view.flagView = !controls.view.flagView;
+        //             }
+        //         }
+        //             break;
+        //         case "f":
+        //         case "F":{
+        //             controls.view.setFullView();
+        //         }
+        //             break;
+        //         case "k":
+        //         case "K":{
+        //             controls.player.setPlayPause();
+        //         }
+        //             break;
+        //         case "m":
+        //         case "M":{
+        //             if(controls.volume.flagVol){
+        //                 controls.volume.setMuted();
+        //                 controls.volume.flagVol = !controls.volume.flagVol;
+        //             }else{
+        //                 controls.volume.setNoMuted();
+        //                 controls.volume.flagVol = !controls.volume.flagVol;
+        //             }
+        //         }
+        //         break;
+        //     }
+        // });
     
     })(parameter);
 }catch(e){

@@ -50,7 +50,6 @@
                             </button>
                             <div class="more__options">
                                 <ul class="more__options-list"> 
-                                    <!-- <li><button id="add-playlist" class="btn">Add to playlist</button></li> -->
                                     <li id="add-playlist">Add to playlist</li>
                                     <li id="download-video">Download</li>
                                 </ul>

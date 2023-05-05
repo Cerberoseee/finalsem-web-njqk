@@ -9,7 +9,7 @@
             <div class="cmt__item-content">
                 <div class="cmt__item-heading">
                     <span class="cmt__item-name mr-h-5">Ky Nhong</span>
-                    <small class="cmt__item-time">2 weeks ago</small>
+                    <!-- <small class="cmt__item-time">2 weeks ago</small> -->
                 </div>
                 <div class="cmt__item-body">
                     <p>
@@ -23,7 +23,7 @@
                             <span class="ml-h-5"> Reply</span>
                         </span>
                     </button>
-                    <button class="btn rounded mr-h-5 btn-md">
+                    <!-- <button class="btn rounded mr-h-5 btn-md">
                         <span class="cmt__item-func-text flex-align-center">
                             <img src="<?=$url?>/assets/icons/like-btn.svg" alt="">
                             <span class="ml-h-5"> 14K</span>
@@ -33,7 +33,7 @@
                         <span class="cmt__item-func-text flex-align-center">
                             <img src="<?=$url?>/assets/icons/report.svg" alt="">
                         </span>
-                    </button>
+                    </button> -->
                 </div>
             </div>
         </li>
@@ -50,7 +50,7 @@
                 <div class="cmt__item-main">
                     <div class="cmt__item-heading">
                         <span class="cmt__item-name mr-h-5">Ky Nhong</span>
-                        <small class="cmt__item-time">2 weeks ago</small>
+                        <!-- <small class="cmt__item-time">2 weeks ago</small> -->
                     </div>
                     <div class="cmt__item-body">
                         <p>
@@ -64,7 +64,7 @@
                                 <span class="ml-h-5"> Reply</span>
                             </span>
                         </button>
-                        <button class="btn rounded mr-h-5 btn-md">
+                        <!-- <button class="btn rounded mr-h-5 btn-md">
                             <span class="cmt__item-func-text flex-align-center">
                                 <img src="<?=$url?>/assets/icons/like-btn.svg" alt="">
                                 <span class="ml-h-5"> 14K</span>
@@ -74,7 +74,7 @@
                             <span class="cmt__item-func-text flex-align-center">
                                 <img src="<?=$url?>/assets/icons/report.svg" alt="">
                             </span>
-                        </button>
+                        </button> -->
                     </div>
                     <button class="btn btn-link btn-link--blue mt-1 text-sm show__reply-btn">SHOW 12 REPLIES  ▼</button>
                 </div>
@@ -116,8 +116,8 @@
 
                     </textarea>
                     <div class="comments__textarea-func mt-h-5">
-                        <button class="btn btn-outline-second btn-md float-right w-6 rounded">Comment</button>
-                        <button class="btn btn-outline-primary btn-md float-right mr-h-5 w-6 rounded">Cancel</button>
+                        <button id="post-cmt" class="btn btn-outline-second btn-md float-right w-6 rounded">Comment</button>
+                        <button id="cancel-cmt" class="btn btn-outline-primary btn-md float-right mr-h-5 w-6 rounded">Cancel</button>
                     </div>
                 </div>
             </div>

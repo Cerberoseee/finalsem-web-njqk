@@ -1,12 +1,20 @@
-<?php 
-  $type = isset($_POST["type"]) ? $_POST["type"] : null;
-  $videoId = isset($_POST["videoid"]) ? $_POST["videoid"] : null;
-  $userId = isset($_POST["userid"]) ? $_POST["userid"] : null;
+<?php
+  require_once('db-connection.php');
 
-  $playlistId = isset($_POST["playlistid"]) ? $_POST["playlistid"] : null;
+  $data = file_get_contents("php://input");
+  $filter = json_decode($data, true);
+
+  $type = isset($filter["type"]) ? $filter["type"] : null;
+  $videoId = isset($filter["videoid"]) ? $filter["videoid"] : null;
+  $userId = isset($filter["userId"]) ? $filter["userId"] : null;
+
+  $playlistId = isset($filter["playlistid"]) ? $filter["playlistid"] : null;
+
+  $playlistName = isset($filter["name"]) ? $filter["name"] : null;
+  // Add video into playlist
 
   if ($type == "add-playlist") {
-    $cm = "INSERT INTO playlist_details VALUES (?, ?)";
+    $cm = "INSERT INTO playlist_detail VALUES (?, ?)";
 
     $exec = $dbCon -> prepare($cm);
     $exec -> bind_param("ss", $playlistId, $videoId);
@@ -15,9 +23,9 @@
       die(json_encode(array("status" => false, "data" => "Execute query failed")));
     }
 
-    echo json_encode(array("status" => "ok", "data" => "Executed succecss"));
+    echo json_encode(array("status" => true, "data" => "Executed succecss"));
   }
-
+  // Create a new playlist
   if ($type == "create-playlist") {
     $id = crc32(uniqid());
 
@@ -29,8 +37,23 @@
     if (!$exec -> execute()) {
       die(json_encode(array("status" => false, "data" => "Execute query failed")));
     }
+    
+    // Return the list of the playlist
+    $cm = "SELECT * FROM video_playlist WHERE userId = ?";
 
-    echo json_encode(array("status" => "ok", "data" => "Executed succecss"));
+    $exec = $dbCon -> prepare($cm);
+    $exec -> bind_param("s", $userId);
+
+    if (!$exec -> execute()) {
+      die(json_encode(array("status" => false, "data" => "Execute query failed")));
+    }
+    $result = $exec -> get_result();
+    $data_arr = [];
+    while($row = $result->fetch_assoc()) {
+      $data_arr[] = $row;
+    }
+
+    echo json_encode(array("status" => true, "data" => $data_arr));
   }
 
   if ($type == "query-playlist") {
@@ -42,15 +65,22 @@
     if (!$exec -> execute()) {
       die(json_encode(array("status" => false, "data" => "Execute query failed")));
     }
+    
+    $result = $exec -> get_result();
+    $data_arr = [];
 
-    echo json_encode(array("status" => "ok", "data" => "Executed succecss"));
+    while($row = $result->fetch_assoc()) {
+      $data_arr[] = $row;
+    }
+
+    echo json_encode(array("status" => true, "data" => $data_arr));
   }
-
+  // Get videos from playlist
   if ($type == "query-video") {
-    $cm = "SELECT * FROM detail_playlist
-      JOIN video_playlist ON video.videoId = detail_playlist.videoId 
-      JOIN users_account on users_account.userId = detail_playlist.userId
-    WHERE detail_playlist.playlistId = ?";
+    $cm = "SELECT * FROM playlist_detail
+      JOIN video_playlist ON video.videoId = playlist_detail.videoId 
+      JOIN users_account on users_account.userId = playlist_detail.userId
+    WHERE playlist_detail.playlistId = ?";
 
     $exec = $dbCon -> prepare($cm);
     $exec -> bind_param("s", $playlistId);

@@ -210,5 +210,26 @@ const app = (()=>{
     }catch(e){
         errorText+=e;
     }
+    // Focus on comment
+    try{
+        $('#comments__post-textarea').onfocus =()=>{
+            $('#comments__post-textarea').style.cssText = `
+                height: 5rem;
+                outline: var(--primary-color-light) solid 1px;
+            `;
+            $('.comments__textarea-func').style.display = "block";
+        }
+        $('#cancel-cmt').onclick = ()=>{
+            $('#comments__post-textarea').value = "";
+            $('#comments__post-textarea').style.cssText = `
+                height: 2.5rem;
+                outline: none;
+            `;
+            $('.comments__textarea-func').style.display = "none";
+        }
+    }
+    catch(e){
+        errorText+=e;
+    }
     console.error(errorText);
 })();
