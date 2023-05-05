@@ -95,10 +95,10 @@ const app = (()=>{
         $$('.cmt__list-item').forEach(item=>{
             item.querySelector('.show__reply-btn').onclick =()=>{
                 if(item.querySelector('.cmt__item-reply').style.display === 'block'){
-                    item.querySelector('.show__reply-btn').innerHTML = "SHOW 12 REPLIES ▲";
+                    item.querySelector('.show__reply-btn').innerHTML = "SHOW REPLIES ▲";
                     item.querySelector('.cmt__item-reply').style.display = "none";
                 }else{
-                    item.querySelector('.show__reply-btn').innerHTML = "SHOW 12 REPLIES ▼";
+                    item.querySelector('.show__reply-btn').innerHTML = "SHOW REPLIES ▼";
                     item.querySelector('.cmt__item-reply').style.display = "block";
                 }
             }
