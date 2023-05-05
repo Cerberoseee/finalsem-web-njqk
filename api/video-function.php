@@ -41,7 +41,7 @@
     if ($type == "post-comment") {
       $id = crc32(uniqid());
       
-      $cm = "INSERT INTO comment VALUES (?, ?, ?, ?)";
+      $cm = "INSERT INTO comments VALUES (?, ?, ?, ?)";
 
       $exec = $dbCon -> prepare($cm);
       $exec -> bind_param("ssss", $id, $userId, $content, $videoId);
@@ -62,7 +62,7 @@
     if ($type == "get-comment") {
       $id = crc32(uniqid());
       
-      $cm = "SELECT * FROM comment 
+      $cm = "SELECT * FROM comments 
         JOIN users_account ON comment.userId = users_account.userId
       WHERE comment.videoId = ?";
 
