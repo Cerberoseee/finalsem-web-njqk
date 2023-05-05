@@ -46,7 +46,7 @@
         position: unset;
     }
     .video__comments{
-        grid-row: 4;
+        grid-row: 5;
     }
     #nav__register-btn{
         display: none;

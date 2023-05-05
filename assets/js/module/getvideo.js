@@ -4,6 +4,7 @@ import { getVideo, processPlaylist, processComment } from '../../../AJAX/fetch.j
     // Load video
     const urlParams = new URLSearchParams(window.location.search);
     const videoId = urlParams.get('video');
+    
     const data = await getVideo(videoId);
     if(data){
         const video = data;
@@ -44,9 +45,8 @@ import { getVideo, processPlaylist, processComment } from '../../../AJAX/fetch.j
         $('#thumb').src = video.thumbnailPath;
         $('#player').src = url+video.videoPath;
         $('title').innerText = video.name +" - WIBUTAP";
-    }else{
-        console.log(data);  
     }
+
     // Download video
     $('#download-video').onclick=()=>{
         const downloadLink = document.createElement("a");
@@ -96,6 +96,37 @@ import { getVideo, processPlaylist, processComment } from '../../../AJAX/fetch.j
             }
         }
     }
+
+    // Load playlist
+    const playlistIdParam = urlParams.get('playlist');
+    const videosPlaylist = await processPlaylist("query-video", {playlistIdParam})
+    const listPlaylist = videosPlaylist.map((item, index) => {
+        const ratio = urlParams.get('ratio');
+        if(item.name.length >= 20){
+            item.name = item.name.slice(0,20) + "...";
+        }
+        return `
+        <div class="video__playlist-item ${ratio == index + 1? "video__playlist-item--active" : ""} my-1">
+            <a class="d-block w-100" href="${url}/watch.php?video=${item.videoId}&playlist=${item.playlistId}&ratio=${index+1}">
+                <div class="video__thumb">
+                    <span class="video__thumb-timer">00:07</span>
+                    <img src="${url+item.thumbnailPath}" alt="">
+                </div>
+                <div class="video__contents ">
+                    <h4 class="video__heading">${item.name}</h4>
+                    <div class="video__details">
+                        <span class="mr-h-5">${item.uploadTime} • ${item.views}</span>
+                    </div>
+                    <div class="video__author">
+                        <span class="video__author-avt"><img src="${url+item.avatarPath}" alt=""></span>
+                        <span class="video__author-name">${item.channelName}</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        `;
+    }).join("");
+    $('.video__playlist-list').innerHTML = listPlaylist;
 })();
 
 function playlistRender(playlist){

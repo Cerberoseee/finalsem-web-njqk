@@ -321,6 +321,28 @@ export async function processPlaylist(type, info){
             }
         }
     }
+    // Query video from playlist
+    else if(type === "query-video"){
+        const respone = await fetch(`${url}/api/playlist.php`,{
+            headers: { 
+                'Accept': 'application/json',
+                'Content-Type': 'application/json; charset=utf-8'
+            },
+            method: "POST",
+            body: JSON.stringify(
+                {type, 
+                playlistid: info.playlistIdParam})
+        });
+        const data = await respone.json();
+        if(data.status){
+            return data.data;
+        }else{
+            return new { 
+                status: data.status,
+                header: "There is an error in connection or database"
+            }
+        }
+    }
 }
 
 // Process comments

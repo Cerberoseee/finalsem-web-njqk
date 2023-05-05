@@ -27,12 +27,12 @@
         ?>
         <!-- Video recommends -->
         <div class="video__recommends">
-                <div class="video__recommends-tab">
-                    <button  id="recommened__tab" class="btn btn-second recommends__related unround-b">Recommend</button>
-                    <button id="top-views__tab" class="btn btn-second recommends__views unround-b">Top views</button>
-                </div>
-                <div class="video__recommends-list"></div>
+            <div class="video__recommends-tab">
+                <button  id="recommened__tab" class="btn btn-second recommends__related unround-b">Recommend</button>
+                <button id="top-views__tab" class="btn btn-second recommends__views unround-b">Top views</button>
             </div>
+            <div class="video__recommends-list"></div>
+        </div>
         <?php
     }
 ?>

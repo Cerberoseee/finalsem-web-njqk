@@ -78,8 +78,9 @@
   // Get videos from playlist
   if ($type == "query-video") {
     $cm = "SELECT * FROM playlist_detail
-      JOIN video_playlist ON video.videoId = playlist_detail.videoId 
-      JOIN users_account on users_account.userId = playlist_detail.userId
+    JOIN video ON video.videoId = playlist_detail.videoId 
+    JOIN video_playlist ON video_playlist.playlistId = playlist_detail.playlistId
+    JOIN users_account on users_account.userId = video_playlist.userId
     WHERE playlist_detail.playlistId = ?";
 
     $exec = $dbCon -> prepare($cm);
@@ -91,6 +92,7 @@
 
     $result = $exec -> get_result();
     $data_arr = [];
+
     while($row = $result->fetch_assoc()) {
       $data_arr[] = $row;
     }
