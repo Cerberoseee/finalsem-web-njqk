@@ -974,3 +974,37 @@ body{
     padding: 0.5rem;
     outline: 0;
 }
+
+.playlist__popup{
+    position: fixed;
+    background-color: var(--secondary-background);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2rem;
+    z-index: 1000;
+    border-radius: 12px;
+    display: none;
+    border: 1px solid var(--main-grey);
+}
+.playlist__popup-exit{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 24px;
+    cursor: pointer;
+}
+.playlist__popup-exit:hover{
+    color: var(--secondary-blue);
+    background-color: var(--secondary-blue);
+    border-radius: 50%;
+}
+.playlist__popup--src{
+    background-color: var(--main-background);
+    border: 0;
+    padding: 0.5rem;
+    outline: 0;
+}
+.video-container{
+    filter: none;
+}

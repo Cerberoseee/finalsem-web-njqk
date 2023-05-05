@@ -50,7 +50,8 @@
                             </button>
                             <div class="more__options">
                                 <ul class="more__options-list"> 
-                                    <li>Add to playlist</li>
+                                    <!-- <li><button id="add-playlist" class="btn">Add to playlist</button></li> -->
+                                    <li id="add-playlist">Add to playlist</li>
                                     <li id="download-video">Download</li>
                                 </ul>
                             </div>
@@ -70,12 +71,6 @@
                 <div class="video__information-content mt-h-5">
                     <p id="description__span">After a long wait, John Smith is finally with us. But was it worth the wait, and is it a fitting swan song for one of the best buscu scene in recent memory? Let's find out. <span id="showmore">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed rem maiores quasi accusantium ratione natus facilis cupiditate possimus. Earum cupiditate voluptates unde est quidem, velit maiores at. Aperiam recusandae provident est tempora! Non vel corrupti quo quisquam nostrum praesentium facilis dolorum accusamus tempora quos. Quibusdam earum ea molestiae dolore! Quod pariatur delectus dignissimos incidunt itaque accusantium ab molestiae commodi ex voluptatem debitis et, quidem porro! Dolore dicta quia optio est quasi amet voluptatum deleniti rem, debitis dolor saepe nihil fugit animi repellendus temporibus earum accusantium totam et similique tempora tempore voluptas ex. Voluptatem hic dolor expedita consequuntur commodi. Illo adipisci magni rerum exercitationem ab labore. Quasi laborum illo tenetur odio consequuntur eos corporis optio modi quisquam facilis! Aut provident minima vero corporis, nobis quisquam repudiandae tenetur ratione, omnis officiis ex. A officiis molestiae neque voluptatum, inventore quam, veniam corporis consectetur quidem ullam aspernatur alias dicta velit sapiente autem iure labore. Placeat voluptatum libero reiciendis saepe beatae ea, veniam reprehenderit quaerat. Beatae est provident officia voluptate, nam quidem illum odio recusandae dolores eaque molestias earum? Aliquid accusantium dignissimos voluptate nulla perspiciatis obcaecati? Fuga, repellat deleniti labore unde nisi soluta debitis sint, dignissimos totam harum amet! Laboriosam dolores dolore animi veritatis deleniti.</span><button id="showhide" class="btn btn-link">More details</button></p>
                 </div>
-            </div>
-            <div class="share__popup">
-                <span class="share__popup-exit"><i class="fa-solid fa-circle-xmark"></i></span>
-                <h3>The link of this video</h3>
-                <input class="share__popup--src" type="text">
-                <button class="btn btn-primary" id="copy-link">Copy</button>
             </div>
         </div>
         <?php
