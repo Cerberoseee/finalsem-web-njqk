@@ -100,7 +100,8 @@ import { getVideo, processPlaylist, processComment } from '../../../AJAX/fetch.j
     // Load playlist
     const playlistIdParam = urlParams.get('playlist');
     const videosPlaylist = await processPlaylist("query-video", {playlistIdParam})
-    const listPlaylist = videosPlaylist.map((item, index) => {
+    $('#nameofpl').innerText = videosPlaylist.name;
+    const listPlaylist = videosPlaylist.list.map((item, index) => {
         const ratio = urlParams.get('ratio');
         if(item.name.length >= 20){
             item.name = item.name.slice(0,20) + "...";

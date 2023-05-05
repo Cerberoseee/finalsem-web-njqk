@@ -96,8 +96,19 @@
     while($row = $result->fetch_assoc()) {
       $data_arr[] = $row;
     }
-  
-    echo json_encode(array("status" => true, "data" => $data_arr));
+
+    // Select name
+    $cm = "SELECT * FROM video_playlist WHERE playlistId = ?";
+    $exec = $dbCon -> prepare($cm);
+    $exec -> bind_param("s", $playlistId);
+
+    if (!$exec -> execute()) {
+      die(json_encode(array("status" => false, "data" => "Execute query failed")));
+    }
+
+    $result = $exec -> get_result();
+    $name = $result->fetch_assoc();
+    echo json_encode(array("status" => true, "data" => array("name"=> $name["playlistName"], "list"=> $data_arr)));
   }
 
   if ($type = null) {

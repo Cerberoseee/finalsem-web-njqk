@@ -3,7 +3,7 @@
         ?>
         <div class="video__playlist">
             <div class="video__playlist-tab">
-                <h3>Name of playlist</h3>
+                <h3 id="nameofpl">Name of playlist</h3>
             </div>
             <div class="playlist__box">
                 <div class="video__playlist-list">
