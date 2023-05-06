@@ -86,7 +86,8 @@
 
     //Top view
     case "top":
-      $cm = "SELECT * FROM video JOIN video_channel ON video.videoId = video_channel.videoId 
+      $cm = "SELECT * FROM video 
+        JOIN video_channel ON video.videoId = video_channel.videoId 
         JOIN users_account ON video_channel.userId = users_account.userId 
         GROUP BY video.videoId ORDER BY video.views DESC;";
       $exec = $dbCon->prepare($cm);
