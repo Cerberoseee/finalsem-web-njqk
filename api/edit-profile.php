@@ -57,7 +57,5 @@
       if ($error) {
         die("Error: " . $error);
       }
-
-
   } 
 ?>

@@ -186,18 +186,18 @@
                             <div class="upload__confirm-block">
                                 <div class="upload__confirm-video">
                                     <video class="d-block mb-1" id="video-confirm-src" controls>
-                                        <source>
+                                    <source>
                                     </video>
                                     <label id="text-videoname" for="">Name of video</label>
                                 </div>
                                 <div class="upload__confirm-content mt-1">
                                     <div class="confirm__content-group">
-                                        <label for="">Description</label>
-                                        <span class="d-block" id="desc__preview">Text</span>
+                                    <label for="">Description</label>
+                                    <span class="d-block" id="desc__preview">Text</span>
                                     </div>
                                     <div class="confirm__content-group">
-                                        <label for="">Tags</label>
-                                        <span class="d-block" id="tags__preview">Text</span>
+                                    <label for="">Tags</label>
+                                    <span class="d-block" id="tags__preview">Text</span>
                                     </div>
                                 </div>
                             </div>

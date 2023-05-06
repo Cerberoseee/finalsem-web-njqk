@@ -54,7 +54,7 @@
       }
 
       // Return posted cmt
-      $cm = "SELECT * FROM comments WHERE commentId = ? AND userId = ? AND videoId = ?";
+      $cm = "SELECT * FROM comments WHERE commentId = ? AND userId = ? AND videoId = ? JOIN users_account ON users_account.userId = comments.userId";
 
       $exec = $dbCon -> prepare($cm);
       $exec -> bind_param("sss", $id, $userId, $videoId);
