@@ -14,7 +14,7 @@ import { getVideo, processPlaylist, processComment } from '../../../AJAX/fetch.j
         $('#like__span').innerText = video.likeCount;
         $('#dislike__span').innerText = video.dislikeCount;
         $('#datetime__span').innerText = video.uploadTime;
-        $('#video__creater-avt--img').src = "api"+video.avatarPath;
+        $('#video__creater-avt--img').src = url+video.avatarPath;
         $('.video__creater-name').innerText = video.channelName;
         $('#video__creater-subs--text').innerText = video.followers;
 
@@ -99,35 +99,40 @@ import { getVideo, processPlaylist, processComment } from '../../../AJAX/fetch.j
 
     // Load playlist
     const playlistIdParam = urlParams.get('playlist');
-    const videosPlaylist = await processPlaylist("query-video", {playlistIdParam})
-    $('#nameofpl').innerText = videosPlaylist.name;
-    const listPlaylist = videosPlaylist.list.map((item, index) => {
+    const videosPlaylist = await processPlaylist('query-video', { playlistIdParam });
+    const nameofpl = document.querySelector('#nameofpl');
+    const playlistList = document.querySelector('.video__playlist-list');
+
+    nameofpl.innerText = videosPlaylist.name;
+
+    const listPlaylist = videosPlaylist.list.map(({ name, videoId, playlistId, thumbnailPath, uploadTime, views, avatarPath, channelName }, index) => {
         const ratio = urlParams.get('ratio');
-        if(item.name.length >= 20){
-            item.name = item.name.slice(0,20) + "...";
-        }
+        const shortName = name.length >= 20 ? `${name.slice(0, 20)}...` : name;
+
         return `
-        <div class="video__playlist-item ${ratio == index + 1? "video__playlist-item--active" : ""} my-1">
-            <a class="d-block w-100" href="${url}/watch.php?video=${item.videoId}&playlist=${item.playlistId}&ratio=${index+1}">
-                <div class="video__thumb">
-                    <span class="video__thumb-timer">00:07</span>
-                    <img src="${url+item.thumbnailPath}" alt="">
-                </div>
-                <div class="video__contents ">
-                    <h4 class="video__heading">${item.name}</h4>
-                    <div class="video__details">
-                        <span class="mr-h-5">${item.uploadTime} • ${item.views}</span>
+            <div class="video__playlist-item ${ratio == index + 1 ? 'video__playlist-item--active' : ''} my-1">
+                <a class="d-block w-100" href="${url}/watch.php?video=${videoId}&playlist=${playlistId}&ratio=${index + 1}">
+                    <div class="video__thumb">
+                        <span class="video__thumb-timer">00:07</span>
+                        <img src="${url}${thumbnailPath}" alt="">
                     </div>
-                    <div class="video__author">
-                        <span class="video__author-avt"><img src="${url+item.avatarPath}" alt=""></span>
-                        <span class="video__author-name">${item.channelName}</span>
+                    <div class="video__contents ">
+                        <h4 class="video__heading">${shortName}</h4>
+                        <div class="video__details">
+                            <span class="mr-h-5">${uploadTime} • ${views}</span>
+                        </div>
+                        <div class="video__author">
+                            <span class="video__author-avt"><img src="${url}${avatarPath}" alt=""></span>
+                            <span class="video__author-name">${channelName}</span>
+                        </div>
                     </div>
-                </div>
-            </a>
-        </div>
+                </a>
+            </div>
         `;
-    }).join("");
-    $('.video__playlist-list').innerHTML = listPlaylist;
+    }).join('');
+
+    playlistList.innerHTML = listPlaylist;
+
 })();
 
 function playlistRender(playlist){
