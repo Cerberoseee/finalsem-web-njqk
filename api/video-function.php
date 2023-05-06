@@ -54,7 +54,8 @@
       }
 
       // Return posted cmt
-      $cm = "SELECT * FROM comments WHERE commentId = ? AND userId = ? AND videoId = ? JOIN users_account ON users_account.userId = comments.userId";
+      $cm = 
+      "SELECT * FROM comments JOIN users_account ON users_account.userId = comments. userId    WHERE commentId = ? AND userId = ? AND videoId = ?";
 
       $exec = $dbCon -> prepare($cm);
       $exec -> bind_param("sss", $id, $userId, $videoId);
@@ -62,9 +63,13 @@
         die(json_encode(array("status" => false, "data" => "Execute query failed")));
       }
       $result = $exec -> get_result();
-      $data = $result->fetch_assoc();
+      $data_arr = [];
+      while($row = $result->fetch_assoc()) {
+        $data_arr[] = $row;
+      }
+
+      echo json_encode(array("status" => true, "data" => $data_arr));
     
-      echo json_encode(array("status" => true, "data" => $data));
     }
 
     if ($type == "get-comment") {
