@@ -55,7 +55,9 @@
 
       // Return posted cmt
       $cm = 
-      "SELECT * FROM comments JOIN users_account ON users_account.userId = comments. userId    WHERE commentId = ? AND userId = ? AND videoId = ?";
+      "SELECT * FROM comments 
+        JOIN users_account ON users_account.userId = comments.userId  
+      WHERE comments.commentId = ? AND comments.userId = ? AND comments.videoId = ?";
 
       $exec = $dbCon -> prepare($cm);
       $exec -> bind_param("sss", $id, $userId, $videoId);
