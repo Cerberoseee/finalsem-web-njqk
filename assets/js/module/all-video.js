@@ -12,7 +12,7 @@ import { getAllVideo, getTrending, getRecommend, getTopviews } from '../../../AJ
                     video.name = video.name.slice(0,30) + "...";
                 }
                 return `
-                <div class="col-2 col-lg-3 col-md-4 col-sm-6" title=${video.name}>
+                <div class="col-3 col-lg-3 col-md-4 col-sm-6" title=${video.name}>
                     <a href="${url}/watch.php?video=${video.videoId}">
                         <div class="profile__video-item">
                             <div class="pr-video-item__img">
@@ -154,7 +154,7 @@ import { getAllVideo, getTrending, getRecommend, getTopviews } from '../../../AJ
                     video.name = video.name.slice(0,25) + "...";
                 }
                 return `
-                <div class="col-2 col-lg-3 col-md-4 col-sm-6" title=${video.name}>
+                <div class="col-3 col-lg-3 col-md-4 col-sm-6" title=${video.name}>
                     <a href="${url}/watch.php?video=${video.videoId}">
                         <div class="profile__video-item">
                             <div class="pr-video-item__img">
