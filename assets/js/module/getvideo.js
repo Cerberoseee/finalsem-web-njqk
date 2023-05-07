@@ -8,7 +8,7 @@ import { getVideo, processPlaylist, processComment } from '../../../AJAX/fetch.j
     const data = await getVideo(videoId);
     if(data){
         const video = data;
-        console.log(video);
+        //console.log(video);
         $('.video__title').innerText = video.name;
         $('#views__span').innerText = video.views;
         $('#like__span').innerText = video.likeCount;
@@ -86,6 +86,8 @@ import { getVideo, processPlaylist, processComment } from '../../../AJAX/fetch.j
             const postCmt = await processComment("post-comment", {
                 userId, comment, videoId
             });
+            let temp = {...postCmt[0]};
+            //console.log(temp);
             if(postCmt){
                 $('#comments__post-textarea').value = "";
                 $('#comments__post-textarea').style.cssText = `
@@ -93,46 +95,130 @@ import { getVideo, processPlaylist, processComment } from '../../../AJAX/fetch.j
                     outline: none;
                 `;
                 $('.comments__textarea-func').style.display = "none";
+
+                let cmtTemp = `
+                <li class="cmt__list-item">
+                    <div class="cmt__item-avt mr-1">
+                        <img src="${url+temp.avatarPath}" alt="">
+                    </div>
+                    <div class="cmt__item-content">
+                        <div class="cmt__item-main">
+                            <div class="cmt__item-heading">
+                                <span class="cmt__item-name mr-h-5">${temp.channelName}</span>
+                            </div>
+                            <div class="cmt__item-body">
+                                <p>${temp.content}</p>
+                            </div>
+                    </div>
+                </li>
+                `
+
+                // Insert cmt
+                $('.video__comments-list').insertAdjacentHTML('afterbegin', cmtTemp);
             }
+        }else{
+            //console.log("Error" + postCmt);
         }
     }
 
+    // Get cmts
+    let comments = await processComment("get-comment", {videoId});
+    if(comments){
+        comments = [...comments];
+        async function render(){
+            return comments.map(item=> {
+                count++;
+                return `
+                <li class="cmt__list-item">
+                    <div class="cmt__item-avt mr-1">
+                        <img src="${url+item.avatarPath}" alt="">
+                    </div>
+                    <div class="cmt__item-content">
+                        <div class="cmt__item-main">
+                            <div class="cmt__item-heading">
+                                <span class="cmt__item-name mr-h-5">${item.channelName}</span>
+                            </div>
+                            <div class="cmt__item-body">
+                                <p>${item.content}</p>
+                            </div>
+                    </div>
+                </li>
+                `;
+            }).join("");
+        }
+        let count = 1;
+        const list = 
+        $('#video__cmt-numbers-txt').innerText = count + " comments";
+        $('.video__comments-list').innerHTML = await render();
+        
+        // Sorting comments
+        $('#newest').onclick = async ()=>{
+            $('#topcmt').classList.remove('active');
+            $('#newest').classList.add('active');
+            comments.sort((a, b) => {
+                if (a.content < b.content) {
+                  return -1;
+                }
+                if (a.content > b.content) {
+                  return 1;
+                }
+                return 0;
+            });
+            $('.video__comments-list').innerHTML = await render();
+        }
+        $('#topcmt').onclick = async ()=>{
+            $('#newest').classList.remove('active');
+            $('#topcmt').classList.add('active');
+            comments.sort((a, b) => {
+                if (a.commentId < b.commentId) {
+                  return -1;
+                }
+                if (a.commentId > b.commentId) {
+                  return 1;
+                }
+                return 0;
+            });
+            $('.video__comments-list').innerHTML = await render();
+        }
+    }
     // Load playlist
-    const playlistIdParam = urlParams.get('playlist');
-    const videosPlaylist = await processPlaylist('query-video', { playlistIdParam });
-    const nameofpl = document.querySelector('#nameofpl');
-    const playlistList = document.querySelector('.video__playlist-list');
+    const playlistIdParam = urlParams.get('playlist') ? urlParams.get('playlist') : undefined;
+    if(playlistIdParam){
 
-    nameofpl.innerText = videosPlaylist.name;
-
-    const listPlaylist = videosPlaylist.list.map(({ name, videoId, playlistId, thumbnailPath, uploadTime, views, avatarPath, channelName }, index) => {
-        const ratio = urlParams.get('ratio');
-        const shortName = name.length >= 20 ? `${name.slice(0, 20)}...` : name;
-
-        return `
-            <div class="video__playlist-item ${ratio == index + 1 ? 'video__playlist-item--active' : ''} my-1">
-                <a class="d-block w-100" href="${url}/watch.php?video=${videoId}&playlist=${playlistId}&ratio=${index + 1}">
-                    <div class="video__thumb">
-                        <span class="video__thumb-timer">00:07</span>
-                        <img src="${url}${thumbnailPath}" alt="">
-                    </div>
-                    <div class="video__contents ">
-                        <h4 class="video__heading">${shortName}</h4>
-                        <div class="video__details">
-                            <span class="mr-h-5">${uploadTime} • ${views}</span>
+        const videosPlaylist = await processPlaylist('query-video', { playlistIdParam });
+        const nameofpl = document.querySelector('#nameofpl');
+        const playlistList = document.querySelector('.video__playlist-list');
+    
+        nameofpl.innerText = videosPlaylist.name;
+    
+        const listPlaylist = videosPlaylist.list.map(({ name, videoId, playlistId, thumbnailPath, uploadTime, views, avatarPath, channelName }, index) => {
+            const ratio = urlParams.get('ratio');
+            const shortName = name.length >= 20 ? `${name.slice(0, 20)}...` : name;
+    
+            return `
+                <div class="video__playlist-item ${ratio == index + 1 ? 'video__playlist-item--active' : ''} my-1">
+                    <a class="d-block w-100" href="${url}/watch.php?video=${videoId}&playlist=${playlistId}&ratio=${index + 1}">
+                        <div class="video__thumb">
+                            <span class="video__thumb-timer">00:07</span>
+                            <img src="${url}${thumbnailPath}" alt="">
                         </div>
-                        <div class="video__author">
-                            <span class="video__author-avt"><img src="${url}${avatarPath}" alt=""></span>
-                            <span class="video__author-name">${channelName}</span>
+                        <div class="video__contents ">
+                            <h4 class="video__heading">${shortName}</h4>
+                            <div class="video__details">
+                                <span class="mr-h-5">${uploadTime} • ${views}</span>
+                            </div>
+                            <div class="video__author">
+                                <span class="video__author-avt"><img src="${url}${avatarPath}" alt=""></span>
+                                <span class="video__author-name">${channelName}</span>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
-        `;
-    }).join('');
-
-    playlistList.innerHTML = listPlaylist;
-
+                    </a>
+                </div>
+            `;
+        }).join('');
+    
+        playlistList.innerHTML = listPlaylist;
+    }
 })();
 
 function playlistRender(playlist){

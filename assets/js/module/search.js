@@ -43,7 +43,7 @@ import { search } from '../../../AJAX/fetch.js';
             `
         }).join("");
 
-        console.log(list);
+        //console.log(list);
         container.innerHTML = list;
     }
 })();

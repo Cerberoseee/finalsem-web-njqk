@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
     <?=head()?>
-    <title>Home</title>
+    <title>Home <?=$web_name?></title>
 </head>
 <body>
     <!-- Navigation -->

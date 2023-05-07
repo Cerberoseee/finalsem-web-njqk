@@ -1,4 +1,5 @@
-<?php 
+<?php
+  require_once('db-connection.php');
   $userid = isset($_POST["userId"]) ? $_POST["userId"] : null;
   $avatar = isset($_FILES["avatar"]) ? $_FILES["avatar"] : null;
   $background = isset($_FILES["background"]) ? $_FILES["background"] : null;
@@ -23,8 +24,8 @@
   }
 
   if ($avatar != null && $background != null && $channelName != null 
-    && $username != null && $bio != null && $about != null 
-    && $email != null && $gender != null && $dob != null && $location != null) {
+    && $username != null && $email != null && $gender != null && $dob != null && $location != null) {
+
       $avatarPath = processPath($avatar, $userid, "avatar");
       $backgroundPath = processPath($background, $userid, "background");
 
@@ -57,5 +58,51 @@
       if ($error) {
         die("Error: " . $error);
       }
-  } 
+      echo json_encode(array("status" => true, "data" => "Succeed"));
+      $_SESSION["account"] = _info($userid, $dbCon);
+  }
+  // Get information of user by id
+  function _info($id, $dbCon){
+    $account = [];
+    // Get data from users table
+    $cm = "SELECT * FROM users where userId = ?";
+    $exec = $dbCon -> prepare($cm);
+    $exec -> bind_param("s", $id);
+
+    if (!$exec -> execute()) {
+      die(json_encode(array("status" => false, "data" => "Execute query failed")));
+    }
+
+    $result = $exec -> get_result();
+    $data = $result->fetch_assoc();
+    unset($data["password"]);
+    $account = $data;
+    // Get data from users table
+    $cm = "SELECT * FROM users_account where userId = ?";
+    $exec = $dbCon -> prepare($cm);
+    $exec -> bind_param("s", $id);
+    if (!$exec -> execute()) {
+      die(json_encode(array("status" => false, "data" => "Execute query failed")));
+    }
+
+    $result = $exec -> get_result();
+    $data = $result->fetch_assoc();
+    unset($data["userId"]);
+    $account += $data;
+
+    // Get data from users_info table
+    $cm = "SELECT * FROM users_info where userId = ?";
+    $exec = $dbCon -> prepare($cm);
+    $exec -> bind_param("s", $id);
+    if (!$exec -> execute()) {
+      die(json_encode(array("status" => false, "data" => "Execute query failed")));
+    }
+
+    $result = $exec -> get_result();
+    $data = $result->fetch_assoc();
+    unset($data["userId"]);
+    $account += $data;
+
+    return $account;
+  }
 ?>

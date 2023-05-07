@@ -115,7 +115,7 @@
                 <span class="d-block spcxza">Thanks for signing up for Wibutap!</span>
                 <img class="imgscvx" src="https://dl.dropbox.com/s/ui7u871d38wf52v/email-icon.svg" alt="">
                 <span class="d-block spyxcv">Just one more step. Let’s get your email address verified:</span>
-                <a href="`. "$url/api/verify-mail.php?token=$token" .`" class="d-block acvswbvl">Click to verify Email</a>
+                <a href="`. "$url/register.php?confirm=$token" .`" class="d-block acvswbvl">Click to verify Email</a>
                 <small class="smavcb">This link will expire in 30 minutes. If you did not make this request, please disregard this email.</small>
             </div>
         </body>

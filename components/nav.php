@@ -154,7 +154,9 @@
                     <img src="<?=$url?>/assets/icons/menu.svg" alt="SVG Image">
                 </div>
                 <div class="nav__logo" title="JQKTube website">
-                    <span><a href="<?=$url?>">Logo website</a></span>
+                    <span><a href="<?=$url?>">
+                        <img src="<?=$url?>/assets/icons/Logo/Logo-medium.png" alt="" srcset="">
+                    </a></span>
                 </div>
             </div>
             <!-- Menu -->

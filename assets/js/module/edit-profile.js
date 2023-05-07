@@ -1,4 +1,5 @@
-import {$,$$, url} from './config.js';
+import {$,$$, url, userId} from './config.js';
+import { editProfile } from '../../../AJAX/fetch.js';
 
 (()=>{
     let dayOptions = "";
@@ -25,13 +26,22 @@ import {$,$$, url} from './config.js';
     }
     $('#years').innerHTML = yearOptions;
 
+    let avatarFile = "";
+    const avtUrl = $('.profile__avatar-img').src;
+    var filename = avtUrl.substring(avtUrl.lastIndexOf('/')+1);
+    fetch(avtUrl)
+    .then(async  (response) => {
+        const contentType = response.headers.get('content-type');
+        const blob = await response.blob();
+        const file = new File([blob], filename, { contentType });
+        avatarFile = file;
+    })
     const inputAvatar = document.createElement("input");
     inputAvatar.type = "file";
     // Change avatar
     $('#avatar-change').onclick = ()=>{
         inputAvatar.click();
     }
-    let avatarFile = "";
     inputAvatar.addEventListener("change", (e)=>{
         const file = e.target.files[0];
         avatarFile = file;
@@ -39,13 +49,22 @@ import {$,$$, url} from './config.js';
         
     });
 
+    let backgroundFile = "";
+    const bgUrl = $('#profile__background--img').src;
+    var filename = bgUrl.substring(bgUrl.lastIndexOf('/')+1);
+    fetch(bgUrl)
+    .then(async  (response) => {
+        const contentType = response.headers.get('content-type');
+        const blob = await response.blob();
+        const file = new File([blob], filename, { contentType });
+        backgroundFile = file;
+    })
     const inputBackground = document.createElement("input");
     inputBackground.type = "file";
     // Change background
     $('#background-change').onclick = ()=>{
         inputBackground.click();
     }
-    let backgroundFile = "";
     inputBackground.addEventListener("change", (e)=>{
         const file = e.target.files[0];
         backgroundFile = file;
@@ -53,7 +72,7 @@ import {$,$$, url} from './config.js';
         
     });
 
-    $('#save').onclick=()=>{
+    $('#save').onclick= async ()=>{
         
         // Get all radio buttons with the name "gender"
         const genderRadios = document.getElementsByName("gender");
@@ -87,7 +106,7 @@ import {$,$$, url} from './config.js';
         var dob = `${year}-${month}-${day}`;
         // Create a form to fetch
         let formData = new FormData();
-
+        formData.append('userId', userId);
         formData.append('avatar', avatarFile);
         formData.append('background', backgroundFile);
         formData.append('channelName', $('#profilename').innerText);
@@ -100,6 +119,11 @@ import {$,$$, url} from './config.js';
         formData.append('location', $('.profile__location').innerText);
 
         // Fecth to API
-
+        const data = await editProfile(formData);
+        if(data){
+            window.location.href = url+"/account/profile.php?id="+userId;
+        }else{
+            console.log("error"+data);
+        }
     }
 })();

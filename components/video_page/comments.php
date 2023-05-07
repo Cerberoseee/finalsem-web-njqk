@@ -98,18 +98,18 @@
         <div class="video__comments">
             <div class="video__comments-panel">
                 <div class="video__cmt-numbers">
-                    <span>521 comments</span>
+                    <span id="video__cmt-numbers-txt">521 comments</span>
                 </div>
                 <div class="video__cmt-tab">
                     <div class="btn-group">
-                        <button class="btn active">Top comments</button>
-                        <button class="btn">Newest first</button>
+                        <button class="btn active" id="topcmt">Top comments</button>
+                        <button class="btn" id="newest">Newest first</button>
                     </div>
                 </div>
             </div>
             <div class="video__comments-post mt-1">
                 <div class="comments__post-img">
-                    <img src="<?=$url?>/assets/icons/post-cmt.svg" alt="">
+                    <img src="<?=$url.$account["avatarPath"]?>" alt="">
                 </div>
                 <div class="comments__post-textarea">
                     <textarea placeholder="Add a comment" name="" id="comments__post-textarea"></textarea>

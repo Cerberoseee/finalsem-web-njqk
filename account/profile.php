@@ -12,7 +12,7 @@
 <html lang="en">
 <head>
     <?=head()?>
-    <title>Profile | JQKTube</title>
+    <title><?=$account["channelName"].$web_name?></title>
 </head>
 <body>
     <!-- Navigation -->

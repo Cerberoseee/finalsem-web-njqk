@@ -16,7 +16,10 @@
             <div class="login-form col-4 col-md-6">
                 <form id="login" method="post">
                     <div class="form-header mt-2">
-                        <legend>WIBUTAP</legend>
+                        <a href="<?=$url?>">
+                            <span><img src="<?=$url?>/assets/icons/Logo/Logo-medium.png" alt="" srcset=""></span>
+                            <legend class="register__title">WIBUTAP</legend>
+                        </a>
                         <small>Join with us</small>
                     </div>
                     <div class="form-input">

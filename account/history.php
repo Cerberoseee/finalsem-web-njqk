@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
     <?=head()?>
-    <title>History</title>
+    <title>History | <?=$account["channelName"].$web_name?></title>
 </head>
 <body>
     <!-- Navigation -->

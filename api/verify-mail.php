@@ -6,7 +6,7 @@
 
   if ($token != null) {
     if (!activateUser($token, $dbCon)) {
-      die(json_encode(array("status" => "false", array( "keyword" => "activeFail", "content" => "Activated failed"))));
+      die(json_encode(array("status" => "false", "data"=> array( "keyword" => "activeFail", "content" => "Activated failed"))));
     } else {
       echo json_encode(array("status" => "true", "data" => array( "keyword" => "activeSuccess", "content" => "Activated success")));
     }

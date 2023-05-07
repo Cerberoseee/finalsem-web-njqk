@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
     <?=head()?>
-    <title>Setting</title>
+    <title>Setting | <?=$account["channelName"].$web_name?></title>
 </head>
 <body>
     <!-- Navigation -->

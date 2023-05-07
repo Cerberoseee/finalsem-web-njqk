@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
     <?=head()?>
-    <title>Search | JQKTube</title>
+    <title>Search <?=$web_name?></title>
 </head>
 <body>
     <!-- Navigation -->

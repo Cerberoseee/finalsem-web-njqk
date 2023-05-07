@@ -12,7 +12,7 @@
 <html lang="en">
 <head>
     <?=head()?>
-    <title>Profile | JQKTube</title>
+    <title>Upload video | <?=$account["channelName"].$web_name?></title>
 </head>
 <body>
     <!-- Navigation -->
@@ -122,6 +122,7 @@
                             <div class="upload__video">
                                 <img id="upload_input" src="<?=$url?>/assets/imgs/Browse-video-button.png" alt="">
                                 <span class="my-1">Select a video file to upload</span>
+                                <span class="alert-error" id="alert-upload"></span>
                                 <div class="video__preview text-center">
                                   <!-- Nho them AJAX vao cho nay !-->
                                     <span>Preview</span>

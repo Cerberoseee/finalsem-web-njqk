@@ -36,11 +36,13 @@ export function register(account){
     .then((res)=>{
         if(res.status === true){
             $('.register__success').style.display = "block";
+            $('#reasdfasd').style.display = "none";
             $('.register__loading').style.display = "none";
         }else{
             const {status, error} = res;
             console.log(error);
             $('.register-form').style.display = "block";
+            $('#reasdfasd').style.display = "block";
             $('.register__loading').style.display = "none";
         }
         
@@ -370,6 +372,65 @@ export async function processComment(type, info){
                 status: data.status,
                 header: "There is an error in connection or database"
             }
+        }
+    }else if(type === "get-comment"){
+        const respone = await fetch(`${url}/api/video-function.php`,{
+            headers: { 
+                'Accept': 'application/json',
+                'Content-Type': 'application/json; charset=utf-8'
+            },
+            method: "POST",
+            body: JSON.stringify({
+                type,
+                videoId: info.videoId,
+            })
+        });
+        const data = await respone.json();
+        if(data.status){
+            return data.data;
+        }else{
+            return new { 
+                status: data.status,
+                header: "There is an error in connection or database"
+            }
+        }
+    }
+}
+
+// Confirm account
+export async function confirmAccount(token){
+    const respone = await fetch(`${url}/api/verify-mail.php?token=${token}`,{
+        headers: { 
+            'Accept': 'application/json',
+            'Content-Type': 'application/json; charset=utf-8'
+        },
+        method: "GET",
+    });
+    const data = await respone.json();
+    if(data.status){
+        return data.data;
+    }else{
+        return new { 
+            status: data.status,
+            header: "There is an error in connection or database"
+        }
+    }
+}
+
+// Edit profile
+export async function editProfile(form){
+    const respone = await fetch(`${url}/api/edit-profile.php`,{
+        "Content-Type" :"multipart/form-data; boundary=----WebKitFormBoundaryyEmKNDsBKjB7QEqu",
+        method: "POST",
+        body: form
+    });
+    const data = await respone.json();
+    if(data.status){
+        return data.data;
+    }else{
+        return new { 
+            status: data.status,
+            header: "There is an error in connection or database"
         }
     }
 }

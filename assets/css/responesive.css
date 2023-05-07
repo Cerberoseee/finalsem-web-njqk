@@ -77,6 +77,12 @@
     #video__list-item--img{
         max-width: 100%;
     }
+    .video__playlist-item{
+        width: calc(100%/2);
+    }
+    .video-container{
+        grid-template-rows: 200px auto;
+    }
 }
 /* Mobile */
 @media only screen and (max-width: 612px){
@@ -107,6 +113,9 @@
         display: block;
     }
     .carousel__item{
+        width: 100%;
+    }
+    .video__playlist-item{
         width: 100%;
     }
 }

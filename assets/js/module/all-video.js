@@ -138,7 +138,7 @@ import { getAllVideo, getTrending, getRecommend, getTopviews } from '../../../AJ
                 carousel.addEventListener("touchend", dragStop)
                 carousel.addEventListener("mouseleave", dragStop)
             }catch(e){
-                console.log(e);
+                //console.log(e);
             }
         
         }

@@ -125,12 +125,19 @@ import { upload_video } from '../../../AJAX/fetch.js';
         input.type = 'file';
         input.onchange = ()=>{
             let files = Array.from(input.files);
-            const tempVideo = URL.createObjectURL(files[0]);
-            $('.video__preview').style.display = "block";
-            $('#video__preview-src').src = tempVideo;
-            formUpload.video = files[0];
-            formUpload.title = files[0]['name'];
-            $('#title').value = formUpload.title;
+            // 10MB in bytes
+            if (files[0].size > 10485760) {
+                $('#alert-upload').style.display = "block";
+                $('#alert-upload').innerText = "File size exceeds the maximum limit of 10MB.";
+            }else{
+                $('#alert-upload').style.display = "none";
+                const tempVideo = URL.createObjectURL(files[0]);
+                $('.video__preview').style.display = "block";
+                $('#video__preview-src').src = tempVideo;
+                formUpload.video = files[0];
+                formUpload.title = files[0]['name'];
+                $('#title').value = formUpload.title;
+            }
         }
         input.click();
     }

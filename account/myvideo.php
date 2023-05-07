@@ -12,7 +12,7 @@
 <html lang="en">
 <head>
     <?=head()?>
-    <title>My videos | WIBUTAP</title>
+    <title>My videos | <?=$account["channelName"].$web_name?></title>
 </head>
 <body>
     <!-- Navigation -->

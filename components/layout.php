@@ -54,4 +54,5 @@
     }
     $_SESSION["url"] = getUrl();
 
+    $web_name = " | WIBUTAP";
 ?>

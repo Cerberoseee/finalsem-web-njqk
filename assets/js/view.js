@@ -32,24 +32,6 @@ const app = (()=>{
         errorText += e;
     }
     
-    try{
-        // Change state of btn group
-        const btn_groups = $$('.btn-group');
-        btn_groups?.forEach(btn_group=>{
-            const btn_items = btn_group.querySelectorAll('button');
-            btn_items.forEach(item=>{
-                item.onclick = ()=>{
-                    btn_items.forEach(btn_itms=>{
-                        btn_itms.classList.remove('active');
-                    })
-                    item.classList.add('active');
-                }
-            });
-        });
-    }
-    catch(e){
-        errorText += e;
-    }
 
     try{
         // Change state of recommend tab
@@ -231,5 +213,5 @@ const app = (()=>{
     catch(e){
         errorText+=e;
     }
-    console.error(errorText);
+    //console.error(errorText);
 })();
