@@ -151,7 +151,7 @@ import { getAllVideo, getTrending, getRecommend, getTopviews } from '../../../AJ
             const videos = data;
             const list = videos.map(video => {
                 if(video.name.length > 30){
-                    video.name = video.name.slice(0,30) + "...";
+                    video.name = video.name.slice(0,25) + "...";
                 }
                 return `
                 <div class="col-2 col-lg-3 col-md-4 col-sm-6" title=${video.name}>
@@ -193,6 +193,9 @@ export function exportRecomended(){
                 const videos = data;
     
                 const list = videos.map(video => {
+                    if(video.name.length > 25){
+                        video.name = video.name.slice(0,25) + "...";
+                    }
                     return `
                     <div class="video__list-item my-1">
                         <a class="video__list-item--flex" href="${url}/watch.php?video=${video.videoId}">
@@ -232,6 +235,9 @@ export function exportTopviews(){
                 const videos = data;
     
                 const list = videos.map(video => {
+                    if(video.name.length > 30){
+                        video.name = video.name.slice(0,25) + "...";
+                    }
                     return `
                     <div class="video__list-item my-1">
                         <a class="video__list-item--flex" href="${url}/watch.php?video=${video.videoId}">

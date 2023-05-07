@@ -147,7 +147,6 @@ import { getVideo, processPlaylist, processComment } from '../../../AJAX/fetch.j
             }).join("");
         }
         let count = 1;
-        const list = 
         $('#video__cmt-numbers-txt').innerText = count + " comments";
         $('.video__comments-list').innerHTML = await render();
         

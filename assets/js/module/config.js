@@ -6,7 +6,7 @@ function getServer(){
     const protocol = window.location.protocol;
     const port = window.location.port;
 
-    return `${protocol}//${currentServer}:${port}/finalsem-web-njqk/`;
+    return `${protocol}//${currentServer}:${port}/`;
 }
 
 // Save the server url into the session

@@ -1462,3 +1462,9 @@ body {
 #alert-upload{
     display: none;
 }
+.carousel__item-img > img{
+    max-height: 200px;
+}
+.video__recommends-list{
+    width: 100%;
+}
