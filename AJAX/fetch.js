@@ -69,7 +69,7 @@ export function login(account){
                 window.location.href = "index.php";
             }, 3000);
         }else{
-            $('.alert').innerText = "You are login failed";
+            $('.alert').innerText = "You failed to login";
         }
     })
 }
