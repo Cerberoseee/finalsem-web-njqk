@@ -48,7 +48,7 @@
             $sv_protocol = "http";
         }
         $sv_port = $_SERVER['SERVER_PORT'];
-        $url = "$sv_protocol://$sv_name:$sv_port/finalsem-web-njqk/";
+        $url = "$sv_protocol://$sv_name:$sv_port/";
 
         return $url;
     }
