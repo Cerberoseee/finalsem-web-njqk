@@ -17,7 +17,7 @@ import { getVideo, processPlaylist, processComment } from '../../../AJAX/fetch.j
         $('#video__creater-avt--img').src = url+video.avatarPath;
         $('.video__creater-name').innerText = video.channelName;
         $('#video__creater-subs--text').innerText = video.followers;
-
+        $('#profile-info').href = url+"/account/profile.php?id="+video.userId;
         let desc = $('#description__span');
         if(video.description.length <= 200){
             desc.innerText = video.description;

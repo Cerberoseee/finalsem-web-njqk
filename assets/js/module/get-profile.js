@@ -79,6 +79,8 @@ const profileApp = (()=>{
             $('.pr-about__createAt').innerText = account.dateCreated;
             $('#profile__figures--followers').innerText = account.followers + " Followers";
             $('#profile__figures--videos').innerText = account.videoCount;
+            document.title = account.channelName + " | WIBUTAP";
+
 
             // Playlist
             const tabPlaylist = $('.profile__playlist');

@@ -8,7 +8,9 @@
             <div class="video__extension my-1">
                 <div class="video__creater">
                     <div class="video__creater-avt">
-                        <img id="video__creater-avt--img" src="<?=$url?>/assets/icons/subcriberavt.png" alt="">
+                        <a href="" id="profile-info">
+                            <img id="video__creater-avt--img" src="<?=$url?>/assets/icons/subcriberavt.png" alt="">
+                        </a>
                     </div>
                     <div class="video__creater-details">
                         <div class="creater__details-heading">
