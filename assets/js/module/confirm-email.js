@@ -7,7 +7,7 @@ import { confirmAccount } from '../../../AJAX/fetch.js';
     const token = urlParams.get('confirm') ? urlParams.get('confirm') : undefined; 
     if(token){
         const data = await confirmAccount(token);
-        if(data.status){
+        if(data){
             console.log(data);
         }else{
             $('.confirm__success-img').src = url+"assets/icons/active-failed.png";

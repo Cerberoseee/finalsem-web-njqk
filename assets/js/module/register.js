@@ -38,6 +38,7 @@ const jqkapp = (()=>{
             // Object of account
             $('.register__loading').style.display = "block";
             $('.register-form').style.display = "none";
+            $('#reasdfasd').style.display = "none";
 
             // Prepare data to send
             const account = {

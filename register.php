@@ -32,7 +32,7 @@
                     <span class="confirm__success-text d-block">SUCCESS</span>
                     <span class="confirm__loading-content">Your account has been successfully created</span>
                     <span class="text-fade d-block">Please check your registered email for email verification</span>
-                    <a href="<?$url?>" class="btn btn-primary d-block w-5 mx-auto mt-1">Login</a>
+                    <a href="<?=$url?>" class="btn btn-primary d-block w-5 mx-auto mt-1">Login</a>
                 </div>
                 <?php
             }else{
