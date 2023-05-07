@@ -1,4 +1,4 @@
-import {$,$$} from './config.js';
+import {$,$$, url} from './config.js';
 import { upload_video } from '../../../AJAX/fetch.js';
 (()=>{
     const stepSate = {
@@ -109,38 +109,42 @@ import { upload_video } from '../../../AJAX/fetch.js';
     const selectThumbnail = $('#upload_thumb'); //For upload thumbnail
     
 
-    
-    const formUpload = {
-        userId: JSON.parse(sessionStorage.profile).userId,
-        video: "",
-        thumbnail: "",
-        title: "",
-        description: "",
-        tags: "",
-        age_restric: "",
-    }
-    // Select file for video
-    selectVideo.onclick=()=>{
-        let input = document.createElement('input');
-        input.type = 'file';
-        input.onchange = ()=>{
-            let files = Array.from(input.files);
-            // 10MB in bytes
-            if (files[0].size > 10485760) {
-                $('#alert-upload').style.display = "block";
-                $('#alert-upload').innerText = "File size exceeds the maximum limit of 10MB.";
-            }else{
-                $('#alert-upload').style.display = "none";
-                const tempVideo = URL.createObjectURL(files[0]);
-                $('.video__preview').style.display = "block";
-                $('#video__preview-src').src = tempVideo;
-                formUpload.video = files[0];
-                formUpload.title = files[0]['name'];
-                $('#title').value = formUpload.title;
-            }
+    if(sessionStorage.profile){
+        const formUpload = {
+            userId: JSON.parse(sessionStorage.profile).userId,
+            video: "",
+            thumbnail: "",
+            title: "",
+            description: "",
+            tags: "",
+            age_restric: "",
         }
-        input.click();
+        // Select file for video
+        selectVideo.onclick=()=>{
+            let input = document.createElement('input');
+            input.type = 'file';
+            input.onchange = ()=>{
+                let files = Array.from(input.files);
+                // 10MB in bytes
+                if (files[0].size > 10485760) {
+                    $('#alert-upload').style.display = "block";
+                    $('#alert-upload').innerText = "File size exceeds the maximum limit of 10MB.";
+                }else{
+                    $('#alert-upload').style.display = "none";
+                    const tempVideo = URL.createObjectURL(files[0]);
+                    $('.video__preview').style.display = "block";
+                    $('#video__preview-src').src = tempVideo;
+                    formUpload.video = files[0];
+                    formUpload.title = files[0]['name'];
+                    $('#title').value = formUpload.title;
+                }
+            }
+            input.click();
+        }
+    }else{
+        window.location.href = url+"logout.php";
     }
+    
 
     // Select file for thumbnail
     selectThumbnail.onclick=()=>{
